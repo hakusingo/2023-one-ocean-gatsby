@@ -6,20 +6,6 @@ import TourMenuHeader from "../../components/svg/tour-menu-header"
 import Wave from '../svg/wave'
 
 const Menu = () => {
-
-  const menuList = [
-    {
-      header: "１歳からでも参加できる!!",
-      imgSrc: "../../images/tour-menu/menu-kayak.jpg",
-      imgAlt: "マングローブカヤック",
-      textHeader: "マングローブカヤック",
-      textContents: "神秘的な沖縄の大自然。\nそのなかでもマングローブは、大自然の植物や動物の宝庫です。\nマングローブのトンネルをぬける景色は幻想的で、大人気のアドベンチャーです。",
-      pngSrc: "../../images/tour-menu/menu-kayak.png",
-      pngAlt: "親子カヤック写真",
-      linkUrl: "/",
-    }
-  ]
-
   return (
     <section id="tour-menu" className="bg-light-yellow relative">
       <div className="pr-4 pl-4">
@@ -32,65 +18,6 @@ const Menu = () => {
         </div>
         <div className="">
           <div className="md:flex md:gap-[1rem] lg:justify-center max-w-[1200px] mx-auto">
-
-            {menuList.map((props, i) => {
-              return (
-                <div className="iso-target fadein-opacity pt-12 max-w-[400px] mx-auto lg:max-w-[500px]" key={i}>
-                  <div className="flex justify-center -mb-[1.4rem] relative z-10">
-                    <p className="bg-main-green text-yellow font-bold py-2 px-8 inline-block rounded-[8px] lg:text-[22px]">
-                      {props.header}
-                    </p>
-                  </div>
-                  <StaticImage
-                    className="rounded-[12px] rounded-tr-none rounded-bl-none"
-                    alt="マングローブカヤック"
-                    src="../../images/tour-menu/menu-kayak.jpg"
-                    // src={props.imgSrc}
-                    quality={90}
-                  />
-                  <div className="bg-white relative">
-                    <StaticImage
-                      className="absolute -right-2 w-[80px] lg:w-[100px] -top-[4rem]"
-                      src="../../images/tour-menu/menu-kayak-map.png"
-                      alt="名護市大浦湾"
-                    />
-                    <h3 className="text-[24px] lg:text-[28px] font-bold text-center pt-6">
-                      <span>
-                        マングローブカヤック
-                      </span>
-                    </h3>
-                    <p className="pt-6 w-[85%] lg:h-[220px] mx-auto pb-12">
-                      神秘的な沖縄の大自然。<br />
-                      そのなかでもマングローブは、大自然の植物や
-                      動物の宝庫です。<br />
-                      マングローブのトンネルをぬける景色は幻想的
-                      で、大人気のアドベンチャーです。<br />
-                    </p>
-                  </div>
-                  <div className="lg:flex lg:justify-center">  
-                    <StaticImage
-                      className="mr-4 ml-4 -mt-8 lg:w-[300px]" 
-                      imgClassName=""
-                      src="../../images/tour-menu/menu-kayak.png"
-                      alt="親子カヤック写真"
-                      quality={90}
-                    />
-                  </div>
-                  <div className="py-12 flex justify-center lg:pt-8">
-                    <Link
-                      className="bg-main-green text-white w-[80%] text-center shadow-lg py-2 px-4 rounded-[12px] font-bold"
-                      to={'/kayak'}
-                    >
-                      ツアー内容を見る ▶
-                    </Link>
-                  </div>
-                </div>
-              )
-            })}
-
-
-
-
             {/* カヤックメニュー */}
             <div className="iso-target fadein-opacity pt-12 max-w-[400px] mx-auto lg:max-w-[500px]">
               <div className="flex justify-center -mb-[1.4rem] relative z-10">
@@ -299,10 +226,11 @@ const Menu = () => {
         </div>
       </div>
       <div className="pt-12">
-        <Wave
-          color="white"
-        />
+
       </div>
+      <Wave
+        color="white"
+      />
     </section>
   )
 }

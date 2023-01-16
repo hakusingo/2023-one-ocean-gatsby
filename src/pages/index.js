@@ -1,6 +1,6 @@
 import * as React from "react"
-import { graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+// import { graphql } from "gatsby"
+// import { GatsbyImage } from "gatsby-plugin-image"
 // import { useEffect } from "react"
 // import { Link } from "gatsby"
 // import { StaticImage } from "gatsby-plugin-image"
@@ -14,18 +14,9 @@ import Intro from "../components/index/intro"
 import News from "../components/index/news"
 import Menu from "../components/index/menu"
 
-const IndexPage = ({ data }) => {
+const IndexPage = () => {
   return (
     <Layout>
-      {console.log(data.kayak.childImageSharp.GatsbyImageData)}
-      <div>
-        <figure>
-          <GatsbyImage
-            image={data.kayak.childImageSharp.GatsbyImageData}
-            alt=""
-          />
-        </figure>
-      </div>
       <Hero />
       <Intro />
       <News />
@@ -33,16 +24,6 @@ const IndexPage = ({ data }) => {
     </Layout>
   )
 }
-
-export const query = graphql`
-  query {
-    kayak: file(relativePath: {eq: "tour-menu/menu-kayak.jpg"}) {
-      childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
-      }
-    }
-  }
-`
 
 /**
  * Head export to define metadata for the page
