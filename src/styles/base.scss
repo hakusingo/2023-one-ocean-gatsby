@@ -1,0 +1,120 @@
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  color: #262626;
+}
+
+.font-zenmaru {
+  font-family: "Zen Maru Gothic", sans-serif;
+}
+
+.section-container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  overflow: hidden;
+}
+
+.fade-in-target{
+  transition: 1s;
+}
+
+.swiper-slide-active,
+.swiper-slide-duplicate-active,
+.swiper-slide-prev{
+  img {
+    animation: zoom 12s linear 0s 1 normal both;
+  } 
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.15);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 500ms linear both;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.iso-target {
+  opacity: 0;
+  transition: .3s ease-out;
+  transform: scale(.6);
+  &.active {
+    opacity: 1;
+    transform: none;
+  }
+  &.fadein-opacity {
+    transform: none;
+    transition: .5s ease-out;
+    &.active {
+      opacity: 1;
+    }
+  }
+  &.fadein-left {
+    transform: translateX(-50px);
+    transition: .5s ease-out;
+    &.active {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  &.fadein-right {
+    transform: translateX(50px);
+    transition: .5s ease-out;
+    &.active {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+@keyframes katakata {
+  0% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+}
+
+.katakata {
+  animation: katakata 1s infinite step-start;
+}
+
+@keyframes bort {
+  0% {
+    transform: translateY(0%) rotate(3deg);
+  }
+  25% {
+    transform: translateY(8%);
+  }
+  50% {
+    transform: translateY(0%) rotate(-3deg);
+  }
+  75% {
+    transform: translateY(-8%);
+  }
+  100% {
+    transform: translateY(0%) rotate(3deg);
+  }
+}
+.bort1 {
+  animation: bort 3s infinite linear;
+}
+.bort2 {
+  animation: bort 3.3s infinite linear 1s;
+}
