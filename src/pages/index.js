@@ -13,6 +13,10 @@ import Hero from "../components/index/hero"
 import Intro from "../components/index/intro"
 import News from "../components/index/news"
 import Menu from "../components/index/menu"
+import Feature from "../components/index/feature"
+import Stuff from "../components/index/stuff"
+import Blog from "../components/index/blog"
+import Emotion from "../components/index/emotion"
 
 const IndexPage = () => {
   return (
@@ -21,6 +25,10 @@ const IndexPage = () => {
       <Intro />
       <News />
       <Menu />
+      <Feature />
+      <Stuff />
+      <Blog />
+      <Emotion />
     </Layout>
   )
 }

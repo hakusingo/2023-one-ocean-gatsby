@@ -7,6 +7,7 @@
   "dependencies": {
     "@fontsource/noto-sans-jp": "^4.5.12",
     "@fontsource/zen-maru-gothic": "^4.5.16",
+    "add": "^2.0.6",
     "gatsby": "^5.4.0",
     "gatsby-plugin-image": "^3.4.0",
     "gatsby-plugin-manifest": "^5.4.0",
@@ -16,7 +17,9 @@
     "gatsby-transformer-sharp": "^5.4.0",
     "node-sass": "^8.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",

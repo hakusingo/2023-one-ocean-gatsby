@@ -116,7 +116,7 @@ const Header = () => {
       <div id="sidebar-left-phone" className="mt-[106px] absolute top-0 whitespace-nowrap left-1/2 -translate-x-1/2 rotate-[-90deg] text-[22px] text-main-blue font-medium">
         <div className="flex whitespace-nowrap gap-x-1 items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15.398 15.397"><path d="M14.958,10.88,11.59,9.437a.722.722,0,0,0-.842.208L9.256,11.467A11.147,11.147,0,0,1,3.928,6.138L5.75,4.646A.72.72,0,0,0,5.958,3.8L4.514.436A.727.727,0,0,0,3.687.018L.559.74a.722.722,0,0,0-.559.7A13.953,13.953,0,0,0,13.954,15.4a.722.722,0,0,0,.7-.559l.722-3.128a.73.73,0,0,0-.421-.83Z" fill="#1ea4d9"/></svg>
-          <p>:080-3968-0313</p>
+          <p>:090-4471-7311</p>
         </div>
       </div>
       <div id="sidebar-left-menu" className="absolute whitespace-nowrap top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-90deg] font-semibold text-main-blue">MENU</div>

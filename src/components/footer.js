@@ -1,9 +1,9 @@
 import * as React from "react"
-import FooterLogo from "./svg/footer-logo"
 import { Link } from "gatsby"
+
+import FooterLogo from "./svg/footer-logo"
 import "./footer.scss"
-// import FooterPcLogo from "./svg/footer-pc-logo"
-import { StaticImage } from "gatsby-plugin-image"
+import FooterLogoPc from "./svg/footer-logo-pc"
 
 const Footer = () => (
   <footer className="bg-main-blue md:bg-white">
@@ -14,9 +14,11 @@ const Footer = () => (
         <span className="font-zenmaru text-[2.4rem] block font-medium">
           OneOcean
         </span>
-        <div className="inline-block mx-auto mt-6">
+        <Link
+          to={`/`}
+          className="inline-block mx-auto mt-6">
           <FooterLogo/>
-        </div>
+        </Link>
       </h3>
       <div className="">
         <ul>
@@ -84,11 +86,11 @@ const Footer = () => (
     <div id="footer-pc" className="hidden md:block overflow-x-hidden pl-[60px] pr-[60px]">
       <div className="py-8 flex">
         <div className="flex-1 pl-4 pr-4 max-w-[420px]">
-          <StaticImage
-            src="../images/footer/footer-pc-logo.png"
-            alt="ワンオーシャンロゴマーク"
-            quality={90}
-          />
+          <Link
+            to={`/`}
+          >
+            <FooterLogoPc/>
+          </Link>
           <div className="">
             <h3 className="pt-4 text-main font-semibold">
               沖縄自然体験アドベンチャーツアー

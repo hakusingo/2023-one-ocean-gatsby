@@ -2,12 +2,13 @@ import React from 'react'
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import TourMenuHeader from "../../components/svg/tour-menu-header"
+import { BsCaretRightFill } from "react-icons/Bs"
 
 import Wave from '../svg/wave'
 
 const Menu = () => {
   return (
-    <section id="tour-menu" className="bg-light-yellow relative">
+    <section id="tour-menu" className="bg-light-yellow relative pb-12">
       <div className="pr-4 pl-4">
         <div className="pt-12 max-w-[500px] mx-auto">
           <h2 className="iso-target">
@@ -19,7 +20,7 @@ const Menu = () => {
         <div className="">
           <div className="md:flex md:gap-[1rem] lg:justify-center max-w-[1200px] mx-auto">
             {/* カヤックメニュー */}
-            <div className="iso-target fadein-opacity pt-12 max-w-[400px] mx-auto lg:max-w-[500px]">
+            <div className="iso-target fadein-opacity pt-12 max-w-[400px] mx-auto lg:max-w-[500px] drop-shadow-xl">
               <div className="flex justify-center -mb-[1.4rem] relative z-10">
                 <p className="bg-main-green text-yellow font-bold py-2 px-8 inline-block rounded-[8px] lg:text-[22px]">
                   １歳からでも参加できる!!
@@ -61,15 +62,21 @@ const Menu = () => {
               </div>
               <div className="py-12 flex justify-center lg:pt-8">
                 <Link
-                  className="bg-main-green text-white w-[80%] text-center shadow-lg py-2 px-4 rounded-[12px] font-bold"
+                  className="flex items-center justify-center bg-main-green text-white w-[80%] text-center shadow-lg py-2 px-4 rounded-[12px] font-bold"
                   to={'/kayak'}
                 >
-                  ツアー内容を見る ▶
+                  <span>
+                    ツアー内容を見る
+                  </span>
+                  <BsCaretRightFill
+                    className='block'
+                    size="1.4rem"
+                  />
                 </Link>
               </div>
             </div>
             {/* トレッキングメニュー */}
-            <div className="iso-target fadein-opacity pt-12 max-w-[400px] mx-auto lg:max-w-[500px]">
+            <div className="iso-target fadein-opacity pt-12 max-w-[400px] mx-auto lg:max-w-[500px] drop-shadow-xl">
               <div className="flex justify-center -mb-[1.4rem] relative z-10">
                 <p className="bg-main-blue text-yellow font-bold py-2 px-8 inline-block rounded-[8px] lg:text-[22px]">
                   チャレンジ 滝つぼダイブ!!
@@ -109,17 +116,23 @@ const Menu = () => {
               </div>
               <div className="py-12 flex justify-center lg:pt-8">
                 <Link
-                  className="bg-main-blue text-white w-[80%] text-center block py-2 px-4 rounded-[12px] font-bold"
+                  className="flex justify-center items-center bg-main-blue text-white w-[80%] text-center py-2 px-4 rounded-[12px] font-bold shadow-lg"
                   to={'/trekking'}
                 >
-                  ツアー内容を見る ▶
+                  <span>
+                    ツアー内容を見る
+                  </span>
+                  <BsCaretRightFill
+                    className='block'
+                    size="1.4rem"
+                  />
                 </Link>
               </div>
             </div>
           </div>
           <div className="iso-target fadein-opacity md:flex md:gap-[1rem] max-w-[1200px] justify-center mx-auto">
             {/* 結プログラムメニュー */}
-            <div className="pt-12 max-w-[400px] mx-auto lg:max-w-[500px]">
+            <div className="pt-12 max-w-[400px] mx-auto lg:max-w-[500px] drop-shadow-xl">
               <div className="flex justify-center -mb-[1.4rem] relative z-10 md:-mb-[3.3rem]">
                 <p className="text-center bg-pink text-yellow font-bold py-2 px-8 inline-block rounded-[8px] lg:text-[22px]">
                   保育園児・学童クラブ・しょうがい児<br />
@@ -164,15 +177,21 @@ const Menu = () => {
               </div>
               <div className="py-12 flex justify-center lg:pt-8">
                 <Link
-                  className="bg-pink text-white w-[80%] text-center shadow-lg py-2 px-4 rounded-[12px] font-bold"
+                  className="flex items-center justify-center bg-pink text-white w-[80%] text-center shadow-lg py-2 px-4 rounded-[12px] font-bold"
                   to={'/yui'}
                 >
-                  ツアー内容を見る ▶
+                  <span>
+                    ツアー内容を見る
+                  </span>
+                  <BsCaretRightFill
+                    className='block'
+                    size="1.4rem"
+                  />
                 </Link>
               </div>
             </div>
             {/* ムイツアーメニュー */}
-            <div className="iso-target fadein-opacity pt-12 max-w-[400px] mx-auto lg:max-w-[500px]">
+            <div className="iso-target fadein-opacity pt-12 max-w-[400px] mx-auto lg:max-w-[500px] drop-shadow-xl">
               <div className="flex justify-center -mb-[1.4rem] relative z-10">
                 <p className="bg-navy text-yellow font-bold py-2 px-8 inline-block rounded-[8px] lg:text-[22px]">
                   古琉球の扉をひらく!!
@@ -214,10 +233,16 @@ const Menu = () => {
               </div>
               <div className="py-12 flex justify-center lg:pt-8">
                 <Link
-                  className="bg-navy text-white w-[80%] text-center shadow-lg inline-block py-2 px-4 rounded-[12px] font-bold"
+                  className="flex justify-center items-center bg-navy text-white w-[80%] text-center shadow-lg py-2 px-4 rounded-[12px] font-bold"
                   to={'/mui'}
                 >
-                  ツアー内容を見る ▶
+                  <span>
+                    ツアー内容を見る
+                  </span>
+                  <BsCaretRightFill
+                    className='block'
+                    size="1.4rem"
+                  />
                 </Link>
               </div>
             </div>

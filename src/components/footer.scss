@@ -25,11 +25,16 @@
       li {
         padding-top: 0;
         padding-bottom: 0;
+        transition: .3s ease;
         &:not(:last-child)::after {
           content: "";
           height: 12px;
           width: 1px;
           border-right: 1px solid #333;
+        }
+        &:hover {
+          color: #1EA4D9;
+          font-weight: 700;
         }
         a {
           display: inline-block;
