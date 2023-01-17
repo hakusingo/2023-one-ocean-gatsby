@@ -3,7 +3,7 @@ import React from 'react'
 // import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import Mangrove from '../svg/mangrove'
-// import Wave from '../svg/wave'
+import Wave from '../svg/wave'
 import KayakSingle from '../svg/kayak-single'
 import KayakCouple from '../svg/kayak-couple'
 
@@ -38,7 +38,10 @@ const Intro = () => {
           color="blue"
         /> */}
         <div className="">
-          <StaticImage
+          <Wave
+            color="blue"
+          />
+          {/* <StaticImage
             className="absolute bottom-0 z-20 h-auto w-full sm:hidden"
             src="../../images/intro/intro-wave.svg"
             alt="波"
@@ -57,7 +60,7 @@ const Intro = () => {
             className="absolute bottom-0 z-20 left-0 right-0 hidden xl:block"
             src="../../images/intro/intro-wide-wave.svg"
             alt="波"
-          />
+          /> */}
         </div>
         <div className="pt-[4rem] pl-4 pr-4 pb-[12rem] sm:pb-[8rem] relative sm:flex justify-evenly max-w-[1380px] mx-auto lg:gap-8">
           <div className="">
@@ -105,7 +108,7 @@ const Intro = () => {
               </h3>
               <h3 className="iso-target fadein-opacity fadein-opacity text-[32px] font-bold text-center pt-8 hidden lg:block lg:text-left">
                 <span>
-                  みんなで最高の思い出と、最高の時間をつくろう!!
+                  いっしょに最高の思い出と、最高の時間をつくろう!!
                 </span>
               </h3>
               <div className="flex justify-center lg:justify-start">
@@ -114,7 +117,7 @@ const Intro = () => {
                   親子３世代でのツアーなど、幅広くお客様のご要望に
                   お答えするツアーをご用意しております。<br />
                   <br />
-                  完全貸切となっていますので、プライベートでごゆっくり安心してご利用頂いております。<br />
+                  完全貸切となっていますので、プライベートでゆったり安心してご利用頂いております。<br />
                   <br />
                   ２０年以上の経験のある、自然大好きな沖縄出身のベテランガイドが同行します。<br />
                   <br />
