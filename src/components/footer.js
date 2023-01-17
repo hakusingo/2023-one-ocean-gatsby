@@ -71,6 +71,13 @@ const Footer = () => (
               お問合わせ
             </Link>
           </li>
+          <li>
+            <Link
+              to={'/reserve'}
+            >
+              ご予約
+            </Link>
+          </li>
         </ul>
       </div>
       <div className="font-zenmaru text-[32px] font-semibold flex justify-center">
@@ -83,9 +90,9 @@ const Footer = () => (
       </div>
     </div>
 
-    <div id="footer-pc" className="hidden md:block overflow-x-hidden pl-[60px] pr-[60px]">
-      <div className="py-8 flex">
-        <div className="flex-1 pl-4 pr-4 max-w-[420px]">
+    <div id="footer-pc" className="hidden md:block overflow-x-hidden">
+      <div className="py-8 grid grid-cols-12 px-[80px]">
+        <div className="col-span-4 max-w-[420px]">
           <Link
             to={`/`}
           >
@@ -103,12 +110,12 @@ const Footer = () => (
             </div>
           </div>
         </div>
-        <div className="footer-pc-right flex-1 px-4">
+        <div className="footer-pc-right col-span-8 px-4">
           <ul className="lg:text-center flex flex-wrap justify-center">
             <li>
               <Link
                 to={'/'}
-              >
+              >     
                 ホーム
               </Link>
             </li>
