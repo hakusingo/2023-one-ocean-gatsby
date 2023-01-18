@@ -12,6 +12,7 @@ import Header from "./header"
 import Footer from "./footer"
 import "../styles/base.scss"
 
+
 import "@fontsource/noto-sans-jp"
 import "@fontsource/zen-maru-gothic"
 

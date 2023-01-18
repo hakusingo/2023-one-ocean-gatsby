@@ -10,7 +10,7 @@ import Wave from '../svg/wave'
 
 const Stuff = (props) => {
 
-  let modalState= props.modalState
+  let modalState = props.modalState
 
   return (
     <section id="stuff" className="relative bg-main-blue pb-20 mt-[-2px]">

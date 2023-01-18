@@ -6,7 +6,7 @@ import "./footer.scss"
 import FooterLogoPc from "./svg/footer-logo-pc"
 
 const Footer = () => (
-  <footer className="bg-main-blue md:bg-white">
+  <footer className="bg-main-blue md:bg-white relative z-10">
     <div id="footer-sp" className="text-white md:hidden">
       <h3 className="text-[1.4rem] font-serif font-semibold text-center pt-[2rem]">
         沖縄貸切自然体験<br/>

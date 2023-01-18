@@ -92,3 +92,23 @@ header {
 #header-logo-wide {
   transition: .3s ease-in-out;
 }
+
+#front-pc-menu {
+  .front-pc-menu-left {
+    font-size: 38px;
+    font-weight: 700;
+    color: #1EA4D9;
+    li {
+      margin-bottom: 1.4rem;
+      text-shadow: #FEFCE6 3px 3px 1px;
+    }
+  }
+  .front-menu-right {
+    li {
+      margin-bottom: 1rem;
+      font-weight: bold;
+      color: #1EA4D9;
+      text-shadow: #FEFCE6 3px 3px 1px;
+    }
+  }
+}
