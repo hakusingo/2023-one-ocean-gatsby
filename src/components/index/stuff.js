@@ -1,14 +1,17 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
-import { Link } from 'gatsby'
+// import { Link } from 'gatsby'
 
 import KayakSingle from '../svg/kayak-single'
 import KayakCouple from '../svg/kayak-couple'
 import StuffHeader from "../svg/stuff-header"
 import { BsCaretRightFill } from "react-icons/Bs"
-// import Wave from '../svg/wave'
+import Wave from '../svg/wave'
 
-const Stuff = () => {
+const Stuff = (props) => {
+
+  let modalState= props.modalState
+
   return (
     <section id="stuff" className="relative bg-main-blue pb-20 mt-[-2px]">
       <KayakCouple
@@ -86,15 +89,17 @@ const Stuff = () => {
                 どうぞ応援宜しくお願いします！
               </p>
               <div className="flex justify-center">
-                <Link
-                  to={'/'}
+                <button
+                  onClick={(() => {
+                    modalState(false)
+                  })}
                   className="flex justify-center items-center font-semibold text-[14px] bg-white py-2 px-8 rounded-[8px] text-main-blue"
                 >
                   <span>
                     もっと詳しく
                   </span>
                   <BsCaretRightFill />
-                </Link>
+                </button>
               </div>
             </div>
           </div>
@@ -102,28 +107,8 @@ const Stuff = () => {
       </div>
 
       <div className="pt-12">
-        {/* <Wave
+        <Wave
           color="white"
-        /> */}
-        <StaticImage
-          className="absolute bottom-0 z-20 h-auto w-full sm:hidden"
-          src="../../images/tour-menu/white-wave.svg"
-          alt="波"
-        />
-        <StaticImage
-          className="absolute bottom-0 z-20 left-0 right-0 hidden sm:block lg:hidden"
-          src="../../images/tour-menu/white-tablet-wave.svg"
-          alt="波"
-        />
-        <StaticImage
-          className="absolute bottom-0 z-20 left-0 right-0 hidden lg:block xl:hidden"
-          src="../../images/tour-menu/white-pc-wave.svg"
-          alt="波"
-        />
-        <StaticImage
-          className="absolute bottom-0 z-20 left-0 right-0 hidden xl:block"
-          src="../../images/tour-menu/white-wide-wave.svg"
-          alt="波"
         />
       </div>
     </section>

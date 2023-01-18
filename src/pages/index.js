@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useState } from "react"
 // import { graphql } from "gatsby"
 // import { GatsbyImage } from "gatsby-plugin-image"
 // import { useEffect } from "react"
@@ -17,8 +18,12 @@ import Feature from "../components/index/feature"
 import Stuff from "../components/index/stuff"
 import Blog from "../components/index/blog"
 import Emotion from "../components/index/emotion"
+import Modal from "../components/index/modal"
 
 const IndexPage = () => {
+
+  const [modal, modalState] = useState(true)
+
   return (
     <Layout>
       <Hero />
@@ -26,9 +31,14 @@ const IndexPage = () => {
       <News />
       <Menu />
       <Feature />
-      <Stuff />
+      <Stuff modal={modal} modalState={modalState} />
       <Blog />
       <Emotion />
+      {
+        modal || (
+          <Modal modal={modal} modalState={modalState} />
+        )
+      }
     </Layout>
   )
 }

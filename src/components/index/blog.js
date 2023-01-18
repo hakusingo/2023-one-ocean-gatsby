@@ -57,7 +57,7 @@ const Blog = () => {
             />
           </div>
           <Link
-            to={'//blog-page'}
+            to={'/blog-page'}
           >
             <div className="p-4">
               <time className="text-[12px]">2022.11.11</time>

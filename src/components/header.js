@@ -62,7 +62,6 @@ const Header = () => {
       <ul className="text-center font-zenmaru text-main-blue absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[55%] whitespace-nowrap text-[22px] font-700">
         <li className="py-4">
           <Link
-            id="font"
             to={'/kayak'}
           >
             マングローブカヤック
