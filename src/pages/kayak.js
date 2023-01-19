@@ -1,112 +1,70 @@
 import React from 'react'
-import { StaticImage } from 'gatsby-plugin-image'
+import { getImage, StaticImage } from 'gatsby-plugin-image'
+import { graphql } from 'gatsby'
+
 import Layout from '../components/layout'
 import { Link } from "gatsby"
 
 import KayakContactButton from "../components/svg/kayak-contact-button"
 import KayakContentsHeader from "../components/svg/kayak-contents-header"
-import KayakIntroAccent from "../components/svg/kayak-intro-accent"
+// import KayakIntroAccent from "../components/svg/kayak-intro-accent"
 import MenuInfoHeader from "../components/svg/menu-info-header"
 import MenuScheduleHeader from "../components/svg/menu-schedule-header"
+import MenuHero from '../components/menu/menu-hero'
+import MenuIntro from '../components/menu/menu-intro'
 
-const Kayak = () => {
+import "./menu.scss"
+
+  const IntroH3 = () => {
+    return (
+      <span className='iso-target fadein-opacity'>
+        神秘的なマングローブ林のなかを、<br className='lg:hidden' />
+        みんなで楽しくボウケンしよう!!
+      </span>
+    )
+  }
+
+  const IntroP = () => {
+    return (
+      <p className='lg:w-[80%] xl:text-[1.2rem] mx-auto'>
+        名護市大浦湾に生育するマングローブ林。
+        日本でも、大浦川でしか見ることの出来ない景色があります。<br />
+        <br/>
+        別名「海の森」と呼ばれる神秘の森。さっそうとマングローブ林を抜けるのは本当に気持ちいい!!
+        リピーターも多い大人気ツアーです。<br/>
+        <br/>
+        マングローブ林をカヤックでゆったり散策するのもあり！
+        みんなでカヤックレースもできますよ♪
+        １組貸切のガイドツアーで小さなお子様から、ご年配の方まで安心してご参加頂けます。
+      </p>
+    )
+  }
+
+const Kayak = ({ data }) => {
+
+  console.log(data)
+
+  let heroImg = getImage(data.kayakHero.childImageSharp.gatsbyImageData)
+  let heroImgPc = getImage(data.kayakHeroPc.childImageSharp.gatsbyImageData)
+  let introPic1 = getImage(data.kayakIntro1.childImageSharp.gatsbyImageData)
+  let introPic2 = getImage(data.kayakIntro2.childImageSharp.gatsbyImageData)
+
   return (
     <Layout>
-      <section className="w-full relative">
-        <div className="h-[340px] relative md:h-[400px] lg:h-[600px]">
-          <StaticImage
-            className="absolute top-0 left-0 right-0 bottom-0 md:hidden"
-            src='../images/menu/kayak/kayak-hero.jpg'
-            alt="カヤック親子写真"
-          />
-          <StaticImage
-            className="absolute top-0 left-0 right-0 bottom-0 hidden md:block"
-            src='../images/menu/kayak/kayak-hero-pc.jpg'
-            alt="カヤック親子写真"
-          />
-        </div>
-        <div className="absolute w-[92%] h-[94%] border-white border-2 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 rounded-[12px] rounded-tr-none"></div>
-        <div className="max-w-[900px] rounded-[12px] w-[80%] absolute bg-main-green text-white bottom-0 left-[50%] -translate-x-[50%]">
-          <h2 className='relative py-2 text-center text-[1.4rem] md:text-[2rem] font-semibold'>
-            <span className='py-1 text-[12px] block font-light md:text-8 md:text-[1rem]'>
-              マングローブを巡る旅、カヤックで楽しもう
-            </span>
-            マングローブカヤック
-            <div className="absolute rounded-[12px] w-[94%] md:w-[98%] h-[88%] border-white border top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2"></div>
-          </h2>
-        </div>
-      </section>
-      <section id="menu-intro" className='relative'>
-        <div className="section-container">
-          <div className='pt-[2.4rem] lg:pt-[4rem]'>
-            <h3 className='text-main-green text-center md:text-[1.6rem] lg:text-[2rem] lg:whitespace-nowrap'>
-              <span className='iso-target fadein-opacity'>
-                神秘的なマングローブ林のなかを、<br className='lg:hidden' />
-                みんなで楽しくボウケンしよう!!
-              </span>
-            </h3>
-            <div className="lg:flex w-[90%] mx-auto items-center justify-around lg:mt-8">
-              <StaticImage
-                className='iso-target aspect-video hidden lg:block flex-1'
-                src='../images/menu/kayak/intro1.jpg'
-                alt="写真"
-              />
-              <div className="flex-2 relative pt-8 w-[90%] mx-auto sm:w-[60%] md:py-8">
-                <div className="opacity-50 absolute -bottom-10 md:bottom-0 right-0">
-                  <KayakIntroAccent/>
-                </div>
-                <p className='lg:w-[80%] xl:text-[1.2rem] mx-auto'>
-                  名護市大浦湾に生育するマングローブ林。
-                  日本でも、大浦川でしか見ることの出来ない景色があります。<br />
-                  <br/>
-                  別名「海の森」と呼ばれる神秘の森。さっそうとマングローブ林を抜けるのは本当に気持ちいい!!
-                  リピーターも多い大人気ツアーです。<br/>
-                  <br/>
-                  マングローブ林をカヤックでゆったり散策するのもあり！
-                  みんなでカヤックレースもできますよ♪
-                  １組貸切のガイドツアーで小さなお子様から、ご年配の方まで安心してご参加頂けます。
-                </p>
-              </div>
-              <StaticImage
-                className='iso-target aspect-video hidden lg:block flex-1'
-                src='../images/menu/kayak/intro2.jpg'
-                alt="写真"
-              />
-            </div>
-          </div>
-          <div className="flex pt-12 lg:hidden">
-            <StaticImage
-              className='iso-target fadein-opacity aspect-video w-1/2'
-              src='../images/menu/kayak/intro1.jpg'
-              alt="写真"
-            />
-            <StaticImage
-              className='iso-target fadein-opacity aspect-video w-1/2'
-              src='../images/menu/kayak/intro2.jpg'
-              alt="写真"
-            />
-          </div>
-        </div>
-        <div className="my-[6rem] relative">
-          <svg
-            className='absolute bottom-0 z-20 h-auto w-full sm:hidden'
-            alt="波"
-            xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width={549} height={48} viewBox="0 0 549 48"><defs><clipPath id="a"><rect width={549} height={48} transform="translate(-19574 -3692)" fill="#fff" /></clipPath></defs><g transform="translate(19574 3692)" clipPath="url(#a)"><path d="M22225,5434.506v-27.423c34.15,0,34.15-20.082,68.3-20.082s34.15,20.082,68.307,20.082,34.145-20.082,68.3-20.082,34.145,20.082,68.295,20.082,34.15-20.082,68.3-20.082,34.148,20.082,68.3,20.082S22668.945,5387,22703.1,5387s34.15,20.082,68.3,20.082,34.15-20.082,68.3-20.082,34.15,20.082,68.3,20.082v27.423Z" transform="translate(-41799 -9078.582)" fill="#FEFCE6" /></g>
-          </svg>
-          <svg
-            className="absolute bottom-0 z-20 left-0 right-0 hidden sm:block lg:hidden"
-            xmlns="http://www.w3.org/2000/svg" width="978.225" height="47.507" viewBox="0 0 978.225 47.507"><path d="M978.225,20.3V47.507H0V20.082C48.913,20.082,48.913,0,97.826,0s48.913,20.082,97.827,20.082S244.563,0,293.474,0s48.909,20.082,97.818,20.082S440.2,0,489.112,0s48.91,20.082,97.82,20.082S635.842,0,684.751,0s48.911,20.082,97.821,20.082S831.486,0,880.4,0s48.912,20.082,97.826,20.082Z" transform="translate(0)" fill="#FEFCE6"/>
-          </svg>
-          <svg
-            className="absolute bottom-0 z-20 left-0 right-0 hidden lg:block xl:hidden"
-            xmlns="http://www.w3.org/2000/svg" width="1366" height="47.507" viewBox="0 0 1366 47.507"><g transform="translate(0 -1483.493)"><path d="M22908,5434.508v-27.426c34.156,0,34.156-20.081,68.309-20.081s34.148,20.081,68.3,20.081,34.148-20.081,68.3-20.081,34.148,20.081,68.3,20.081,34.152-20.081,68.3-20.081,34.148,20.081,68.3,20.081,34.148-20.081,68.3-20.081,34.148,20.081,68.3,20.081S23488.543,5387,23522.7,5387s34.148,20.081,68.3,20.081v27.426Zm-683,0v-27.426c34.152,0,34.152-20.081,68.3-20.081s34.152,20.081,68.3,20.081,34.148-20.081,68.3-20.081,34.148,20.081,68.3,20.081,34.148-20.081,68.3-20.081,34.148,20.081,68.3,20.081,34.148-20.081,68.3-20.081,34.148,20.081,68.3,20.081,34.152-20.081,68.3-20.081,34.152,20.081,68.3,20.081v27.426Z" transform="translate(-22225 -3903.508)" fill="#FEFCE6"/></g>
-          </svg>
-          <svg
-            className="absolute bottom-0 z-20 left-0 right-0 hidden xl:block"
-            xmlns="http://www.w3.org/2000/svg" width="2732" height="47.507" viewBox="0 0 2732 47.507"><g transform="translate(24900 6539.033)"><path d="M22908,5434.508v-27.426c34.156,0,34.156-20.081,68.309-20.081s34.148,20.081,68.3,20.081,34.148-20.081,68.3-20.081,34.148,20.081,68.3,20.081,34.152-20.081,68.3-20.081,34.148,20.081,68.3,20.081,34.148-20.081,68.3-20.081,34.148,20.081,68.3,20.081S23488.543,5387,23522.7,5387s34.148,20.081,68.3,20.081v27.426Zm-683,0v-27.426c34.152,0,34.152-20.081,68.3-20.081s34.152,20.081,68.3,20.081,34.148-20.081,68.3-20.081,34.148,20.081,68.3,20.081,34.148-20.081,68.3-20.081,34.148,20.081,68.3,20.081,34.148-20.081,68.3-20.081,34.148,20.081,68.3,20.081,34.152-20.081,68.3-20.081,34.152,20.081,68.3,20.081v27.426Z" transform="translate(-47125 -11926.034)" fill="#FEFCE6"/><path d="M22908,5434.508v-27.426c34.156,0,34.156-20.081,68.309-20.081s34.148,20.081,68.3,20.081,34.148-20.081,68.3-20.081,34.148,20.081,68.3,20.081,34.152-20.081,68.3-20.081,34.148,20.081,68.3,20.081,34.148-20.081,68.3-20.081,34.148,20.081,68.3,20.081S23488.543,5387,23522.7,5387s34.148,20.081,68.3,20.081v27.426Zm-683,0v-27.426c34.152,0,34.152-20.081,68.3-20.081s34.152,20.081,68.3,20.081,34.148-20.081,68.3-20.081,34.148,20.081,68.3,20.081,34.148-20.081,68.3-20.081,34.148,20.081,68.3,20.081,34.148-20.081,68.3-20.081,34.148,20.081,68.3,20.081,34.152-20.081,68.3-20.081,34.152,20.081,68.3,20.081v27.426Z" transform="translate(-45759 -11926.034)" fill="#FEFCE6"/></g>
-          </svg>
-        </div>
-      </section>
+      <MenuHero
+        heroImg = {heroImg}
+        heroImgPc= {heroImgPc}
+        heroTitle= "マングローブカヤック"
+        heroSubTitle= "マングローブを巡る旅、カヤックで楽しもう"
+        heroColor= "bg-main-green"
+      />
+      <MenuIntro
+        IntroH3 = {IntroH3}
+        IntroH3Color = "text-main-green"
+        IntroP = {IntroP}
+        IntroPic1 = {introPic1}
+        IntroPic2 = {introPic2}
+      />
       <section id="feature" className="bg-light-yellow">
         <div className="section-container">
           <div className="iso-target pt-16 max-w-[500px] mx-auto">
@@ -809,5 +767,30 @@ const Kayak = () => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  query {
+    kayakHero: file(relativePath: {eq: "menu/kayak/kayak-hero.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(layout: FULL_WIDTH)
+    }
+  }
+    kayakHeroPc: file(relativePath: {eq: "menu/kayak/kayak-hero-pc.jpg"}) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+    kayakIntro1: file(relativePath: {eq: "menu/kayak/intro1.jpg"}) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+    kayakIntro2: file(relativePath: {eq: "menu/kayak/intro2.jpg"}) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+  }
+`
 
 export default Kayak

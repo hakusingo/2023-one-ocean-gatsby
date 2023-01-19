@@ -112,7 +112,7 @@ const Intro = () => {
                 </span>
               </h3>
               <div className="flex justify-center lg:justify-start">
-                <p className="iso-target fadein-opacity mt-8 leading-[28px] w-[90%] max-w-[400px] lg:max-w-[600px] lg:text-[18px]">
+                <p className="font-black iso-target fadein-opacity mt-8 leading-[28px] w-[90%] max-w-[400px] lg:max-w-[600px] lg:text-[18px]">
                   ワンオーシャンではお子様連れや、カップル
                   親子３世代でのツアーなど、幅広くお客様のご要望に
                   お答えするツアーをご用意しております。<br />

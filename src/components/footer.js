@@ -91,7 +91,7 @@ const Footer = () => (
     </div>
 
     <div id="footer-pc" className="hidden md:block overflow-x-hidden">
-      <div className="py-8 grid grid-cols-12 px-[80px]">
+      <div className="py-8 grid grid-cols-12 px-[80px] max-w-[1500px] mx-auto">
         <div className="col-span-4 max-w-[420px]">
           <Link
             to={`/`}
