@@ -1,0 +1,89 @@
+@charset "UTF-8";
+#sp-menu-open {
+  transform: translateX(-100%);
+  visibility: hidden;
+  transition: 0.3s ease-in;
+}
+#sp-menu-open li:not(:last-child) {
+  border-bottom: 1px dashed gray;
+}
+
+#sp-menu-cover {
+  visibility: hidden;
+  opacity: 0;
+}
+
+#sp-button-line div {
+  transition: 0.2s ease;
+}
+
+#sp-button-line.close > div:first-child {
+  transform-origin: left;
+  transform: rotate(33deg);
+  padding-left: 1rem;
+}
+#sp-button-line.close > div:nth-child(2) {
+  opacity: 0;
+  visibility: hidden;
+}
+#sp-button-line.close > div:nth-child(3) {
+  transform-origin: left;
+  transform: rotate(-33deg);
+  padding-left: 1rem;
+}
+
+header .pc-menu ul li:not(:last-child) {
+  margin-right: 1rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.1rem;
+  border-bottom: 3px dashed transparent;
+  transition: 0.3s;
+}
+header .pc-menu ul li:not(:last-child):hover {
+  border-bottom: 3px solid white;
+}
+
+@media screen and (min-width: 768px) {
+  /*　画面サイズが480pxからはここを読み込む　*/
+  header .pc-menu ul li:not(:last-child) {
+    margin-right: 1.6rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  /*　画面サイズが480pxからはここを読み込む　*/
+  header .pc-menu ul li:not(:last-child) {
+    margin-right: 2rem;
+  }
+}
+#sidebar-left-menu::after {
+  content: "";
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #D8F7FF;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -10;
+}
+
+#header-logo-wide {
+  transition: 0.3s ease-in-out;
+}
+
+#front-pc-menu .front-pc-menu-left {
+  font-size: 38px;
+  font-weight: 700;
+  color: #1EA4D9;
+}
+#front-pc-menu .front-pc-menu-left li {
+  margin-bottom: 1.4rem;
+  text-shadow: #FEFCE6 3px 3px 1px;
+}
+#front-pc-menu .front-menu-right li {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #1EA4D9;
+  text-shadow: #FEFCE6 3px 3px 1px;
+}/*# sourceMappingURL=header.css.map */
