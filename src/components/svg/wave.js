@@ -1,5 +1,4 @@
 import React from 'react'
-// import { StaticImage } from "gatsby-plugin-image"
 
 const Wave = ( props ) => {
 
@@ -13,6 +12,8 @@ const Wave = ( props ) => {
     color = "#FFFFFF"
   } else if(props.color === "main-blue") {
     color = "#1EA4D9"
+  } else if(props.color === "gray") {
+    color = "#F9FAFB"
   }
 
   return (

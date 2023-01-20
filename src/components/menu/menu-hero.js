@@ -28,9 +28,9 @@ const MenuHero = ( props ) => {
       <div className={heroClass}>
         <h2 className='relative py-2 text-center text-[1.4rem] md:text-[2rem] font-semibold'>
           <span className='py-1 text-[12px] block font-light md:text-8 md:text-[1rem]'>
-            {heroTitle}
-          </span>
             {heroSubTitle}
+          </span>
+            {heroTitle}
           <div className="absolute rounded-[12px] w-[94%] md:w-[98%] h-[88%] border-white border top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2"></div>
         </h2>
       </div>
