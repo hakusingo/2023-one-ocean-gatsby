@@ -5,7 +5,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 import KayakSingle from '../svg/kayak-single'
 import KayakCouple from '../svg/kayak-couple'
 import StuffHeader from "../svg/stuff-header"
-import { BsCaretRightFill } from "react-icons/Bs"
+import { BsCaretRightFill } from "react-icons/bs"
 import Wave from '../svg/wave'
 
 const Stuff = (props) => {
