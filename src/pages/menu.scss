@@ -1,0 +1,24 @@
+section {
+  overflow-x: hidden;
+}
+
+#menu-intro {
+  & > div {
+    h3 {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.2rem;
+      font-weight: 900;
+      span {
+        background:linear-gradient(transparent 60%, #FFF46A 60%);
+      }
+    }
+  }
+}
+
+#pc-kayak-schedule {
+  p {
+    font-size: 1.4rem;
+  }
+}

@@ -1,0 +1,15 @@
+.modal-animation {
+  animation-name: fadeInAnime;
+  animation-fill-mode: backwards;/*2で解説*/
+  animation-duration: .3s;/*3で解説*/
+  animation-timing-function: ease-in;/*5で解説*/
+}
+
+@keyframes fadeInAnime{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

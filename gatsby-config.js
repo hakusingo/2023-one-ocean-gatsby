@@ -15,6 +15,8 @@ module.exports = {
     siteUrl: `https://one-ocean-toku.com/`,
   },
   plugins: [
+    `gatsby-plugin-sass`,
+    'gatsby-plugin-postcss',
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
