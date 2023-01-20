@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import TourMenuHeader from "../../components/svg/tour-menu-header"
-import { BsCaretRightFill } from "react-icons/Bs"
+import { BsCaretRightFill } from "react-icons/bs"
 
 import Wave from '../svg/wave'
 

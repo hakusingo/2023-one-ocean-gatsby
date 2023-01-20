@@ -3,7 +3,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
 
 import BlogHeader from "../svg/blog-header"
-import { BsCaretRightFill } from "react-icons/Bs"
+import { BsCaretRightFill } from "react-icons/bs"
 
 const Blog = () => {
   return (

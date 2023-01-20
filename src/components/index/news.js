@@ -6,7 +6,7 @@ import NewsTreeTr from "../../components/svg/news-tree-tr"
 import NewsTreeBl from "../../components/svg/news-tree-bl"
 import Wave from '../svg/wave'
 
-import { BsCaretRightFill } from "react-icons/Bs"
+import { BsCaretRightFill } from "react-icons/bs"
 
 const News = () => {
 
