@@ -25,6 +25,7 @@ const MenuHero = ( props ) => {
           alt="メニューPCヒーロー写真"
         />
       </div>
+      <div className="absolute w-[92%] h-[94%] border-white border-2 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 rounded-[12px] rounded-tr-none"></div>
       <div className={heroClass}>
         <h2 className='relative py-2 text-center text-[1.4rem] md:text-[2rem] font-semibold'>
           <span className='py-1 text-[12px] block font-light md:text-8 md:text-[1rem]'>

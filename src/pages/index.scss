@@ -41,18 +41,10 @@
 }
 
 #feature .feature {
-  p {
-    // height: 240px;
-    padding-top: 2rem;
-    background-color: #fff;
-  }
   .font-zenmaru {
     span {
       text-shadow: rgba(255, 255, 255, .9) 4px 3px;  
     }
-  }
-  h3 {
-    font-size: 18px;
   }
   .feature-subtitle {
     .triangle {
@@ -77,6 +69,15 @@
 //     }
 //   }
 // }
+
+#menu-info {
+  .section-container {
+    th {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+}
 
 #blog {
   position: relative;
