@@ -5,8 +5,6 @@ import Wave from '../svg/wave'
 import KayakIntroAccent from '../svg/kayak-intro-accent'
 
 const MenuIntro = (props) => {
-  
-  console.log(props)
 
   let IntroH3 = props.IntroH3
   let IntroH3Color = props.IntroH3Color
