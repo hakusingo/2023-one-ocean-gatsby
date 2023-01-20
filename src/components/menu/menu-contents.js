@@ -6,7 +6,6 @@ import KayakContentsHeader from '../svg/kayak-contents-header'
 import Wave from '../svg/wave'
 
 const MenuContents = (props) => {
-  console.log(props)
 
   let ContentsPic1 = props.ContentsPic1
   let ContentsPic1Title = props.ContentsPic1Title
@@ -45,9 +44,9 @@ const MenuContents = (props) => {
                     alt={ContentsPic1Title}
                   />
                   <div className="relative">
-                    <div className="feature-subtitle absolute -top-8 -left-4 w-full">
+                    <div className="feature-subtitle relative -mt-8 -ml-4 w-full">
                       <div className="triangle"></div>
-                      <h3 className="bg-main-green text-white py-4 px-4 font-bold w-[100%]">
+                      <h3 className="bg-main-green text-white text-[20px] py-2 px-4 font-bold w-[100%]">
                         <ContentsTitle1/>
                       </h3>
                     </div>
@@ -66,9 +65,9 @@ const MenuContents = (props) => {
                     alt={ContentsPic2Title}
                   />
                   <div className="relative">
-                    <div className="feature-subtitle absolute -top-8 -left-4 w-full">
+                    <div className="feature-subtitle relative -mt-8 -ml-4 w-full">
                       <div className="triangle"></div>
-                      <h3 className="bg-main-green text-white py-4 px-4 font-bold w-[100%]">
+                      <h3 className="bg-main-green text-white text-[20px] py-2 px-4 font-bold w-[100%]">
                         <ContentsTitle2/>
                       </h3>
                     </div>
@@ -87,9 +86,9 @@ const MenuContents = (props) => {
                     alt={ContentsPic3Title}
                   />
                   <div className="relative">
-                    <div className="feature-subtitle absolute -top-8 -left-4 w-full">
+                    <div className="feature-subtitle relative -mt-8 -ml-4 w-full">
                       <div className="triangle"></div>
-                      <h3 className="bg-main-green text-white py-4 px-4 font-bold w-[100%]">
+                      <h3 className="bg-main-green text-white text-[20px] py-2 px-4 font-bold w-[100%]">
                         <ContentsTitle3/>
                       </h3>
                     </div>

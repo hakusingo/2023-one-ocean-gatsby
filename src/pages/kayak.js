@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import { Link } from "gatsby"
+// import { BsCaretRightFill } from "react-icons/bs"
 
 import KayakContactButton from "../components/svg/kayak-contact-button"
 import MenuScheduleHeader from "../components/svg/menu-schedule-header"
@@ -11,9 +12,11 @@ import MenuHero from '../components/menu/menu-hero'
 import MenuIntro from '../components/menu/menu-intro'
 import KayakInfoHeader from '../components/svg/kayak-info-header'
 import MenuContents from '../components/menu/menu-contents'
+import MenuEmotion from '../components/menu/menu-emotion'
 import Wave from '../components/svg/wave'
 
 import "./menu.scss"
+import "./index.scss"
 
   const IntroH3 = () => {
     return (
@@ -57,14 +60,14 @@ import "./menu.scss"
   const ContentsTitle3 = () => {
     return ( 
       <span>
-        お子様・初心者でも楽しめます！！<br/>
-        季節問わず楽しめる
+        お子様・初心者でも<br/>
+        季節問わず楽しめます！！
       </span>
     )
   }
   const ContentsText1 = () => {
     return (
-      <p className="px-4 py-8 lg:pt-14 xl:pt-10">
+      <p className="px-4 pt-4 pb-8 bg-white">
         お客様の「笑顔、思い出、時間」を大切にするために完全貸切のプライベートツアーにしております。<br />
         プライベートツアーなのでマイペースでのツアーが実現！「ここで写真が撮りたい！」「もう少しここで遊びたい！」などツアー中のリクエストに臨機応変に対応が可能です。
       </p>
@@ -72,7 +75,7 @@ import "./menu.scss"
   }
   const ContentsText2 = () => {
     return (
-      <p className="px-4 py-8 pt-14 lg:pt-14 xl:pt-10">
+      <p className="px-4 pt-4 pb-8 bg-white">
         沖縄県名護市指定文化財である大浦湾のマングローブ林。<br />
         ゆったりと進むカヤックからの視点や眺めは最高!! 水中から力強くのびるマングローブを間近に観察できるのは、カヤックならでは最大の魅力です。
         大自然に囲まれた水上をさっそうと進むのは、いつでも気持ちいい。
@@ -81,10 +84,24 @@ import "./menu.scss"
   }
   const ContentsText3 = () => {
     return (
-      <p className="px-4 py-8 pt-14 xl:pt-16">
+      <p className="px-4 pt-4 pb-8 bg-white">
         カヤックはお子様と自然体験をしたい。 沖縄ならではの自然体験を気軽に満喫したい。と思う人にはもってこいのツアーです。<br />
         マングローブ林を一つの学習体験でなく 参加者に合った遊び方をプロデュースします！<br />
         一年中遊べる人気のアドベンチャーツアー。
+      </p>
+    )
+  }
+
+  const MenuEmotionP = () => {
+    return (
+      <p className="mt-12 text-center lg:text-[20px]">
+        沖縄県名護市指定文化財である<br/>大浦湾のマングローブ林。<br />
+        <br />
+        ゆったりと進むカヤックからの<br />視点や眺めは最高!!<br/>
+        <br />
+        水中から力強くのびるマングローブを<br />間近に観察できるのは、<br />カヤックならでは最大の魅力です。<br />
+        <br />
+        大自然に囲まれた水上を<br />さっそうと進むのは<br />いつでも気持ちいい。
       </p>
     )
   }
@@ -98,6 +115,7 @@ const Kayak = ({ data }) => {
   let contentsPic1 = getImage(data.kayakContentsPic1.childImageSharp.gatsbyImageData)
   let contentsPic2 = getImage(data.kayakContentsPic2.childImageSharp.gatsbyImageData)
   let contentsPic3 = getImage(data.kayakContentsPic3.childImageSharp.gatsbyImageData)
+  let emotion = getImage(data.kayakEmotion.childImageSharp.gatsbyImageData)
 
   return (
     <Layout>
@@ -136,9 +154,9 @@ const Kayak = ({ data }) => {
               <KayakInfoHeader
               />
             </h2>
-            <p className='fadein-opacity mt-8 w-[80%] mx-auto text-[14px] mx-w-[400px]'>
+            <p className='fadein-opacity mt-8 w-[80%] mx-auto mx-w-[400px]'>
               ワンオーシャンでは、お客様のご要望に答えるツアーもご用意しております。<br />
-              自然相手のツアーでもありますので、安心安全なツアーにするために、時間的な変更もございます。<br />
+              自然相手のツアーでもありますので、安心安全なツアーにするために、時間的な指定もございます。<br />
               お気軽にお問合せ、ご質問くださいませ。
             </p>
           </div>
@@ -258,13 +276,13 @@ const Kayak = ({ data }) => {
             </table>
           </div>
         </div>
-        <div className='mt-[6rem] relative pb-[6rem]'>
+        <div className='mt-[6rem] relative pb-[4rem] '>
           <Wave
             color = "gray"
           />
         </div>
       </section>
-      <section className='bg-gray-50'>
+      <section id="schedule" className='bg-gray-50'>
         <div className="section-container mb-16">
           <div className="iso-target pt-16 max-w-[500px] mx-auto">
             <h2>
@@ -688,6 +706,20 @@ const Kayak = ({ data }) => {
             </div>
           </div>
         </div>
+        {/* <div className="flex justify-center pb-20">
+          <Link
+            className="flex justify-center items-center news-btn mt-12 py-2 px-8 text-white text-[14px] font-semibold rounded-[22px]"
+            to={'/news-list'}
+          >
+            <span>
+              ご予約はコチラ
+            </span>
+            <BsCaretRightFill
+              size="1rem"
+              className='ml-2'
+            />
+          </Link>
+        </div> */}
         <div className="iso-target flex justify-center py-[4rem]">
           <Link
             className='max-w-[300px] w-[60%] inline-block mx-auto'
@@ -697,6 +729,11 @@ const Kayak = ({ data }) => {
           </Link>
         </div>
       </section>
+      <MenuEmotion
+        menuEmotionH3 = "マングローブは生物・植物の宝庫です"
+        menuEmotionP = {MenuEmotionP}
+        emotion = {emotion}
+      />
     </Layout>
   )
 }
@@ -734,6 +771,11 @@ export const query = graphql`
       }
     }
     kayakContentsPic3: file(relativePath: {eq: "menu/kayak/kayak-contents-pic3.jpg"}) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+    kayakEmotion: file(relativePath: {eq: "menu/kayak/kayak-emotion.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }

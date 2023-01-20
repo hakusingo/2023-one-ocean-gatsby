@@ -10,9 +10,9 @@ const Modal = ( props ) => {
   let modal = props.modal
   let modalState= props.modalState
 
-  function disableScroll(event) {
-    event.preventDefault();
-  }
+  // function disableScroll(event) {
+  //   event.preventDefault();
+  // }
   
   useEffect(() => {
     document.querySelector("body").classList.add("overflow-hidden")
