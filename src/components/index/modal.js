@@ -16,10 +16,10 @@ const Modal = ( props ) => {
   
   useEffect(() => {
     document.querySelector("body").classList.add("overflow-hidden")
-    document.addEventListener('touchmove', disableScroll, { passive: false });
+    // document.addEventListener('touchmove', disableScroll, { passive: false });
     return () => {
       document.querySelector("body").classList.remove("overflow-hidden")
-      document.addEventListener('touchmove', disableScroll, { passive: true });
+      // document.addEventListener('touchmove', disableScroll, { passive: true });
     }
   }, [])
 
@@ -34,7 +34,7 @@ const Modal = ( props ) => {
           onClick={(() => {
             modalState(true)
             document.querySelector("body").classList.remove("overflow-hidden")
-            document.addEventListener('touchmove', disableScroll, { passive: true })
+            // document.addEventListener('touchmove', disableScroll, { passive: true })
           })} 
           className='absolute top-0 left-0 right-0 bottom-0 bg-yellow opacity-40'
         >
@@ -45,7 +45,7 @@ const Modal = ( props ) => {
             onClick={(() => {
               modalState(true)
               document.querySelector("body").classList.remove("overflow-hidden")
-              document.addEventListener('touchmove', disableScroll, { passive: true })
+              // document.addEventListener('touchmove', disableScroll, { passive: true })
             })}
             className="top-[1rem] sm:top-[2rem] sm:left-[2rem] left-[1rem] lg:top-[3rem] lg:left-[3rem] absolute"
           >
