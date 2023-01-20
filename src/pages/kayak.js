@@ -186,7 +186,7 @@ const Kayak = ({ data }) => {
             <h2 className='iso-target'>
               <MenuInfoHeader
                 alt="ツアー内容"
-              />
+              />e
             </h2>
             <p className='fadein-opacity mt-8 w-[80%] mx-auto text-[14px] mx-w-[400px]'>
               ワンオーシャンでは、お客様のご要望に答えるツアーもご用意しております。<br />
