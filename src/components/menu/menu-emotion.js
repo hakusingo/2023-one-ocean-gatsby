@@ -4,7 +4,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import Wave from '../svg/wave'
 
 const MenuEmotion = (props) => {
-  console.log(props)
+
   let MenuEmotionP = props.menuEmotionP
   let emotion = props.emotion
 
@@ -12,7 +12,7 @@ const MenuEmotion = (props) => {
     <section className="h-[90vh] lg:h-[95vh] relative">
       <div className='absolute top-0 left-0 right-0 rotate-180 z-20'>
         <Wave
-          color="white"
+          color="gray"
         />
       </div>
       <div className="hidden md:block">

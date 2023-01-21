@@ -1,6 +1,7 @@
 import React from 'react'
 import { getImage, StaticImage } from 'gatsby-plugin-image'
 import { graphql } from 'gatsby'
+import Seo from '../components/seo'
 
 import Layout from '../components/layout'
 import { Link } from "gatsby"
@@ -203,7 +204,7 @@ const Kayak = ({ data }) => {
                     お気軽にお問合わせください
                     <div className="flex justify-center">
                       <a 
-                        className='font-semibold rounded-[12px] whitespace-nowrap block bg-main-green text-[12px] text-white my-2 p-2'
+                        className='text-[12px] md:text-[14px] font-semibold rounded-[12px] whitespace-nowrap block bg-main-green text-white my-2 p-2'
                         href='https://www.data.jma.go.jp/kaiyou/db/tide/suisan/suisan.php?stn=NH'
                       >
                         満潮時刻参考サイトはこちらから▶
@@ -221,7 +222,7 @@ const Kayak = ({ data }) => {
                     ※予約時間１０分前集合です。<br />
                     <div className="flex justify-center">
                       <a 
-                        className='font-semibold rounded-[12px] whitespace-nowrap inline-block bg-main-green text-[12px] text-white my-2 py-2 px-6'
+                        className='font-semibold rounded-[12px] whitespace-nowrap inline-block bg-main-green text-white my-2 py-2 px-6'
                         href='https://goo.gl/maps/4warquznDCHoQJVD8'
                       >
                         MAP ▶
@@ -264,7 +265,7 @@ const Kayak = ({ data }) => {
                     <div className="flex justify-center">
                       <Link
                         to={'/notes'}
-                        className='font-semibold rounded-[12px] whitespace-nowrap block bg-main-green text-[12px] text-white my-2 py-2 px-6'
+                        className='font-semibold rounded-[12px] whitespace-nowrap block bg-main-green text-white my-2 py-2 px-6'
                         href='https://www.data.jma.go.jp/kaiyou/db/tide/suisan/suisan.php?stn=NH'
                       >
                         注意事項 ▶
@@ -302,7 +303,7 @@ const Kayak = ({ data }) => {
                   <h3 className='inline-block text-[22px] font-semibold border-b-4 border-main-green'>
                     1.ご予約・お申し込み
                   </h3>
-                  <p className='pt-4 text-[12px]'>
+                  <p className='pt-4'>
                     お電話、メール、SNS等でご予約・お申し込み頂けます。
                     潮の満ち引きによる状態も御座いますので、基本的に事前
                     予約をお願い致します。<br />
@@ -334,7 +335,7 @@ const Kayak = ({ data }) => {
                   <h3 className='inline-block text-[22px] font-semibold border-b-4 border-main-green'>
                     2.現地にて集合
                   </h3>
-                  <p className='pt-4 text-[12px]'>
+                  <p className='pt-4'>
                     名護市大浦湾での待ち合わせをお願い致します。<br />
                     わんさか大浦パークという場所での集合です。名護
                     ICから約２０分ほどの場所にございます。
@@ -363,7 +364,7 @@ const Kayak = ({ data }) => {
                   <h3 className='inline-block text-[22px] font-semibold border-b-4 border-main-green'>
                     3.お着替え・装備装着
                   </h3>
-                  <p className='py-4 text-[12px]'>
+                  <p className='py-4'>
                     濡れてもいいお洋服にお着替えをお願い致します。
                     わんさか大浦パークにて着替スペースもございます。
                   </p>
@@ -385,7 +386,7 @@ const Kayak = ({ data }) => {
                   <h3 className='inline-block text-[22px] font-semibold border-b-4 border-main-green'>
                     4.カヤックレクチャー
                   </h3>
-                  <p className='py-4 text-[12px]'>
+                  <p className='py-4'>
                     コース内容の確認、注意点、ハンドシグナル
                     （ジェスチャーによる意思表示）などのレク
                     チャーを行います。パドルの漕ぎ方、乗り降
@@ -409,7 +410,7 @@ const Kayak = ({ data }) => {
                   <h3 className='inline-block text-[22px] font-semibold border-b-4 border-main-green'>
                     5.カヤックにていざ出発!!
                   </h3>
-                  <p className='py-4 text-[12px]'>
+                  <p className='py-4'>
                     レクチャーも終わり、いよいよ出発
                     ゆらゆら揺れるカヤックにみんなで乗り込むのも
                     楽しい！！
@@ -432,7 +433,7 @@ const Kayak = ({ data }) => {
                   <h3 className='inline-block text-[22px] font-semibold border-b-4 border-main-green'>
                     6.マングローブの林や生物
                   </h3>
-                  <p className='py-4 text-[12px]'>
+                  <p className='py-4'>
                     沖縄特有の亜熱帯地方でしか見れないマングロ
                     ーブ林！
                     冒険の匂いがするほうへ進んでいこう。
@@ -457,7 +458,7 @@ const Kayak = ({ data }) => {
                   <h3 className='inline-block text-[22px] font-semibold border-b-4 border-main-green'>
                     7.大自然の中でゆったり開放感
                   </h3>
-                  <p className='py-4 text-[12px]'>
+                  <p className='py-4'>
                     自然の中で思いっきりアソボー☆
                     みんなで競争しても面白いね♪　遊びかたは十人十色！
                   </p>
@@ -478,7 +479,7 @@ const Kayak = ({ data }) => {
                   <h3 className='inline-block text-[22px] font-semibold border-b-4 border-main-green'>
                     8.記念写真・解散
                   </h3>
-                  <p className='py-4 text-[12px]'>
+                  <p className='py-4'>
                     お疲れさまでした。
                     みんなで、笑顔の記念写真を撮って解散。
                     また、一緒に沖縄の自然を楽しみましょう〜♫
@@ -496,19 +497,19 @@ const Kayak = ({ data }) => {
 
 
           {/* PC TIME SCHEDULE */}
-          <div id="pc-kayak-schedule" className="hidden lg:block mt-12 max-w-[800px] mx-auto">
+          <div id="pc-kayak-schedule" className="hidden lg:block mt-12 max-w-[1000px] mx-auto">
             <div className="grid grid-cols-7 gap-2 mt-12">
               <div className="col-span-3"></div>
               <div className="flex flex-col items-center -mb-12">
                 <div className="w-[40px] rounded-[50%] h-[40px] bg-yellow"></div>
                 <div className="border-2 border-dashed h-full"></div>
               </div>
-              <div className="col-span-3">
+              <div className="col-span-3 iso-target">
                 <div className="">
                   <h3 className='inline-block text-[22px] font-semibold border-b-4 border-main-green'>
                     1.ご予約・お申し込み
                   </h3>
-                  <p className='pt-4 text-[12px]'>
+                  <p className='pt-4'>
                     お電話、メール、SNS等でご予約・お申し込み頂けます。
                     潮の満ち引きによる状態も御座いますので、基本的に事前
                     予約をお願い致します。<br />
@@ -530,13 +531,13 @@ const Kayak = ({ data }) => {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-7 gap-2 -mt-[8rem]">
-              <div className="col-span-3">
+            <div className="grid grid-cols-7 gap-2 -mt-[12rem]">
+              <div className="col-span-3 iso-target">
                 <div className="">
                   <h3 className='inline-block text-[22px] font-semibold border-b-4 border-main-green'>
                     2.現地にて集合
                   </h3>
-                  <p className='pt-4 text-[12px]'>
+                  <p className='pt-4'>
                     名護市大浦湾での待ち合わせをお願い致します。<br />
                     わんさか大浦パークという場所での集合です。名護
                     ICから約２０分ほどの場所にございます。
@@ -566,12 +567,12 @@ const Kayak = ({ data }) => {
                 <div className="w-[40px] rounded-[50%] h-[40px] bg-yellow"></div>
                 <div className="border-2 border-dashed h-full"></div>
               </div>
-              <div className="col-span-3">
+              <div className="col-span-3 iso-target">
                 <div className="">
                   <h3 className='inline-block text-[22px] font-semibold border-b-4 border-main-green'>
                     3.お着替え・装備装着
                   </h3>
-                  <p className='py-4 text-[12px]'>
+                  <p className='py-4'>
                     濡れてもいいお洋服にお着替えをお願い致します。
                     わんさか大浦パークにて着替スペースもございます。
                   </p>
@@ -584,12 +585,12 @@ const Kayak = ({ data }) => {
               </div>
             </div>
             <div className="grid grid-cols-7 gap-2 -mt-[4rem]">
-              <div className="col-span-3">
+              <div className="col-span-3 iso-target">
                 <div className="">
                   <h3 className='inline-block text-[22px] font-semibold border-b-4 border-main-green'>
                     4.カヤックレクチャー
                   </h3>
-                  <p className='py-4 text-[12px]'>
+                  <p className='py-4'>
                     コース内容の確認、注意点、ハンドシグナル
                     （ジェスチャーによる意思表示）などのレク
                     チャーを行います。パドルの漕ぎ方、乗り降
@@ -614,12 +615,12 @@ const Kayak = ({ data }) => {
                 <div className="w-[40px] rounded-[50%] h-[40px] bg-yellow"></div>
                 <div className="border-2 border-dashed h-full"></div>
               </div>
-              <div className="col-span-3">
+              <div className="col-span-3 iso-target">
                 <div className="">
                   <h3 className='inline-block text-[22px] font-semibold border-b-4 border-main-green'>
                     5.カヤックにていざ出発!!
                   </h3>
-                  <p className='py-4 text-[12px]'>
+                  <p className='py-4'>
                     レクチャーも終わり、いよいよ出発
                     ゆらゆら揺れるカヤックにみんなで乗り込むのも
                     楽しい！！
@@ -633,12 +634,12 @@ const Kayak = ({ data }) => {
               </div>
             </div>
             <div className="grid grid-cols-7 gap-2 -mt-[4rem]">
-              <div className="col-span-3">
+              <div className="col-span-3 iso-target">
                 <div className="">
                   <h3 className='inline-block text-[22px] font-semibold border-b-4 border-main-green'>
                     6.マングローブの林や生物
                   </h3>
-                  <p className='py-4 text-[12px]'>
+                  <p className='py-4'>
                     沖縄特有の亜熱帯地方でしか見れないマングロ
                     ーブ林！
                     冒険の匂いがするほうへ進んでいこう。
@@ -664,12 +665,12 @@ const Kayak = ({ data }) => {
                 <div className="w-[40px] rounded-[50%] h-[40px] bg-yellow"></div>
                 <div className="border-2 border-dashed h-full"></div>
               </div>
-              <div className="col-span-3">
+              <div className="col-span-3 iso-target">
                 <div className="">
                   <h3 className='inline-block text-[22px] font-semibold border-b-4 border-main-green'>
                     7.大自然の中でゆったり開放感
                   </h3>
-                  <p className='py-4 text-[12px]'>
+                  <p className='py-4'>
                     自然の中で思いっきりアソボー☆
                     みんなで競争しても面白いね♪　遊びかたは十人十色！
                   </p>
@@ -682,12 +683,12 @@ const Kayak = ({ data }) => {
               </div>
             </div>
             <div className="grid grid-cols-7 gap-2 -mt-[4rem]">
-              <div className="col-span-3">
+              <div className="col-span-3 iso-target">
                 <div className="">
                   <h3 className='inline-block text-[22px] font-semibold border-b-4 border-main-green'>
                     8.記念写真・解散
                   </h3>
-                  <p className='py-4 text-[12px]'>
+                  <p className='py-4'>
                     お疲れさまでした。
                     みんなで、笑顔の記念写真を撮って解散。
                     また、一緒に沖縄の自然を楽しみましょう〜♫
@@ -782,5 +783,7 @@ export const query = graphql`
     }
   }
 `
+
+export const Head = () => <Seo title="マングローブカヤックメニュー | ワンオーシャン" />
 
 export default Kayak
