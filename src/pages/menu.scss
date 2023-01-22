@@ -16,3 +16,7 @@ section {
     }
   }
 }
+
+.schedules:nth-child(2n) {
+  flex-direction: row-reverse;
+}
