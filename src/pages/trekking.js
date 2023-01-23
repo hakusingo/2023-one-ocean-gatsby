@@ -228,12 +228,12 @@ const Kayak = ({ data }) => {
 
 export const query = graphql`
   query {
-    kayakHero: file(relativePath: {eq: "menu/kayak/kayak-hero.jpg"}) {
+    kayakHero: file(relativePath: {eq: "menu/trekking/trekking-hero-pic1.jpg"}) {
     childImageSharp {
       gatsbyImageData(layout: FULL_WIDTH)
     }
   }
-    kayakHeroPc: file(relativePath: {eq: "menu/kayak/kayak-hero-pc.jpg"}) {
+    kayakHeroPc: file(relativePath: {eq: "menu/trekking/trekking-hero-pic1.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
