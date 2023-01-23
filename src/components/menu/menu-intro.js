@@ -7,17 +7,16 @@ import KayakIntroAccent from '../svg/kayak-intro-accent'
 const MenuIntro = (props) => {
 
   let IntroH3 = props.IntroH3
-  let IntroH3Color = props.IntroH3Color
+  let color = props.color
   let IntroP = props.IntroP
   let IntroPic1 = props.IntroPic1
   let IntroPic2 = props.IntroPic2
-  let h3ClassName = `${IntroH3Color} text-center md:text-[1.6rem] lg:text-[2rem] lg:whitespace-nowrap`
 
   return (
     <section id="menu-intro" className='relative'>
       <div className="section-container">
         <div className='pt-[2.4rem] lg:pt-[4rem]'>
-          <h3 className={h3ClassName}>
+          <h3 className={`text-${color} text-center md:text-[1.6rem] lg:text-[2rem] lg:whitespace-nowrap`}>
             <IntroH3/>
           </h3>
           <div className="lg:flex w-[90%] mx-auto items-center justify-around lg:mt-8">

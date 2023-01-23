@@ -3,13 +3,12 @@ import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 import MenuScheduleHeader from '../svg/menu-schedule-header'
-import KayakContactButton from '../svg/kayak-contact-button'
-
 
 const MenuSchedule = (props) => {
 
-  console.log(props)
   let propsArry = props.schedulePics.length
+  let color = props.color
+  let ContactButtom = props.contactButtom
 
   return (
     <section id="schedule" className='bg-gray-50'>
@@ -37,7 +36,7 @@ const MenuSchedule = (props) => {
                   </div>
                   <div className="col-span-4 iso-target fadein-opacity">
                     <div className="">
-                      <h3 className='inline-block text-[22px] font-semibold border-b-4 border-main-green'>
+                      <h3 className={`inline-block text-[22px] font-semibold border-b-4 border-${color}`}>
                         {content.title}
                       </h3>
                       <p className='pt-4 whitespace-pre-wrap'>
@@ -46,7 +45,7 @@ const MenuSchedule = (props) => {
                       {
                         content.linkName && (
                           <Link
-                            className="bg-main-green text-white py-2 px-4 text-[14px] rounded-[8px] my-4 inline-block"
+                            className={`bg-${color} text-white py-2 px-4 text-[14px] rounded-[8px] my-4 inline-block`}
                             to={content.url}
                           >
                             {content.linkName}
@@ -56,7 +55,7 @@ const MenuSchedule = (props) => {
                       {
                         content.aLinkName && (
                           <a
-                            className="bg-main-green text-white py-2 px-4 text-[14px] rounded-[8px] my-4 inline-block"
+                            className={`bg-${color} text-white py-2 px-4 text-[14px] rounded-[8px] my-4 inline-block`}
                             href={content.url}
                           >
                             {content.aLinkName}
@@ -66,7 +65,7 @@ const MenuSchedule = (props) => {
                       <GatsbyImage
                         className='my-4 rounded-[12px]'
                         image={props.schedulePics[i]}
-                        alt="電話をかけてる写真"
+                        alt={content.alt}
                       />
                     </div>
                   </div>
@@ -97,18 +96,18 @@ const MenuSchedule = (props) => {
                       )
                     }
                   </div>
-                  <div className="w-[42.5%]">
+                  <div className="w-[42.5%] iso-target fadein-opacity">
                     <div className="">
-                      <h3 className='inline-block text-[22px] font-semibold border-b-4 border-main-green'>
+                      <h3 className={`inline-block text-[22px] font-semibold border-b-4 border-${color}`}>
                         {content.title}
                       </h3>
-                      <p className='pt-4 text-[12px]'>
+                      <p className='pt-4'>
                         {content.text}
                       </p>
                       {
                         content.linkName && (
                           <Link
-                            className="bg-main-green text-white py-2 px-4 text-[14px] rounded-[8px] my-4 inline-block"
+                            className={`bg-${color} text-white py-2 px-4 text-[14px] rounded-[8px] my-4 inline-block`}
                             to={content.url}
                           >
                             {content.linkName}
@@ -118,7 +117,7 @@ const MenuSchedule = (props) => {
                       {
                         content.aLinkName && (
                           <a
-                            className="bg-main-green text-white py-2 px-4 text-[14px] rounded-[8px] my-4 inline-block"
+                            className={`bg-${color} text-white py-2 px-4 text-[14px] rounded-[8px] my-4 inline-block`}
                             href={content.url}
                           >
                             {content.aLinkName}
@@ -128,7 +127,7 @@ const MenuSchedule = (props) => {
                       <GatsbyImage
                         className='my-4 rounded-[12px]'
                         image={props.schedulePics[i]}
-                        alt="電話をかけてる写真"
+                        alt={content.alt}
                       />
                     </div>
                   </div>
@@ -152,12 +151,12 @@ const MenuSchedule = (props) => {
           />
         </Link>
       </div> */}
-      <div className="iso-target flex justify-center py-[4rem]">
+      <div className="iso-target fadein-left flex justify-center py-[4rem]">
         <Link
           className='max-w-[300px] w-[60%] inline-block mx-auto'
           to={'/contact'}
         >
-          <KayakContactButton/>
+          <ContactButtom/>
         </Link>
       </div>
     </section>

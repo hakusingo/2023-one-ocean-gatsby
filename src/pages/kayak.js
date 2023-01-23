@@ -6,7 +6,6 @@ import Seo from '../components/seo'
 import Layout from '../components/layout'
 // import { Link } from "gatsby"
 // import { BsCaretRightFill } from "react-icons/bs"
-
 // import KayakContactButton from "../components/svg/kayak-contact-button"
 // import MenuScheduleHeader from "../components/svg/menu-schedule-header"
 import MenuHero from '../components/menu/menu-hero'
@@ -17,7 +16,9 @@ import MenuEmotion from '../components/menu/menu-emotion'
 import MenuInformation from '../components/menu/menu-information'
 import MenuSchedule from '../components/menu/menu-schedule'
 
-// import Wave from '../components/svg/wave'
+import KayakContentsHeader from '../components/svg/kayak-contents-header'
+import KayakInfoHeader from '../components/svg/kayak-info-header'
+import KayakContactButton from '../components/svg/kayak-contact-button'
 
 import "./menu.scss"
 import "./index.scss"
@@ -47,54 +48,26 @@ const IntroP = () => {
   )
 }
 
-const ContentsTitle1 = () => {
-  return ( 
-    <span>
-      1組だけのプライベートツアー
-    </span>
-  )
-}
-const ContentsTitle2 = () => {
-  return ( 
-    <span>
-      指定文化財の神秘的なマングローブ林
-    </span>
-  )
-}
-const ContentsTitle3 = () => {
-  return ( 
-    <span>
-      お子様・初心者でも<br/>
-      季節問わず楽しめます！！
-    </span>
-  )
-}
-const ContentsText1 = () => {
-  return (
-    <p className="px-4 pt-4 pb-8 bg-white">
-      お客様の「笑顔、思い出、時間」を大切にするために完全貸切のプライベートツアーにしております。<br />
-      プライベートツアーなのでマイペースでのツアーが実現！「ここで写真が撮りたい！」「もう少しここで遊びたい！」などツアー中のリクエストに臨機応変に対応が可能です。
-    </p>
-  )
-}
-const ContentsText2 = () => {
-  return (
-    <p className="px-4 pt-4 pb-8 bg-white">
-      沖縄県名護市指定文化財である大浦湾のマングローブ林。<br />
-      ゆったりと進むカヤックからの視点や眺めは最高!! 水中から力強くのびるマングローブを間近に観察できるのは、カヤックならでは最大の魅力です。
-      大自然に囲まれた水上をさっそうと進むのは、いつでも気持ちいい。
-    </p>
-  )
-}
-const ContentsText3 = () => {
-  return (
-    <p className="px-4 pt-4 pb-8 bg-white">
-      カヤックはお子様と自然体験をしたい。 沖縄ならではの自然体験を気軽に満喫したい。と思う人にはもってこいのツアーです。<br />
-      マングローブ林を一つの学習体験でなく 参加者に合った遊び方をプロデュースします！<br />
-      一年中遊べる人気のアドベンチャーツアー。
-    </p>
-  )
-}
+const menuContents = [
+  {
+    contentTitle: "1組だけのプライベートツアー",
+    contentText: "お客様の「笑顔、思い出、時間」を大切にするために完全貸切のプライベートツアーにしております。\nプライベートツアーなのでマイペースでのツアーが実現！「ここで写真が撮りたい！」「もう少しここで遊びたい！」などツアー中のリクエストに臨機応変に対応が可能です。",
+    className: "iso-target fadein-opacity flex-1 lg:mt-0 lg:pt-[4rem] feature relative px-4 my-12 max-w-[500px] mx-auto",
+    alt: "大浦湾マングローブ林"
+  },
+  {
+    contentTitle: "指定文化財の神秘的なマングローブ林",
+    contentText: "沖縄県名護市指定文化財である大浦湾のマングローブ林。\nゆったりと進むカヤックからの視点や眺めは最高!! 水中から力強くのびるマングローブを間近に観察できるのは、カヤックならでは最大の魅力です。大自然に囲まれた水上をさっそうと進むのは、いつでも気持ちいい。",
+    className: "iso-target fadein-opacity flex-1 lg:mt-0 lg:pt-[2rem] feature relative px-4 my-12 max-w-[500px] mx-auto lg:delay-[300ms]",
+    alt: "マングローブカヤック写真"
+  },
+  {
+    contentTitle: "お子様・初心者でも\n季節問わず楽しめます！！",
+    contentText: "カヤックはお子様と自然体験をしたい。 沖縄ならではの自然体験を気軽に満喫したい。と思う人にはもってこいのツアーです。\nマングローブ林を一つの学習体験でなく 参加者に合った遊び方をプロデュースします！\n一年中遊べる人気のアドベンチャーツアー。",
+    className: "iso-target fadein-opacity flex-1 lg:mt-0 feature relative px-4 my-12 max-w-[500px] mx-auto lg:delay-[600ms]",
+    alt: "マングローブカヤックを楽しむ親子"
+  }
+]
 
 const MenuInfo = [
   {
@@ -139,38 +112,46 @@ const MenuInfo = [
 
 const menuSchedule = [
   {
+    alt: "電話予約",
     title: `1.ご予約・申し込み`,
     text: `お電話、メール、SNS等でご予約・お申し込み頂けます。\n潮の満ち引きによる状態も御座いますので、基本的に事前予約をお願い致します。\nお客様のご要望により、タイムスケジュールをお作りします。 ご要望がございましたら、お気軽にお問い合わせくださいませ。`,
     linkName: `ご予約はコチラ`,
     url: `/contact`
   },
   {
+    alt: "わんさか大浦パーク道路看板",
     title: `2.現地にて集合`,
     text: `名護市大浦湾での待ち合わせをお願い致します。\nわんさか大浦パークという場所での集合です。名護 ICから約２０分ほどの場所にございます。`,
     aLinkName: `地図はコチラ`,
     url: `https://google.com`
   },
   {
+    alt: "着替え",
     title: `3.お着替え・装備装着`,
     text: `濡れてもいいお洋服にお着替えをお願い致します。 わんさか大浦パークにて着替スペースもございます。`,
   },
   {
+    alt: "カヤックレクチャー",
     title: `4.カヤックレクチャー`,
     text: `安全第一の為コース内容の確認、注意点、ハンドシグナル（ジェスチャーによる意思表示）などのレクチャーを行います。\nパドルの漕ぎ方、乗り降りの仕方を楽しく練習♪`,
   },
   {
+    alt: "カヤック乗り込む",
     title: `5.カヤックにていざ出発!!`,
     text: `レクチャーも終わり、いよいよ出発 ゆらゆら揺れるカヤックにみんなで乗り込むのも 楽しい！！`,
   },
   {
+    alt: "大浦湾マングローブの林",
     title: `6.マングローブの林や生物を楽しむ`,
     text: `沖縄特有の亜熱帯地方でしか見れないマングロ ーブ林！冒険の匂いがするほうへ進んでいこう。\nマングローブの生体もご説明しながらご案内致します。`,
   },
   {
+    alt: "カヤックでくつろぐ親子",
     title: `7.大自然の中でゆったり開放感`,
     text: `自然の中で思いっきりアソボー☆\nみんなで競争しても面白いね♪遊びかたは十人十色！\n存分に楽しもう。`,
   },
   {
+    alt: "ワンオーシャン記念写真",
     title: `8.記念写真・解散`,
     text: `お疲れさまでした。\nみんなで、笑顔の記念写真を撮って解散。また、一緒に沖縄の自然を楽しみましょう〜♫`,
   },
@@ -218,35 +199,33 @@ const Kayak = ({ data }) => {
         heroImgPc= {heroImgPc}
         heroTitle= "マングローブカヤック"
         heroSubTitle= "マングローブを巡る旅、カヤックで楽しもう"
-        heroColor= "bg-main-green"
+        color= "main-green"
       />
       <MenuIntro
         IntroH3 = {IntroH3}
-        IntroH3Color = "text-main-green"
         IntroP = {IntroP}
         IntroPic1 = {introPic1}
         IntroPic2 = {introPic2}
+        color = "main-green"
       />
       <MenuContents
         ContentsPic1 = {contentsPic1}
-        ContentsPic1Title = "マングローブカヤック写真"
-        ContentsTitle1 = {ContentsTitle1}
-        ContentsText1 = {ContentsText1}
         ContentsPic2 = {contentsPic2}
-        ContentsPic2Title = "マングローブ林の写真"
-        ContentsTitle2 = {ContentsTitle2}
-        ContentsText2 = {ContentsText2}
         ContentsPic3 = {contentsPic3}
-        ContentsPic3Title = "親子マングローブカヤック写真"
-        ContentsTitle3 = {ContentsTitle3}
-        ContentsText3 = {ContentsText3}
+        color = "main-green"
+        menuContents = {menuContents}
+        menuContentsHeader = {KayakContentsHeader}
       />
       <MenuInformation
         MenuInfo = {MenuInfo}
+        color = "main-green"
+        menuInfoHeader = {KayakInfoHeader}
       />
       <MenuSchedule
         schedulePics = {schedulePics}
         menuSchedule = {menuSchedule}
+        color = "main-green"
+        contactButtom = {KayakContactButton}
       />
       <MenuEmotion
         menuEmotionH3 = "マングローブは生物・植物の宝庫です"
