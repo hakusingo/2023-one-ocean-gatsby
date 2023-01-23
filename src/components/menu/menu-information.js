@@ -1,5 +1,6 @@
 import React from 'react'
 import Wave from '../svg/wave'
+import { Link } from 'gatsby'
 
 // import KayakInfoHeader from '../svg/kayak-info-header'
 import { BsCaretRightFill } from "react-icons/bs"
@@ -52,6 +53,21 @@ const MenuInformation = (props) => {
                                 className='h-4 w-4'
                               />
                             </a>
+                          </div>
+                        )
+                      }
+                      {
+                        content.linkName && (
+                          <div className="flex justify-center">
+                            <Link
+                              className={`font-semibold rounded-[12px] whitespace-nowrap flex items-center bg-${color} text-[14px] text-white my-2 py-2 px-4`}
+                              to={content.url}
+                            >
+                              <span>{content.linkName}</span>
+                              <BsCaretRightFill
+                                className='h-4 w-4'
+                              />
+                            </Link>
                           </div>
                         )
                       }

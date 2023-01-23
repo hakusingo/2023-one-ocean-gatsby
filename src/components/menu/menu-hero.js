@@ -26,7 +26,7 @@ const MenuHero = ( props ) => {
       <div className="absolute w-[92%] h-[94%] border-white border-2 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 rounded-[12px] rounded-tr-none"></div>
       <div className={`max-w-[900px] rounded-[12px] w-[80%] absolute text-white bottom-0 left-[50%] -translate-x-[50%] bg-${color}`}>
         <h2 className='relative py-2 text-center text-[1.4rem] md:text-[2rem] font-semibold'>
-          <span className='py-1 text-[12px] block font-light md:text-8 md:text-[1rem]'>
+          <span className='py-1 text-[12px] block font-light md:text-8 md:text-[1rem] whitespace-pre-wrap lg:whitespace-nowrap'>
             {heroSubTitle}
           </span>
             {heroTitle}

@@ -49,7 +49,7 @@ const MenuContents = (props) => {
                       <div className="relative">
                         <div className="feature-subtitle relative -mt-8 -ml-4 w-full">
                           <div className="triangle"></div>
-                          <h3 className={`bg-${color} text-white text-[20px] py-2 px-4 font-bold w-[100%]`}>
+                          <h3 className={`bg-${color} text-white text-[20px] py-2 px-4 font-bold w-[100%] whitespace-pre-wrap`}>
                             <span>
                               {content.contentTitle}
                             </span>
