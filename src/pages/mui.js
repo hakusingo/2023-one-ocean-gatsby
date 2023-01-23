@@ -26,8 +26,8 @@ import "./index.scss"
 const IntroH3 = () => {
   return (
     <span className='iso-target fadein-opacity'>
-      「人と人が、助け合いながら進む!!」<br className="xl:hidden"/>
-      をテーマしたオリジナルプログラム
+      沖縄のディープな聖地を巡る<br className='lg:hidden' />
+      大人気オリジナルツアー
     </span>
   )
 }
@@ -35,12 +35,43 @@ const IntroH3 = () => {
 const IntroP = () => {
   return (
     <p className='lg:w-[80%] xl:text-[1.2rem] mx-auto'>
-      お客様から頂いた「こんなメニュー作って！！」というご要望にお答えして出来上がった「親子結プログラム」<br/>
+      ムイとはモリのことで、森、社、守など沖縄の聖地を意味します。<br />
       <br/>
-      参加するグループにあわせてオリジナルにプログラムを作成します。
-      小さいお子様も参加できる、優しいメニューですが内容は本格的です!!<br/>
-      お気軽にお問合わせください。
+      聖地巡りや、古琉球の歴史探訪が大好きなワンオーシャンの代表がプロディースする、ワンオーシャンオリジナルムイツアー。<br />
+      他では味わえない、ボウケンとディープな知識が足された新感覚体験アドベンチャーツアーとなっています。<br />
+      <br/>
+      人気急上昇のメニュー♫ぜひ、お問合わせください!!
     </p>
+  )
+}
+
+const InfoPrice = () => {
+  return (
+    <>
+      <p className='pb-2'>
+        沖縄の拝所の歴史がわかる<br />
+        <span className='text-navy'>
+        ☆伊計島・御先世コース（ウサチユコース）☆<br />
+        </span>
+        １名様 8,000円　３名〜５名 6,000円
+      </p>
+      <hr/>
+      <p className='py-2'>
+        Instagramに上げた、竜宮神シリーズからここへ行きたいをピックアップ可能!!<br />
+        <span className='text-navy'>
+        ☆龍宮神巡りコース☆<br />
+        </span>
+        １名様 8,000円　３名〜５名 6,000円
+      </p>
+      <hr/>
+      <p className='pt-2'>
+        こことここ一緒に行きたい!!オーダーメイド制<br />
+        <span className='text-navy'>
+        ☆おまかせムイツアー☆<br />
+        </span>
+        料金要相談
+      </p>
+    </>
   )
 }
 
@@ -52,20 +83,21 @@ const menuContents = [
     alt: "大浦湾マングローブ林"
   },
   {
-    contentTitle: `魅力的な沖縄の大自然の植物・生物の知識を収集できる!!`,
+    contentTitle: `観光情報には載っていない\nミステリーアドベンチャーツアー`,
     contentText: 
-    `亜熱帯沖縄の大自然、この島でしか見ることのできない動植物を知ることのできるフィールドワークも同時に行います。
-
-    珍しい生物を身近にふれることができるのも人気の理由です！！`,
+    `歴史・聖地巡りがライフワークのワンオーシャンだから案内できる、沖縄ミステリーアドベンチャーツアー。
+    いにしえの琉球の歴史を知りたい！！だれも知らないパワースポットの行きたい!!など、ぜひご要望ください。`,
     className: "iso-target fadein-opacity flex-1 lg:mt-0 lg:pt-[2rem] feature relative px-4 my-12 max-w-[500px] mx-auto lg:delay-[300ms]",
     alt: "マングローブカヤック写真"
   },
   {
     contentTitle: 
-    `親も子も楽しめます！！\n季節問わず大自然に癒やされる`,
+    `当日予約OK、手ぶらで気軽に楽しめる!!`,
     contentText: 
-    `お子様と自然体験をしたい。 沖縄ならではの自然体験を気軽に満喫したい。と思う人にはもってこいのツアーです。
-    本格的なプログラムですが、大人から子供までいろいろな方々に合わせたオリジナルのプログラムを提供しています。`,
+    `当日予約OKで、気軽にツアーに参加できます。
+    また、手ぶらで参加できるので急な予定変更にも対応できます。お気軽にご連絡くださいませ。
+    
+    ※当日の天候、スケジュールにより開催できない場合がございます、ご了承くださいませ。`,
     className: "iso-target fadein-opacity flex-1 lg:mt-0 feature relative px-4 my-12 max-w-[500px] mx-auto lg:delay-[600ms]",
     alt: "マングローブカヤックを楽しむ親子"
   }
@@ -74,19 +106,20 @@ const menuContents = [
 const MenuInfo = [
   {
     title: `料金`,
-    desc: `お客様のご要望に合わせてツアープログラムを作成する為、料金は要相談になります。`
+    // desc: `お客様のご要望に合わせてツアープログラムを作成する為、料金は要相談になります。`
+    muiPrice: {InfoPrice}
   },
   {
     title: `所要時間`,
-    desc: `約90分`
+    desc: `約３時間`
   },
   {
     title: `参加年齢`,
-    desc: `どなたでもご参加頂けますプログラムを作成致します。ご相談ください。`
+    desc: `幼児からOK 幼児でも楽しめる代替地あり`
   },
   {
     title: `開催時間`,
-    desc: `安全を第一に、お客様のご要望にそった時間帯でツアーを行います。`
+    desc: `安全を考慮した時刻の開催とさせていただきます`
   },
   {
     title: `集合場所`,
@@ -193,8 +226,8 @@ const Kayak = ({ data }) => {
       <MenuHero
         heroImg = {heroImg}
         heroImgPc= {heroImgPc}
-        heroTitle= "親子結プログラム"
-        heroSubTitle= {`保育園児・学童クラブ・しょうがい児\nしょうがい者受け入れ可能`}
+        heroTitle= "古代琉球ムイツアー"
+        heroSubTitle= {`古琉球の扉をひらくオリジナルツアー`}
         color= "navy"
       />
       <MenuIntro
@@ -216,6 +249,7 @@ const Kayak = ({ data }) => {
         MenuInfo = {MenuInfo}
         color = "navy"
         menuInfoHeader = {KayakInfoHeader}
+        infoPrice = {InfoPrice}
       />
       <MenuSchedule
         schedulePics = {schedulePics}
