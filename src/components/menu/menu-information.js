@@ -1,11 +1,11 @@
 import React from 'react'
 import Wave from '../svg/wave'
+import { Link } from 'gatsby'
 
 // import KayakInfoHeader from '../svg/kayak-info-header'
 import { BsCaretRightFill } from "react-icons/bs"
 
 const MenuInformation = (props) => {
-
   let color = props.color
   let MenuInfoHeader = props.menuInfoHeader
 
@@ -38,24 +38,69 @@ const MenuInformation = (props) => {
                     <th className='p-4 border col-span-2 text-left font-normal'>
                       {content.title}
                     </th>
-                    <td className='p-4 border col-span-4 whitespace-pre-wrap'>
-                      {content.desc}
-                      {
-                        content.aLinkName && (
-                          <div className="flex justify-center">
-                            <a 
-                              className={`font-semibold rounded-[12px] whitespace-nowrap flex items-center bg-${color} text-[14px] text-white my-2 py-2 px-4`}
-                              href={content.url}
-                            >
-                              <span>{content.aLinkName}</span>
-                              <BsCaretRightFill
-                                className='h-4 w-4'
-                              />
-                            </a>
-                          </div>
-                        )
-                      }
-                    </td>
+                    {
+                      content.muiPrice ? (
+                        <td id="mui-info" className='p-4 border col-span-4'>
+                          <p className='pb-2'>
+                            沖縄の拝所の歴史がわかる<br />
+                            <span className='text-navy'>
+                            ☆伊計島・御先世コース（ウサチユコース）☆<br />
+                            </span>
+                            １名様 8,000円　３名〜５名 6,000円
+                          </p>
+                          <hr/>
+                          <p className='py-2'>
+                            Instagramに上げた、竜宮神シリーズからここへ行きたいをピックアップ可能!!<br />
+                            <span className='text-navy'>
+                            ☆龍宮神巡りコース☆<br />
+                            </span>
+                            １名様 8,000円　３名〜５名 6,000円
+                          </p>
+                          <hr/>
+                          <p className='pt-2'>
+                            こことここ一緒に行きたい!!オーダーメイド制<br />
+                            <span className='text-navy'>
+                            ☆おまかせムイツアー☆<br />
+                            </span>
+                            料金要相談
+                          </p>
+                        </td>
+                      ) : (
+                        <td className='p-4 border col-span-4 whitespace-pre-wrap'>
+                          {content.desc}
+                          {
+                            content.aLinkName && (
+                              <div className="flex justify-center">
+                                <a 
+                                  className={`font-semibold rounded-[12px] whitespace-nowrap flex items-center bg-${color} text-[14px] text-white my-2 py-2 px-4`}
+                                  href={content.url}
+                                >
+                                  <span>{content.aLinkName}</span>
+                                  <BsCaretRightFill
+                                    className='h-4 w-4'
+                                  />
+                                </a>
+                              </div>
+                            )
+                          }
+                          {
+                            content.linkName && (
+                              <div className="flex justify-center">
+                                <Link
+                                  className={`font-semibold rounded-[12px] whitespace-nowrap flex items-center bg-${color} text-[14px] text-white my-2 py-2 px-4`}
+                                  to={content.url}
+                                >
+                                  <span>{content.linkName}</span>
+                                  <BsCaretRightFill
+                                    className='h-4 w-4'
+                                  />
+                                </Link>
+                              </div>
+                            )
+                          }
+                        </td>
+                      )
+                    }
                   </tr>
                 ))
               }

@@ -26,8 +26,8 @@ import "./index.scss"
 const IntroH3 = () => {
   return (
     <span className='iso-target fadein-opacity'>
-      チャレンジ♪滝壺ダイブ！<br className='lg:hidden' />
-      リバートレッキングで自然を満喫
+      「人と人が、助け合いながら進む!!」<br className="xl:hidden"/>
+      をテーマしたオリジナルプログラム
     </span>
   )
 }
@@ -35,11 +35,11 @@ const IntroH3 = () => {
 const IntroP = () => {
   return (
     <p className='lg:w-[80%] xl:text-[1.2rem] mx-auto'>
-      沖縄県北部ヤンバルは、壮大な自然、原生林が多く残り「東洋のガラパゴス」と称されるほど、 そのヤンバルの豊かな自然の中にター滝はあります。<br/>
+      お客様から頂いた「こんなメニュー作って！！」というご要望にお答えして出来上がった「親子結プログラム」<br/>
       <br/>
-      ター滝トレッキングのコースは「水路」「陸路」の2つ。 参加者に合わせて、体力に自信がない方、初心者でも気軽にター滝までのリバートレッキングが楽しめます。<br/>
-      <br/>
-      沖縄の自然の中、ご家族で、カップルで、お友達どうしで、 リバートレッキングで思い出の1ページを！
+      参加するグループにあわせてオリジナルにプログラムを作成します。
+      小さいお子様も参加できる、優しいメニューですが内容は本格的です!!<br/>
+      お気軽にお問合わせください。
     </p>
   )
 }
@@ -52,14 +52,20 @@ const menuContents = [
     alt: "大浦湾マングローブ林"
   },
   {
-    contentTitle: `ターザンアドベンチャー\n名物!!滝つぼダイブで大興奮♫`,
-    contentText: "原生林に過去まれた大人気のリバートレッキング!!\nプチロッククライミングや、ターザンアドベンチャーでアスレチック感満載♫\n滝つぼダイブでは大興奮間違いなし。キジムナーにも会えちゃうかも!?",
+    contentTitle: `魅力的な沖縄の大自然の植物・生物の知識を収集できる!!`,
+    contentText: 
+    `亜熱帯沖縄の大自然、この島でしか見ることのできない動植物を知ることのできるフィールドワークも同時に行います。
+
+    珍しい生物を身近にふれることができるのも人気の理由です！！`,
     className: "iso-target fadein-opacity flex-1 lg:mt-0 lg:pt-[2rem] feature relative px-4 my-12 max-w-[500px] mx-auto lg:delay-[300ms]",
     alt: "マングローブカヤック写真"
   },
   {
-    contentTitle: "あなたは水路派？陸路派？\n選べるコースで誰でも楽しめちゃう",
-    contentText: "亜熱帯の大自然の森のなかにあるター滝\nコースは陸路、水路をチョイス。初心者でも楽しめるのがター滝が人気の理由!!\n親子三世代で楽しめる、ご家族にも人気のツアーです。",
+    contentTitle: 
+    `親も子も楽しめます！！\n季節問わず大自然に癒やされる`,
+    contentText: 
+    `お子様と自然体験をしたい。 沖縄ならではの自然体験を気軽に満喫したい。と思う人にはもってこいのツアーです。
+    本格的なプログラムですが、大人から子供までいろいろな方々に合わせたオリジナルのプログラムを提供しています。`,
     className: "iso-target fadein-opacity flex-1 lg:mt-0 feature relative px-4 my-12 max-w-[500px] mx-auto lg:delay-[600ms]",
     alt: "マングローブカヤックを楽しむ親子"
   }
@@ -68,21 +74,23 @@ const menuContents = [
 const MenuInfo = [
   {
     title: `料金`,
-    desc: `大人 6,800円\n子供 5,800円\n幼児 2,400円(4才児以下)`
+    desc: `お客様のご要望に合わせてツアープログラムを作成する為、料金は要相談になります。`
   },
   {
     title: `所要時間`,
-    desc: `約120分`
+    desc: `約90分`
   },
   {
     title: `参加年齢`,
-    desc: `幼児からOK 幼児でも楽しめる代替地あり`
+    desc: `どなたでもご参加頂けますプログラムを作成致します。ご相談ください。`
+  },
+  {
+    title: `開催時間`,
+    desc: `安全を第一に、お客様のご要望にそった時間帯でツアーを行います。`
   },
   {
     title: `集合場所`,
-    desc: `前田食堂前\n住所 沖縄県国頭郡大宜味村字津波985\n※予約時間１０分前集合です。`,
-    aLinkName: `Map`,
-    url: `https://goo.gl/maps/Yrdw6Cf29TgNx1DV8`
+    desc: `プログラムによって集合場所は異なります。\n※予約時間１０分前集合です。`,
   },
   {
     title: `料金にふくまれるもの`,
@@ -94,7 +102,7 @@ const MenuInfo = [
   },
   {
     title: `備考`,
-    desc: `濡れても良いお洋服でお越し下さい。\n天候によりますが、ガイドの 判断でツアーを中止する場合 がございます。 ご了承くださいませ。\n\nタオルのレンタル可能です、 ご予約時にお申し込みください。\n\n※下記の注意事項をツアー参加 前に必ずお読みくださいませ。`,
+    desc: `汚れても良いお洋服でお越し下さい。\n天候によりますが、ガイドの 判断でツアーを中止する場合 がございます。 ご了承くださいませ。\n\nタオルのレンタル可能です、 ご予約時にお申し込みください。\n\n※下記の注意事項をツアー参加 前に必ずお読みくださいませ。`,
     linkName: `注意事項`,
     url: `/coution`
   },
@@ -111,34 +119,32 @@ const menuSchedule = [
   {
     alt: "わんさか大浦パーク道路看板",
     title: `2.現地にて集合`,
-    text: `前田食堂前での待ち合わせをお願い致します。\n沖縄自動車道、許田ICより２７分ほどの場所にございます。\n現地までのドライブも爽快で気持ちいいです！！`,
-    aLinkName: `地図はコチラ`,
-    url: `https://goo.gl/maps/Yrdw6Cf29TgNx1DV8`
+    text: `ご要望により作成したプログラムにて集合場所をお伝え致します。\nお客さまのご希望の集合場所でもOKです！！`,
   },
   {
     alt: "着替え",
     title: `3.お着替え・装備装着`,
-    text: `濡れてもいいお洋服にお着替えをお願い致します。\nまた安全のためライフジャケット・ブーツの着用は必須とさせていただいています。\n(ライフジャケット・ブーツはこちらでご用意させて頂きます)`,
+    text: `動きやすいお洋服にお着替えをお願い致します。\nツアー場所によっては、安全のための装備装着をお願いする場合もございます。`,
   },
   {
-    alt: "カヤックレクチャー",
-    title: `4.トレッキングレクチャー`,
-    text: `ター滝トレッキング内容の確認、注意点、ハンドシグナル（ジェスチャーによる意思表示）などのレクチャーを行います。`,
+    alt: "結プログラムレクチャー",
+    title: `4.結プログラムレクチャー`,
+    text: ` コース内容の確認、注意点、ハンドシグナル（ジェスチャーによる意思表示）などのみなさまの安全の確認のためレクチャーを行います。`,
   },
   {
     alt: "カヤック乗り込む",
-    title: `5.ター滝へ向けいざ出発!!`,
-    text: `さぁ！！！レクチャーも終わり装備の確認をして\nいざ、ター滝トレッキング開始！`,
+    title: `5.ユイツアーへいざ出発!!`,
+    text: `レクチャーも終わり、いよいよ出発。\n安全を確認し、みなで助け合い大自然を楽しみましょう。`,
   },
   {
     alt: "大浦湾マングローブの林",
-    title: `6.陸路？水路？どっちを選ぶ!?`,
-    text: `ワイルドにター滝に進んでいける陸路。\nロープを使ってお子様でも登れます。沖縄特有の亜熱帯性植物の中を進み、冒険気分を味わえること間違いなし！\n\n河の中を歩いてもいけます。少し火照った体をクールダウンしてくれます。`,
+    title: `6.大自然をみんなで楽しむ`,
+    text: `ふだん訪れることのできない、自然豊かな場所へお連れします。\n存分に自然にふれあい、癒やされ楽しみましょう!!`,
   },
   {
     alt: "カヤックでくつろぐ親子",
-    title: `7.目的地のター滝へ到着`,
-    text: `目的地のター滝到着。開放的な気分になれること間違いなし！\n滝ときたら？修行しても良し。眺めても良し。アナタだけのオリジナルな遊び方を見つけてみよ♪`,
+    title: `7.開放感を共有する`,
+    text: `プログラムのテーマである「親と子、人と人との助け合い。\nツアーのみんなで和気あいあい楽しみ、助け合いながら自然との一体感を共有しよう。`,
   },
   {
     alt: "ワンオーシャン記念写真",
@@ -187,34 +193,34 @@ const Kayak = ({ data }) => {
       <MenuHero
         heroImg = {heroImg}
         heroImgPc= {heroImgPc}
-        heroTitle= "ター滝アドベンチャー"
-        heroSubTitle= "世界遺産のター滝をトレッキング"
-        color= "main-blue"
+        heroTitle= "親子結プログラム"
+        heroSubTitle= {`保育園児・学童クラブ・しょうがい児\nしょうがい者受け入れ可能`}
+        color= "pink"
       />
       <MenuIntro
         IntroH3 = {IntroH3}
         IntroP = {IntroP}
         IntroPic1 = {introPic1}
         IntroPic2 = {introPic2}
-        color = "main-blue"
+        color = "pink"
       />
       <MenuContents
         ContentsPic1 = {contentsPic1}
         ContentsPic2 = {contentsPic2}
         ContentsPic3 = {contentsPic3}
-        color = "main-blue"
+        color = "pink"
         menuContents = {menuContents}
         menuContentsHeader = {KayakContentsHeader}
       />
       <MenuInformation
         MenuInfo = {MenuInfo}
-        color = "main-blue"
+        color = "pink"
         menuInfoHeader = {KayakInfoHeader}
       />
       <MenuSchedule
         schedulePics = {schedulePics}
         menuSchedule = {menuSchedule}
-        color = "main-blue"
+        color = "pink"
         contactButtom = {KayakContactButton}
       />
       <MenuEmotion
@@ -228,12 +234,12 @@ const Kayak = ({ data }) => {
 
 export const query = graphql`
   query {
-    kayakHero: file(relativePath: {eq: "menu/trekking/trekking-hero-pic1.jpg"}) {
+    kayakHero: file(relativePath: {eq: "menu/kayak/kayak-hero.jpg"}) {
     childImageSharp {
       gatsbyImageData(layout: FULL_WIDTH)
     }
   }
-    kayakHeroPc: file(relativePath: {eq: "menu/trekking/trekking-hero-pic1.jpg"}) {
+    kayakHeroPc: file(relativePath: {eq: "menu/kayak/kayak-hero-pc.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
@@ -311,6 +317,6 @@ export const query = graphql`
   }
 `
 
-export const Head = () => <Seo title="ター滝トレッキング | ワンオーシャン" />
+export const Head = () => <Seo title="親子結プログラム | ワンオーシャン" />
 
 export default Kayak
