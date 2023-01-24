@@ -30,6 +30,7 @@ const Feature = () => {
                   <StaticImage
                     src="../../images/feature/feature-pic1.jpg"
                     alt="親子カヤックの写真"
+                    className="aspect-[3/2]"
                   />
                   <div className="relative">
                     <div className="feature-subtitle relative -mt-8 -ml-4 w-full">
@@ -54,6 +55,7 @@ const Feature = () => {
                   <StaticImage
                     src="../../images/feature/feature-pic2.jpg"
                     alt="ター滝の写真"
+                    className="aspect-[3/2]"
                   />
                   <div className="relative">
                     <div className="feature-subtitle relative -mt-8 -ml-4 w-full">
@@ -80,6 +82,7 @@ const Feature = () => {
                   <StaticImage
                     src="../../images/feature/feature-pic3.jpg"
                     alt="親子カヤックの写真"
+                    className="aspect-[3/2]"
                   />
                   <div className="relative">
                     <div className="feature-subtitle relative -mt-8 -ml-4 w-full">
@@ -108,6 +111,7 @@ const Feature = () => {
                   <StaticImage
                     src="../../images/feature/feature-pic4.jpg"
                     alt="親子カヤックの写真"
+                    className="aspect-[3/2]"
                   />
                   <div className="relative">
                     <div className="feature-subtitle relative -mt-8 -ml-4 w-full">
@@ -131,7 +135,8 @@ const Feature = () => {
                   </div>
                   <StaticImage
                     src="../../images/feature/feature-pic5.jpg"
-                    alt="親子カヤックの写真"
+                    alt="３世代でトレッキング"
+                    className="aspect-[3/2]"
                   />
                   <div className="relative">
                     <div className="feature-subtitle relative -mt-8 -ml-4 w-full">
@@ -156,6 +161,7 @@ const Feature = () => {
                   </div>
                   <StaticImage
                     src="../../images/feature/feature-pic6.jpg"
+                    className="aspect-[3/2]"
                     alt="親子カヤックの写真"
                   />
                   <div className="relative">

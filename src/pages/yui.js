@@ -236,42 +236,42 @@ const Kayak = ({ data }) => {
 
 export const query = graphql`
   query {
-    kayakHero: file(relativePath: {eq: "menu/kayak/kayak-hero.jpg"}) {
+    kayakHero: file(relativePath: {eq: "menu/yui/yui-hero-pc.jpg"}) {
     childImageSharp {
       gatsbyImageData(layout: FULL_WIDTH)
     }
   }
-    kayakHeroPc: file(relativePath: {eq: "menu/kayak/kayak-hero-pc.jpg"}) {
+    kayakHeroPc: file(relativePath: {eq: "menu/yui/yui-hero-pc.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakIntro1: file(relativePath: {eq: "menu/kayak/intro1.jpg"}) {
+    kayakIntro1: file(relativePath: {eq: "menu/yui/yui-intro1.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakIntro2: file(relativePath: {eq: "menu/kayak/intro2.jpg"}) {
+    kayakIntro2: file(relativePath: {eq: "menu/yui/yui-intro2.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakContentsPic1: file(relativePath: {eq: "menu/kayak/kayak-contents-pic1.jpg"}) {
+    kayakContentsPic1: file(relativePath: {eq: "menu/yui/yui-contents-pic1.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakContentsPic2: file(relativePath: {eq: "menu/kayak/kayak-contents-pic2.jpg"}) {
+    kayakContentsPic2: file(relativePath: {eq: "menu/yui/yui-contents-pic2.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakContentsPic3: file(relativePath: {eq: "menu/kayak/kayak-contents-pic3.jpg"}) {
+    kayakContentsPic3: file(relativePath: {eq: "menu/yui/yui-contents-pic3.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakEmotion: file(relativePath: {eq: "menu/kayak/kayak-emotion.jpg"}) {
+    kayakEmotion: file(relativePath: {eq: "menu/yui/yui-emotion.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
@@ -281,37 +281,37 @@ export const query = graphql`
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakSchedulePic2: file(relativePath: {eq: "menu/kayak/kayak-schedule-place.jpg"}) {
+    kayakSchedulePic2: file(relativePath: {eq: "menu/yui/yui-schedule-place.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakSchedulePic3: file(relativePath: {eq: "menu/kayak/kayak-schedule-changeclothes.jpg"}) {
+    kayakSchedulePic3: file(relativePath: {eq: "menu/yui/yui-schedule-cloths.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakSchedulePic4: file(relativePath: {eq: "menu/kayak/kayak-schedule-lecture.jpg"}) {
+    kayakSchedulePic4: file(relativePath: {eq: "menu/yui/yui-schedule-lecture.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakSchedulePic5: file(relativePath: {eq: "menu/kayak/kayak-schedule-start.jpg"}) {
+    kayakSchedulePic5: file(relativePath: {eq: "menu/yui/yui-schedule-start.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakSchedulePic6: file(relativePath: {eq: "menu/kayak/kayak-contents-pic1.jpg"}) {
+    kayakSchedulePic6: file(relativePath: {eq: "menu/yui/yui-schedule-enjoy.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakSchedulePic7: file(relativePath: {eq: "menu/kayak/kayak-schedule-openness.jpg"}) {
+    kayakSchedulePic7: file(relativePath: {eq: "menu/yui/yui-schedule-openness.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakSchedulePic8: file(relativePath: {eq: "menu/kayak/kayak-schedule-photo.jpg"}) {
+    kayakSchedulePic8: file(relativePath: {eq: "menu/yui/yui-schedule-photo.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }

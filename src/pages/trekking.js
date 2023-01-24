@@ -240,32 +240,27 @@ export const query = graphql`
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakIntro1: file(relativePath: {eq: "menu/kayak/intro1.jpg"}) {
+    kayakIntro1: file(relativePath: {eq: "menu/trekking/trekking-intro-pic1.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakIntro2: file(relativePath: {eq: "menu/kayak/intro2.jpg"}) {
+    kayakIntro2: file(relativePath: {eq: "menu/trekking/trekking-intro-pic2.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakContentsPic1: file(relativePath: {eq: "menu/kayak/kayak-contents-pic1.jpg"}) {
+    kayakContentsPic1: file(relativePath: {eq: "menu/trekking/trekking-contents-pic1.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakContentsPic2: file(relativePath: {eq: "menu/kayak/kayak-contents-pic2.jpg"}) {
+    kayakContentsPic2: file(relativePath: {eq: "menu/trekking/trekking-contents-pic2.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakContentsPic3: file(relativePath: {eq: "menu/kayak/kayak-contents-pic3.jpg"}) {
-      childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
-      }
-    }
-    kayakEmotion: file(relativePath: {eq: "menu/kayak/kayak-emotion.jpg"}) {
+    kayakContentsPic3: file(relativePath: {eq: "menu/trekking/trekking-contents-pic3.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
@@ -275,37 +270,42 @@ export const query = graphql`
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakSchedulePic2: file(relativePath: {eq: "menu/kayak/kayak-schedule-place.jpg"}) {
+    kayakSchedulePic2: file(relativePath: {eq: "menu/trekking/trekking-schedule-place.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakSchedulePic3: file(relativePath: {eq: "menu/kayak/kayak-schedule-changeclothes.jpg"}) {
+    kayakSchedulePic3: file(relativePath: {eq: "menu/trekking/trekking-schedule-clothes.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakSchedulePic4: file(relativePath: {eq: "menu/kayak/kayak-schedule-lecture.jpg"}) {
+    kayakSchedulePic4: file(relativePath: {eq: "menu/trekking/trekking-schedule-lecture.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakSchedulePic5: file(relativePath: {eq: "menu/kayak/kayak-schedule-start.jpg"}) {
+    kayakSchedulePic5: file(relativePath: {eq: "menu/trekking/trekking-schedule-start.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakSchedulePic6: file(relativePath: {eq: "menu/kayak/kayak-contents-pic1.jpg"}) {
+    kayakSchedulePic6: file(relativePath: {eq: "menu/trekking/trekking-chose.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakSchedulePic7: file(relativePath: {eq: "menu/kayak/kayak-schedule-openness.jpg"}) {
+    kayakSchedulePic7: file(relativePath: {eq: "menu/trekking/trekking-schedule-goal.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakSchedulePic8: file(relativePath: {eq: "menu/kayak/kayak-schedule-photo.jpg"}) {
+    kayakSchedulePic8: file(relativePath: {eq: "menu/trekking/trekking-photo.jpg"}) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+    kayakEmotion: file(relativePath: {eq: "menu/trekking/emotion.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
