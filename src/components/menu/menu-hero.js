@@ -2,7 +2,9 @@ import React from 'react'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 const MenuHero = ( props ) => {
+  console.log(props)
 
+  let mui = props.mui
   let heroImg = props.heroImg
   let heroImgPc = props.heroImgPc
   let heroTitle = props.heroTitle
@@ -18,11 +20,22 @@ const MenuHero = ( props ) => {
           alt="メニューヒーロー写真"
           
         />
-        <GatsbyImage
-          className="absolute top-0 left-0 right-0 bottom-0 hidden md:block"
-          image={heroImgPc}
-          alt="メニューPCヒーロー写真"
-        />
+        {
+          mui ? (
+            <GatsbyImage
+              className="absolute top-0 left-0 right-0 bottom-0 hidden md:block"
+              image={heroImgPc}
+              objectPosition="50% 90%"
+              alt="メニューPCヒーロー写真"
+            />
+          ) : (
+            <GatsbyImage
+              className="absolute top-0 left-0 right-0 bottom-0 hidden md:block"
+              image={heroImgPc}
+              alt="メニューPCヒーロー写真"
+            />
+          )
+        }
       </div>
       <div className="absolute w-[92%] h-[94%] border-white border-2 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 rounded-[12px] rounded-tr-none"></div>
       <div className={`max-w-[900px] rounded-[12px] w-[80%] absolute text-white bottom-0 left-[50%] -translate-x-[50%] bg-${color}`}>

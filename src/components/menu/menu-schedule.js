@@ -64,7 +64,7 @@ const MenuSchedule = (props) => {
                         )
                       }
                       <GatsbyImage
-                        className='my-4 rounded-[12px]'
+                        className='my-4 rounded-[12px] aspect-[3/2]'
                         image={props.schedulePics[i]}
                         alt={content.alt}
                       />
@@ -77,7 +77,7 @@ const MenuSchedule = (props) => {
         </div>
         
         {/* PC TIME SCHEDULE */}
-        <div id="pc-kayak-schedule" className="hidden lg:block mt-12 max-w-[800px] mx-auto">
+        <div id="pc-kayak-schedule" className="hidden lg:block mt-12 max-w-[800px] xl:max-w-[1000px] mx-auto">
           {
             props.menuSchedule.map((content, i) => {
               return (
@@ -126,7 +126,7 @@ const MenuSchedule = (props) => {
                         )
                       }
                       <GatsbyImage
-                        className='my-4 rounded-[12px]'
+                        className='my-4 rounded-[12px] aspect-[3/2]'
                         image={props.schedulePics[i]}
                         alt={content.alt}
                       />

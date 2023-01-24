@@ -275,11 +275,6 @@ export const query = graphql`
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakEmotion: file(relativePath: {eq: "menu/kayak/kayak-emotion.jpg"}) {
-      childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
-      }
-    }
     kayakSchedulePic1: file(relativePath: {eq: "menu/kayak/kayak-schedule-contact.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
@@ -316,6 +311,11 @@ export const query = graphql`
       }
     }
     kayakSchedulePic8: file(relativePath: {eq: "menu/kayak/kayak-schedule-photo.jpg"}) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+    kayakEmotion: file(relativePath: {eq: "menu/kayak/kayak-emotion.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
