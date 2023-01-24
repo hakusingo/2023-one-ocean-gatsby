@@ -143,14 +143,14 @@ const Header = () => {
             </li>
             <li className="">
               <Link
-                to={'/reserve'}
+                to={'/notes'}
               >
                 注意事項
               </Link>
             </li>
             <li className="">
               <Link
-                to={'/reserve'}
+                to={'/policy'}
               >
                 プライバシーポリシー
               </Link>

@@ -107,7 +107,7 @@ const MenuInfo = [
     title: `備考`,
     desc: `濡れても良いお洋服でお越し下さい。\n天候によりますが、ガイドの 判断でツアーを中止する場合 がございます。 ご了承くださいませ。\n\nタオルのレンタル可能です、 ご予約時にお申し込みください。\n\n※下記の注意事項をツアー参加 前に必ずお読みくださいませ。`,
     linkName: `注意事項`,
-    url: `/coution`
+    url: `/notes`
   },
 ]
 
@@ -230,7 +230,7 @@ const Kayak = ({ data }) => {
         menuInfoHeader = {KayakScheduleHeader}
       />
       <MenuEmotion
-        menuEmotionH3 = "マングローブは生物・植物の宝庫です"
+        menuEmotionH3 = "マングローブ林は生物・植物の宝庫です"
         menuEmotionP = {MenuEmotionP}
         emotion = {emotion}
       />
