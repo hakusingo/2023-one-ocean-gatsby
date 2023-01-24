@@ -2,20 +2,21 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
-import MenuScheduleHeader from '../svg/menu-schedule-header'
+// import MenuScheduleHeader from '../svg/menu-schedule-header'
 
 const MenuSchedule = (props) => {
 
   let propsArry = props.schedulePics.length
   let color = props.color
   let ContactButtom = props.contactButtom
+  let ScheduleHeader = props.menuInfoHeader
 
   return (
     <section id="schedule" className='bg-gray-50'>
       <div className="section-container mb-16">
         <div className="iso-target pt-16 max-w-[500px] mx-auto">
           <h2>
-            <MenuScheduleHeader
+            <ScheduleHeader
               alt="マングローブカヤックのタイムスジェジュール"
             />
           </h2>
