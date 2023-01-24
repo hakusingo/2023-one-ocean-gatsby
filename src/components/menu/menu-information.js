@@ -41,7 +41,7 @@ const MenuInformation = (props) => {
                     {
                       content.muiPrice ? (
                         <td id="mui-info" className='p-4 border col-span-4'>
-                          <p className='pb-2'>
+                          <p className='pb-2 iso-target fadein-opacity'>
                             沖縄の拝所の歴史がわかる<br />
                             <span className='text-navy'>
                             ☆伊計島・御先世コース（ウサチユコース）☆<br />
@@ -49,7 +49,7 @@ const MenuInformation = (props) => {
                             １名様 8,000円　３名〜５名 6,000円
                           </p>
                           <hr/>
-                          <p className='py-2'>
+                          <p className='py-2 iso-target fadein-opacity'>
                             Instagramに上げた、竜宮神シリーズからここへ行きたいをピックアップ可能!!<br />
                             <span className='text-navy'>
                             ☆龍宮神巡りコース☆<br />
@@ -57,7 +57,7 @@ const MenuInformation = (props) => {
                             １名様 8,000円　３名〜５名 6,000円
                           </p>
                           <hr/>
-                          <p className='pt-2'>
+                          <p className='pt-2 iso-target fadein-opacity'>
                             こことここ一緒に行きたい!!オーダーメイド制<br />
                             <span className='text-navy'>
                             ☆おまかせムイツアー☆<br />

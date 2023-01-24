@@ -161,27 +161,27 @@ const menuSchedule = [
     text: `動きやすいお洋服にお着替えをお願い致します。\nツアー場所によっては、安全のための装備装着をお願いする場合もございます。`,
   },
   {
-    alt: "結プログラムレクチャー",
-    title: `4.結プログラムレクチャー`,
-    text: ` コース内容の確認、注意点、ハンドシグナル（ジェスチャーによる意思表示）などのみなさまの安全の確認のためレクチャーを行います。`,
+    alt: "レクチャー",
+    title: `4.レクチャー`,
+    text: `ツアー内容の確認、注意点、ハンドシグナル（ジェスチャーによる意思表示）などのレクチャーを行います。 聖地巡礼のマナーもお伝えします。`,
   },
   {
-    alt: "カヤック乗り込む",
-    title: `5.ユイツアーへいざ出発!!`,
-    text: `レクチャーも終わり、いよいよ出発。\n安全を確認し、みなで助け合い大自然を楽しみましょう。`,
+    alt: "ムイツアースタート",
+    title: `5.ムイツアーへいざ出発!!`,
+    text: `さぁ！！！レクチャーも終わり装備の確認をしていざ、ムイツアー開始。\nミステリーアドベンチャーツアーを楽しみもう♫`,
   },
   {
-    alt: "大浦湾マングローブの林",
-    title: `6.大自然をみんなで楽しむ`,
-    text: `ふだん訪れることのできない、自然豊かな場所へお連れします。\n存分に自然にふれあい、癒やされ楽しみましょう!!`,
+    alt: "ムイツアー",
+    title: `6.古琉球の歴史を巡る大冒険`,
+    text: `ミステリアスに包まれた琉球の歴史を楽しもう。\n地元民もなかなか知らない龍宮神や、拝しょをご案内致します。`,
   },
   {
-    alt: "カヤックでくつろぐ親子",
-    title: `7.開放感を共有する`,
-    text: `プログラムのテーマである「親と子、人と人との助け合い。\nツアーのみんなで和気あいあい楽しみ、助け合いながら自然との一体感を共有しよう。`,
+    alt: "7.大自然も満喫!!",
+    title: `7.大自然も満喫!!`,
+    text: `ムイツアーでご案内する場所は、大自然に囲まれている場所もおおく素晴らしい景観も楽しめます。\n神秘的な場所で、また自然に囲まれたなかで新しいパワーをいただこう。`,
   },
   {
-    alt: "ワンオーシャン記念写真",
+    alt: "ムイツアー記念写真",
     title: `8.記念写真・解散`,
     text: `お疲れさまでした。\nみんなで、笑顔の記念写真を撮って解散。また、一緒に沖縄の自然を楽しみましょう〜♫`,
   },
@@ -326,7 +326,7 @@ export const query = graphql`
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakSchedulePic4: file(relativePath: {eq: "menu/kayak/kayak-schedule-lecture.jpg"}) {
+    kayakSchedulePic4: file(relativePath: {eq: "menu/trekking/trekking-schedule-lecture.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
@@ -341,7 +341,7 @@ export const query = graphql`
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakSchedulePic7: file(relativePath: {eq: "menu/mui/mui-schedule-openness.jpg"}) {
+    kayakSchedulePic7: file(relativePath: {eq: "menu/mui/nature.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }

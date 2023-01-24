@@ -2,7 +2,6 @@ import React from 'react'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 const MenuHero = ( props ) => {
-  console.log(props)
 
   let mui = props.mui
   let heroImg = props.heroImg
