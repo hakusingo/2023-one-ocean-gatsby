@@ -11,7 +11,7 @@ const Hero = () => {
         src="../../images/hero/hero-pic1.jpg"
         alt="ター滝ツアーの写真"
         objectPosition="30% 50%"
-        placeholder="white"
+        placeholder="blurred"
       />
       {/* <Swiper
         className="hero-image absolute top-0 left-0 bottom-0 right-0 -z-10"
