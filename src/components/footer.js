@@ -66,6 +66,13 @@ const Footer = () => (
           </li>
           <li>
             <Link
+              to={'/reserve'}
+            >
+              ご予約
+            </Link>
+          </li>
+          <li>
+            <Link
               to={'/contact'}
             >
               お問合わせ
@@ -73,9 +80,16 @@ const Footer = () => (
           </li>
           <li>
             <Link
-              to={'/reserve'}
+              to={'/notes'}
             >
-              ご予約
+              注意事項
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={'/policy'}
+            >
+              プライバシーポリシー
             </Link>
           </li>
         </ul>
@@ -149,16 +163,16 @@ const Footer = () => (
             </li>
             <li>
               <Link
-                to={'/contact'}
+                to={'/reserve'}
               >
-                お問合わせ
+                ご予約
               </Link>
             </li>
             <li>
               <Link
-                to={'/reserve'}
+                to={'/contact'}
               >
-                ご予約
+                お問合わせ
               </Link>
             </li>
             <li>
