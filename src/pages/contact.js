@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
 
+import Wave from '../components/svg/wave'
 import Layout from '../components/layout'
 import ContactHeader from '../components/svg/conatct-header'
 import ContactForm from '../components/contact-form'
@@ -36,7 +37,7 @@ const contact = () => {
           </h2>
         </div>
       </section>
-      <section id="reserve" className="bg-light-yellow pb-12">
+      <section id="reserve" className="bg-light-yellow pb-[8rem]">
         <div className="section-container">
           <div className="iso-target pt-16 max-w-[500px] mx-auto">
             <h2>
@@ -59,6 +60,20 @@ const contact = () => {
           </div>
           <ContactPhoneSns/>
           <ContactForm/>
+        </div>
+        <div
+          className="lg:hidden"
+        >
+          <Wave
+            color = "main-blue"
+          />
+        </div>
+        <div
+          className='hidden lg:block'
+        >
+          <Wave
+            color = "white"
+          />
         </div>
       </section>
     </Layout>

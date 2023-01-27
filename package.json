@@ -7,6 +7,7 @@
   "dependencies": {
     "@fontsource/noto-sans-jp": "^4.5.12",
     "@fontsource/zen-maru-gothic": "^4.5.16",
+    "@sendgrid/mail": "^7.7.0",
     "add": "^2.0.6",
     "gatsby": "^5.4.0",
     "gatsby-plugin-image": "^3.4.0",
