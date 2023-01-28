@@ -17,7 +17,8 @@ export default async function formHandler(req, res) {
     <p>お名前：${body.formName}</p>
     <p>アドレス：${body.formEmail}</p>
     <p>電話番号: ${body.phone}</p>
-    <p>お問合わせ内容：${body.message}</p>`,
+    <p>ツアー内容: ${body.menu}</p>
+    <p style="white-space: pre-wrap;">お問合わせ内容：${body.message}</p>`,
   }
 
   const responses = sgMail.send(mailData)

@@ -4,37 +4,33 @@ import { Link } from 'gatsby'
 import ContactComplete from './contact-complete'
 
 const ContactForm = () => {
-  const [value, setValue] = useState( { menu: "マングローブカヤック" } )
+
+  const [value, setValue] = useState({})
   const [serverResponse, setServerResponse] = useState(``)
 
-  // ラジオボタン
-  const [tourMenu, setTourMenu] = useState("マングローブカヤック")
-
-  const TOUR_MENU_RADIO = ["マングローブカヤック", "ター滝アドベンチャー", "親子結プログラム", "オリジナルムイツアー", "その他"]
-  
   // フォームの入力内容をリアルタイムでリッスンし仮保存しておく関数②.
   function handleChange(e) {
       value[e.target.id] = e.target.value
       setServerResponse(``)
       setValue({ ...value })
   }
+
   // フォームが送信されたら、送信処理のために
   // 入力内容（values）をapi/send.jsに送る関数①.
   async function onSubmit(e) {
-    e.preventDefault()
-    const response = await window
-    .fetch(`/api/send`, {
-        method: `POST`,
-        headers: {
-        "content-type": "application/json",
-        },
-        body: JSON.stringify(value),
-    })
-    .then(res => res.json())
-    setServerResponse(response)
-    setValue(``) // フォームの入力内容をカラにする.
-
-    console.log("送信完了")
+      e.preventDefault()
+      const response = await window
+      .fetch(`/api/send`, {
+          method: `POST`,
+          headers: {
+          "content-type": "application/json",
+          },
+          body: JSON.stringify(value),
+      })
+      .then(res => res.json())
+      setServerResponse(response)
+      setValue(``) // フォームの入力内容をカラにする.
+      console.log("送信完了")
   }
 
   return (
@@ -108,34 +104,6 @@ const ContactForm = () => {
                     className="w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" 
                   />
                 </div>
-                <div className="mb-2">
-                  <p className="inline-block mb-2">ご希望のツアー</p>
-                  {
-                    TOUR_MENU_RADIO.map((menu) => {
-                      return (
-                        <label
-                          className='block text-center py-1 px-2'
-                          key={menu}
-                        >
-                          <input
-                            id="menu"
-                            type="radio"
-                            value={menu}
-                            name={menu}
-                            checked={tourMenu === menu}
-                            onChange={ 
-                              function(e) {
-                                setTourMenu(e.target.value)
-                                handleChange(e)
-                              }
-                            } 
-                          />
-                          {menu}
-                        </label>
-                      )
-                    })
-                  }
-                </div>
                 <div className="">
                   <label htmlFor='message' className=''>
                     ご予約に関するご質問・お問い合わせをご記入ください<span className='text-pink'>*</span>
@@ -182,6 +150,7 @@ const ContactForm = () => {
             </form>
           ) }
           
+ 
         </div>
       </div>
     </div>
