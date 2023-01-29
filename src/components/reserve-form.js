@@ -3,34 +3,38 @@ import { useState } from 'react'
 import { Link } from 'gatsby'
 import ContactComplete from './contact-complete'
 
-const ContactForm = () => {
-
-  const [value, setValue] = useState({})
+const ReserveForm = () => {
+  const [value, setValue] = useState( { menu: "マングローブカヤック" } )
   const [serverResponse, setServerResponse] = useState(``)
 
+  // ラジオボタン
+  const [tourMenu, setTourMenu] = useState("マングローブカヤック")
+
+  const TOUR_MENU_RADIO = ["マングローブカヤック", "ター滝アドベンチャー", "親子結プログラム", "オリジナルムイツアー", "その他"]
+  
   // フォームの入力内容をリアルタイムでリッスンし仮保存しておく関数②.
   function handleChange(e) {
       value[e.target.id] = e.target.value
       setServerResponse(``)
       setValue({ ...value })
   }
-
   // フォームが送信されたら、送信処理のために
   // 入力内容（values）をapi/send.jsに送る関数①.
   async function onSubmit(e) {
-      e.preventDefault()
-      const response = await window
-      .fetch(`/api/send`, {
-          method: `POST`,
-          headers: {
-          "content-type": "application/json",
-          },
-          body: JSON.stringify(value),
-      })
-      .then(res => res.json())
-      setServerResponse(response)
-      setValue(``) // フォームの入力内容をカラにする.
-      console.log("送信完了")
+    e.preventDefault()
+    const response = await window
+    .fetch(`/api/send`, {
+        method: `POST`,
+        headers: {
+        "content-type": "application/json",
+        },
+        body: JSON.stringify(value),
+    })
+    .then(res => res.json())
+    setServerResponse(response)
+    setValue(``) // フォームの入力内容をカラにする.
+
+    console.log("送信完了")
   }
 
   return (
@@ -53,9 +57,58 @@ const ContactForm = () => {
           { serverResponse ? <ContactComplete/> : (
             <form onSubmit={onSubmit}  method="POST" action="/api/send" name="contact" className="max-w-screen-md mx-auto px-4">
               <div className='mt-8'>
-                <h3 className='inline-block mb-4 font-semibold text-main-blue text-[1.2rem] md:text-[1.6rem]'>ご質問者様の情報記入</h3>
+                <h3 className='inline-block mb-4 font-semibold text-main-blue text-[1.2rem] md:text-[1.6rem]'>1. ご希望のコース</h3>
                 <div className="mb-2">
-
+                  <p className="inline-block mb-2">ご希望コース*</p>
+                  {
+                    TOUR_MENU_RADIO.map((menu) => {
+                      return (
+                        <label
+                          className='block text-center py-1 px-2'
+                          key={menu}
+                        >
+                          <input
+                            id="menu"
+                            type="radio"
+                            value={menu}
+                            name={menu}
+                            checked={tourMenu === menu}
+                            onChange={ 
+                              function(e) {
+                                setTourMenu(e.target.value)
+                                handleChange(e)
+                              }
+                            } 
+                          />
+                          {menu}
+                        </label>
+                      )
+                    })
+                  }
+                </div>
+                <div className="mb-2">
+                  <p htmlFor='date1' className='mb-2 col-span-1'>希望日1</p>
+                  <div className="grid grid-cols-2 gap-2">
+                    <input className='col-span-1 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2' id="date1" type="date"/>
+                    <input className='col-span-1 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2' type="time" />
+                  </div>
+                </div>
+                <div className="mb-2">
+                  <p htmlFor='date2' className='mb-2 col-span-1'>希望日2</p>
+                  <div className="grid grid-cols-2 gap-2">
+                    <input className='col-span-1 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2' id="date2" type="date"/>
+                    <input className='col-span-1 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2' type="time" />
+                  </div>
+                </div>
+                <div className="mb-2">
+                  <p htmlFor='date3' className='mb-2 col-span-1'>希望日3</p>
+                  <div className="grid grid-cols-2 gap-2">
+                    <input className='col-span-1 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2' id="date3" type="date"/>
+                    <input className='col-span-1 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2' type="time" />
+                  </div>
+                </div>
+                <h3 className='mt-8 inline-block mb-4 font-semibold text-main-blue text-[1.2rem] md:text-[1.6rem]'>2. 代表者情報</h3>
+                <div className="mb-2">
                   <label htmlFor="formName" className="inline-block mb-2">お名前<span className='text-pink'>*</span></label>
                   <input
                     required
@@ -64,6 +117,18 @@ const ContactForm = () => {
                     id="formName" 
                     placeholder="例)徳門 正尚"
                     value={value['formName'] || ``}
+                    onChange={handleChange}
+                    className="w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" />
+                </div>
+                <div className="mb-2">
+                  <label htmlFor="formName" className="inline-block mb-2">フリガナ<span className='text-pink'>*</span></label>
+                  <input
+                    required
+                    type="text"
+                    name="furigana" 
+                    id="furigana" 
+                    placeholder="トクジョウ マサナオ"
+                    value={value['furigana'] || ``}
                     onChange={handleChange}
                     className="w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" />
                 </div>
@@ -103,6 +168,49 @@ const ContactForm = () => {
                     onChange={handleChange}
                     className="w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" 
                   />
+                </div>
+                <h3 className='mt-8 inline-block mb-4 font-semibold text-main-blue text-[1.2rem] md:text-[1.6rem]'>3. 参加者情報</h3>
+                <div className="mb-2">
+                  <p>
+                    参加人数
+                  </p>
+                  <div className="mb-2">
+                    <label htmlFor='adalt' className="block mb-2 text-right">大人</label>
+                    <select id="adalt" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                      <option selected value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10名以上">10名以上</option>
+                    </select>
+                  </div>
+                  <div className="mb-2">
+                    <label htmlFor='child' className="block mb-2 text-right">子供</label>
+                    <select id="child" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                      <option selected value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10名以上">10名以上</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="mb-2">
+                  <p>
+                    参加者情報
+                  </p>
+                  
                 </div>
                 <div className="">
                   <label htmlFor='message' className=''>
@@ -150,11 +258,10 @@ const ContactForm = () => {
             </form>
           ) }
           
- 
         </div>
       </div>
     </div>
   )
 }
 
-export default ContactForm
+export default ReserveForm
