@@ -1,12 +1,12 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
-import { Link } from 'gatsby'
+// import { Link } from 'gatsby'
 
 import Wave from '../components/svg/wave'
 import Layout from '../components/layout'
-import ContactHeader from '../components/svg/conatct-header'
-import ContactForm from '../components/contact-form'
-import ContactPhoneSns from '../components/contact-phon-sns'
+import ReserveForm from '../components/reserve-form'
+import ReserveHeader from '../components/svg/reserve-header'
+import ReservePhoneSns from '../components/reserve-phone-sns'
 
 const contact = () => {
   return (
@@ -41,25 +41,18 @@ const contact = () => {
         <div className="section-container">
           <div className="iso-target pt-16 max-w-[500px] mx-auto">
             <h2>
-              <ContactHeader/>
+              <ReserveHeader/>
             </h2>
             <p className='w-[80%] mx-auto my-4'>
-              ご質問、ご不明な点がございましたら、下記のお電話、SNSまたはコンタクトフォームよりお気軽にお問合わせ下さい。<br />
+              ご予約はお電話、SNSまたはコンタクトフォームより承ります。<br />
               <br/>
               <span className='text-[14px]'>
                 ※こちらはお問合わせのページになります、ご予約は下記のリンク先よりお願い致します。
               </span>
             </p>
-            <div className="flex justify-center">
-              <Link
-                to={'/reserve'}
-                className="inline-block px-2 py-1 bg-main-blue text-[18px] text-white w-[70%] text-center rounded">
-                ご予約ページへ
-              </Link>
-            </div>
           </div>
-          <ContactPhoneSns/>
-          <ContactForm/>
+          <ReservePhoneSns/>
+          <ReserveForm />
         </div>
         <div
           className="lg:hidden"
