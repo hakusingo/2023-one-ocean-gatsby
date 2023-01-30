@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { Link } from 'gatsby'
 import ContactComplete from './contact-complete'
+import ReserveParticipant from './reserve-participant'
 
 const ReserveForm = () => {
   const [value, setValue] = useState( { menu: "マングローブカヤック" } )
@@ -176,7 +177,7 @@ const ReserveForm = () => {
                   </p>
                   <div className="mb-2">
                     <label htmlFor='adalt' className="block mb-2 text-right">大人</label>
-                    <select id="adalt" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <select id="adalt" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                       <option selected value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -191,7 +192,7 @@ const ReserveForm = () => {
                   </div>
                   <div className="mb-2">
                     <label htmlFor='child' className="block mb-2 text-right">子供</label>
-                    <select id="child" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <select id="child" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                       <option selected value="0">0</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -207,10 +208,20 @@ const ReserveForm = () => {
                   </div>
                 </div>
                 <div className="mb-2">
-                  <p>
+                  <p className='mb-2'>
                     参加者情報
                   </p>
-                  
+                  <p className='text-[14px] text-gray-800'>
+                    ※身長、体重、足のサイズ等、前日の電話で対応可能です。
+                  </p>
+                  <div className="" id="participant">
+                    <ol id="decimalList" className='list-decimal'>
+                      <li>
+                        <ReserveParticipant/>
+                      </li>
+                    </ol>
+                    <button id="btn" className='bg-gray-100 py-2 px-4 mx-auto block my-4 border-2 rounded-lg'>入力欄を追加する</button>
+                  </div>
                 </div>
                 <div className="">
                   <label htmlFor='message' className=''>
