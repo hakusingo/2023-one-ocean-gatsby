@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useState } from 'react'
 import { Link } from 'gatsby'
 import ContactComplete from './contact-complete'
@@ -12,12 +12,37 @@ const ReserveForm = () => {
   const [tourMenu, setTourMenu] = useState("マングローブカヤック")
 
   const TOUR_MENU_RADIO = ["マングローブカヤック", "ター滝アドベンチャー", "親子結プログラム", "オリジナルムイツアー", "その他"]
-  
+
+  // 参加者リストのロジック
+  const partList = [
+    {
+      id: 1,
+      name: "",
+      age: "",
+      sex: "",
+      height: "",
+      weight: "",
+      foot: "",
+      eyesight: "",
+      glasses: "",
+    },
+  ]
+  const [ participants, setParticipants ] = useState(partList)
+  const deleteParticipant = (id) => {
+    const newParticipants = participants.filter((participant) => {
+      return participant.id !== id
+    })
+    setParticipants(newParticipants)
+  }
+  const createParticipant = (participant) => {
+    setParticipants([...participants, participant])
+  }
+
   // フォームの入力内容をリアルタイムでリッスンし仮保存しておく関数②.
   function handleChange(e) {
-      value[e.target.id] = e.target.value
-      setServerResponse(``)
-      setValue({ ...value })
+    value[e.target.id] = e.target.value
+    setServerResponse(``)
+    setValue({ ...value })
   }
   // フォームが送信されたら、送信処理のために
   // 入力内容（values）をapi/send.jsに送る関数①.
@@ -124,7 +149,7 @@ const ReserveForm = () => {
                 <div className="mb-2">
                   <label htmlFor="formName" className="inline-block mb-2">フリガナ<span className='text-pink'>*</span></label>
                   <input
-                    required
+                    // required
                     type="text"
                     name="furigana" 
                     id="furigana" 
@@ -177,8 +202,8 @@ const ReserveForm = () => {
                   </p>
                   <div className="mb-2">
                     <label htmlFor='adalt' className="block mb-2 text-right">大人</label>
-                    <select id="adalt" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                      <option selected value="1">1</option>
+                    <select id="adalt" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                      <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
                       <option value="4">4</option>
@@ -192,8 +217,8 @@ const ReserveForm = () => {
                   </div>
                   <div className="mb-2">
                     <label htmlFor='child' className="block mb-2 text-right">子供</label>
-                    <select id="child" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                      <option selected value="0">0</option>
+                    <select id="child" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                      <option value="0">0</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -215,17 +240,31 @@ const ReserveForm = () => {
                     ※身長、体重、足のサイズ等、前日の電話で対応可能です。
                   </p>
                   <div className="" id="participant">
-                    <ol id="decimalList" className='list-decimal'>
-                      <li>
-                        <ReserveParticipant/>
-                      </li>
-                    </ol>
-                    <button id="btn" className='bg-gray-100 py-2 px-4 mx-auto block my-4 border-2 rounded-lg'>入力欄を追加する</button>
+                    <ReserveParticipant
+                      participants={participants}
+                      createParticipant={createParticipant}
+                      deleteParticipant={deleteParticipant}
+                      handleChange={handleChange}
+                      value={value}
+                    />
                   </div>
                 </div>
-                <div className="">
+                <div className='mb-2'>
+                  <p className='mb-2'>健康面での不安*</p>
+                  <div className="flex justify-around">
+                    <label htmlFor="">
+                      <input type="radio" />
+                      有り
+                    </label>
+                    <label htmlFor="">
+                      <input type="radio" checked/>
+                      無し
+                    </label>
+                  </div>
+                </div>
+                <div className="mb-2">
                   <label htmlFor='message' className=''>
-                    ご予約に関するご質問・お問い合わせをご記入ください<span className='text-pink'>*</span>
+                    有りの場合は健康面での不安をご記入ください
                     <textarea
                       required
                       id="message"
@@ -233,8 +272,115 @@ const ReserveForm = () => {
                       onChange={handleChange}
                       name="message" 
                       className="h-[300px] mt-2 w-full bg-white border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" 
-                      placeholder='こちらにお問い合わせ内容をご記入ください。'
+                      placeholder='こちらにご記入ください。'
                     />
+                  </label>
+                </div>
+                <div className="mb-2">
+                  <label htmlFor="">
+                    宿泊先
+                    <input
+                      required
+                      type="text"
+                      name="formName" 
+                      id="formName" 
+                      value={value['formName'] || ``}
+                      onChange={handleChange}
+                      className="mt-2 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
+                    />
+                  </label>
+                </div>
+                <div className='mb-2'>
+                  <label htmlFor="">
+                    沖縄ご到着日
+                    <input className='mt-2 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2'
+                      id="date1" 
+                      type="date"
+                    />
+                  </label>
+                </div>
+                <div className='mb-2'>
+                  <label htmlFor="">
+                    沖縄からお帰りになる日
+                    <input className='mt-2 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2'
+                      id="date1" 
+                      type="date"
+                    />
+                  </label>
+                </div>
+              </div>
+              <h3 className='mt-8 inline-block mb-4 font-semibold text-main-blue text-[1.2rem] md:text-[1.6rem]'>4. ワンオーシャンについて</h3>
+              <div className='mb-2'>
+                <p>
+                  当サイトを何でお知りになりましたか？  
+                </p>
+                <div className="mx-4 mt-4 my-4">
+                  <div>
+                    <label htmlFor="">
+                      <input className='mr-4' type="checkbox"/>
+                      1. YahooやGoogleなどの検索
+                    </label>
+                  </div>
+                  <div>
+                    <label htmlFor="">
+                    <input className='mr-4' type="checkbox"/>
+                      2. 広告
+                    </label>
+                  </div>
+                  <div>
+                    <label htmlFor="">
+                      <input className='mr-4' type="checkbox"/>
+                      3. 紹介
+                    </label>
+                  </div>
+                  <div>
+                    <label htmlFor="">
+                      <input className='mr-4' type="checkbox"/>
+                      4. その他
+                    </label>
+                  </div>
+                </div>
+                <label htmlFor="">
+                  2.3.4を選択の場合は広告紙名、紹介者名、その他理由をご記入ください
+                  <input
+                    required
+                    onChange={handleChange}
+                    className="mt-2 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
+                  />
+                </label>
+              </div>
+              <h3 className='mt-8 inline-block mb-4 font-semibold text-main-blue text-[1.2rem] md:text-[1.6rem]'>5. ご予約に関するご質問・お問い合わせ</h3>
+              <div>
+                <label htmlFor="">ご予約に関するご質問・お問合わせ
+                  <textarea
+                    required
+                    id="message"
+                    value={value['message'] || ``}
+                    onChange={handleChange}
+                    name="message" 
+                    className="h-[300px] mt-2 w-full bg-white border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" 
+                    placeholder='こちらにご記入ください。'
+                  />
+                </label>
+              </div>
+              <h3 className='mt-8 inline-block mb-4 font-semibold text-main-blue text-[1.2rem] md:text-[1.6rem]'>6. お読みください</h3>
+              <div className="">
+                <div className="col-span-8">
+                  <div className="bg-gray-100 mb-4 p-4 rounded-lg">
+                    申込みに関する注意事項
+                    ○キャンセルチャージについて
+                    　・前日12:00までのキャンセルの場合はキャンセルチャージは発生しません。
+                    　・コースご参加前日12:00以降はコース料金の50％、ご連絡無しのキャンセルの場合はコース料金全額お支払いいただきます。
+                    ○お支払いは、現地支払いの現金精算のみとなります。
+                  </div>
+                  <div className="bg-gray-100 mb-4 p-4 rounded-lg">
+                    携帯メールアドレスのお客様へ
+                    ○メール受信制限設定をされている方は「@one-ocean-toku.com」の受信許可をお願いいたします。
+                    予約フォーム送信完了後、送信確認のための自動返信メールを送信しています。
+                  </div>
+                  <label htmlFor="">
+                    <input type="checkbox" />
+                    申込みに関する注意事項に同意する
                   </label>
                 </div>
               </div>
