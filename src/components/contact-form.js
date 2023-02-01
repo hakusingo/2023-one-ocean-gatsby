@@ -17,6 +17,7 @@ const ContactForm = () => {
       value[e.target.id] = e.target.value
       setServerResponse(``)
       setValue({ ...value })
+      // console.log(value)
   }
   // フォームが送信されたら、送信処理のために
   // 入力内容（values）をapi/send.jsに送る関数①.

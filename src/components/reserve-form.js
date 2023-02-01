@@ -5,13 +5,22 @@ import ContactComplete from './contact-complete'
 import ReserveParticipant from './reserve-participant'
 
 const ReserveForm = () => {
-  const [value, setValue] = useState( { menu: "マングローブカヤック" } )
+  const [value, setValue] = useState({ 
+    menu: "マングローブカヤック",
+    adalt: "1",
+    anxiety: "無し"
+  },)
   const [serverResponse, setServerResponse] = useState(``)
 
   // ラジオボタン
   const [tourMenu, setTourMenu] = useState("マングローブカヤック")
-
   const TOUR_MENU_RADIO = ["マングローブカヤック", "ター滝アドベンチャー", "親子結プログラム", "オリジナルムイツアー", "その他"]
+
+  const [anxiety, setAnxiety] = useState("無し")
+  const ANXIETY_RADIO = ["無し", "有り"]
+
+  const [how, setHow] = useState("")
+  const HOW_RADIO = ["1 YahooやGoogleなどの検索", "2 広告", "3 紹介", "4 その他"]
 
   // 参加者リストのロジック
   const partList = [
@@ -43,13 +52,14 @@ const ReserveForm = () => {
     value[e.target.id] = e.target.value
     setServerResponse(``)
     setValue({ ...value })
+    console.log(value)
   }
   // フォームが送信されたら、送信処理のために
   // 入力内容（values）をapi/send.jsに送る関数①.
   async function onSubmit(e) {
     e.preventDefault()
     const response = await window
-    .fetch(`/api/send`, {
+    .fetch(`/api/reserve`, {
         method: `POST`,
         headers: {
         "content-type": "application/json",
@@ -85,7 +95,7 @@ const ReserveForm = () => {
               <div className='mt-8'>
                 <h3 className='inline-block mb-4 font-semibold text-main-blue text-[1.2rem] md:text-[1.6rem]'>1. ご希望のコース</h3>
                 <div className="mb-2">
-                  <p className="inline-block mb-2">ご希望コース*</p>
+                  <p className="inline-block mb-2">ご希望コース<span className='text-pink'>*</span></p>
                   {
                     TOUR_MENU_RADIO.map((menu) => {
                       return (
@@ -113,24 +123,67 @@ const ReserveForm = () => {
                   }
                 </div>
                 <div className="mb-2">
-                  <p htmlFor='date1' className='mb-2 col-span-1'>希望日1</p>
+                  <p htmlFor='date1' className='mb-2 col-span-1'>希望日1<span className='text-pink'>*</span></p>
                   <div className="grid grid-cols-2 gap-2">
-                    <input className='col-span-1 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2' id="date1" type="date"/>
-                    <input className='col-span-1 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2' type="time" />
+                    <input
+                      required
+                      id="date1"
+                      type="date"
+                      name="date1" 
+                      value={value['date1'] || ``}
+                      onChange={handleChange}
+                      className='col-span-1 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2'  
+                    />
+                    <input
+                      id="time1"
+                      name="time1"
+                      value={value['time1'] || ``}
+                      type="time"
+                      onChange={handleChange}
+                      className='col-span-1 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2'
+                    />
                   </div>
                 </div>
                 <div className="mb-2">
                   <p htmlFor='date2' className='mb-2 col-span-1'>希望日2</p>
                   <div className="grid grid-cols-2 gap-2">
-                    <input className='col-span-1 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2' id="date2" type="date"/>
-                    <input className='col-span-1 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2' type="time" />
+                    <input
+                      id="date2"
+                      type="date"
+                      name="date2" 
+                      value={value['date2'] || ``}
+                      onChange={handleChange}
+                      className='col-span-1 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2'  
+                    />
+                    <input
+                      id="time2"
+                      name="time2"
+                      value={value['time2'] || ``}
+                      onChange={handleChange}
+                      type="time"
+                      className='col-span-1 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2'
+                    />
                   </div>
                 </div>
                 <div className="mb-2">
                   <p htmlFor='date3' className='mb-2 col-span-1'>希望日3</p>
                   <div className="grid grid-cols-2 gap-2">
-                    <input className='col-span-1 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2' id="date3" type="date"/>
-                    <input className='col-span-1 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2' type="time" />
+                    <input
+                      id="date3"
+                      type="date"
+                      name="date3" 
+                      value={value['date3'] || ``}
+                      onChange={handleChange}
+                      className='col-span-1 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2'  
+                    />
+                    <input
+                      id="time3"
+                      name="time3"
+                      value={value['time3'] || ``}
+                      type="time"
+                      onChange={handleChange}
+                      className='col-span-1 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2'
+                    />
                   </div>
                 </div>
                 <h3 className='mt-8 inline-block mb-4 font-semibold text-main-blue text-[1.2rem] md:text-[1.6rem]'>2. 代表者情報</h3>
@@ -150,6 +203,7 @@ const ReserveForm = () => {
                   <label htmlFor="formName" className="inline-block mb-2">フリガナ<span className='text-pink'>*</span></label>
                   <input
                     // required
+                    required
                     type="text"
                     name="furigana" 
                     id="furigana" 
@@ -190,6 +244,7 @@ const ReserveForm = () => {
                     type="tel"
                     name="phone" 
                     id="phone"
+                    placeholder='080-01234-5678'
                     value={value['phone'] || ``}
                     onChange={handleChange}
                     className="w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" 
@@ -198,11 +253,18 @@ const ReserveForm = () => {
                 <h3 className='mt-8 inline-block mb-4 font-semibold text-main-blue text-[1.2rem] md:text-[1.6rem]'>3. 参加者情報</h3>
                 <div className="mb-2">
                   <p>
-                    参加人数
+                    参加人数<span className='text-pink'>*</span>
                   </p>
                   <div className="mb-2">
                     <label htmlFor='adalt' className="block mb-2 text-right">大人</label>
-                    <select id="adalt" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    <select
+                      required
+                      value={value['adalt'] || ``}
+                      onChange={handleChange}
+                      name="adalt" 
+                      id="adalt" 
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    >
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -217,7 +279,13 @@ const ReserveForm = () => {
                   </div>
                   <div className="mb-2">
                     <label htmlFor='child' className="block mb-2 text-right">子供</label>
-                    <select id="child" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    <select
+                      value={value['child'] || ``}
+                      onChange={handleChange}
+                      name="child" 
+                      id="child" 
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    >
                       <option value="0">0</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -237,7 +305,7 @@ const ReserveForm = () => {
                     参加者情報
                   </p>
                   <p className='text-[14px] text-gray-800'>
-                    ※身長、体重、足のサイズ等、前日の電話で対応可能です。
+                    ※記入欄を追加したい場合は下記のボタンをクリックして下さい。<br/>身長、体重、足のサイズ等、前日の電話で対応可能です。
                   </p>
                   <div className="" id="participant">
                     <ReserveParticipant
@@ -250,27 +318,43 @@ const ReserveForm = () => {
                   </div>
                 </div>
                 <div className='mb-2'>
-                  <p className='mb-2'>健康面での不安*</p>
+                  <p className='mb-2'>健康面での不安<span className='text-pink'>*</span></p>
                   <div className="flex justify-around">
-                    <label htmlFor="">
-                      <input type="radio" />
-                      有り
-                    </label>
-                    <label htmlFor="">
-                      <input type="radio" checked/>
-                      無し
-                    </label>
+                    {
+                      ANXIETY_RADIO.map((anxiet) => {
+                        return (
+                          <label
+                            className='text-center py-1 px-2'
+                            key={anxiet}
+                          >
+                            <input
+                              id="anxiety"
+                              type="radio"
+                              value={anxiet}
+                              name={anxiet}
+                              checked={anxiety === anxiet}
+                              onChange={ 
+                                function(e) {
+                                  setAnxiety(e.target.value)
+                                  handleChange(e)
+                                }
+                              } 
+                            />
+                            {anxiet}
+                          </label>
+                        )
+                      })
+                    }
                   </div>
                 </div>
                 <div className="mb-2">
-                  <label htmlFor='message' className=''>
+                  <label htmlFor='anxiety' className=''>
                     有りの場合は健康面での不安をご記入ください
                     <textarea
-                      required
-                      id="message"
-                      value={value['message'] || ``}
+                      id="anxietyText"
+                      value={value['anxietyText'] || ``}
                       onChange={handleChange}
-                      name="message" 
+                      name="anxietyText" 
                       className="h-[300px] mt-2 w-full bg-white border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" 
                       placeholder='こちらにご記入ください。'
                     />
@@ -280,11 +364,10 @@ const ReserveForm = () => {
                   <label htmlFor="">
                     宿泊先
                     <input
-                      required
                       type="text"
-                      name="formName" 
-                      id="formName" 
-                      value={value['formName'] || ``}
+                      name="stayPlace" 
+                      id="stayPlace" 
+                      value={value['stayPlace'] || ``}
                       onChange={handleChange}
                       className="mt-2 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
                     />
@@ -293,18 +376,26 @@ const ReserveForm = () => {
                 <div className='mb-2'>
                   <label htmlFor="">
                     沖縄ご到着日
-                    <input className='mt-2 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2'
-                      id="date1" 
+                    <input 
+                      className='mt-2 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2'
+                      id="arrival" 
+                      name="arrival"
                       type="date"
+                      value={value['arrival'] || ``}
+                      onChange={handleChange}
                     />
                   </label>
                 </div>
                 <div className='mb-2'>
                   <label htmlFor="">
                     沖縄からお帰りになる日
-                    <input className='mt-2 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2'
-                      id="date1" 
+                    <input 
+                      className='mt-2 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2'
+                      id="Departure"
+                      name="Departure"
                       type="date"
+                      value={value['Departure'] || ``}
+                      onChange={handleChange}
                     />
                   </label>
                 </div>
@@ -315,35 +406,41 @@ const ReserveForm = () => {
                   当サイトを何でお知りになりましたか？  
                 </p>
                 <div className="mx-4 mt-4 my-4">
-                  <div>
-                    <label htmlFor="">
-                      <input className='mr-4' type="checkbox"/>
-                      1. YahooやGoogleなどの検索
-                    </label>
-                  </div>
-                  <div>
-                    <label htmlFor="">
-                    <input className='mr-4' type="checkbox"/>
-                      2. 広告
-                    </label>
-                  </div>
-                  <div>
-                    <label htmlFor="">
-                      <input className='mr-4' type="checkbox"/>
-                      3. 紹介
-                    </label>
-                  </div>
-                  <div>
-                    <label htmlFor="">
-                      <input className='mr-4' type="checkbox"/>
-                      4. その他
-                    </label>
-                  </div>
+                  {
+                    HOW_RADIO.map((howTo, i) => {
+                      return (
+                        <div
+                          key={i}
+                          >
+                          <label
+                            className='text-center py-1 px-2'
+                          >
+                            <input
+                              id="how"
+                              type="radio"
+                              value={howTo}
+                              name={howTo}
+                              checked={how === howTo}
+                              onChange={ 
+                                function(e) {
+                                  setHow(e.target.value)
+                                  handleChange(e)
+                                }
+                              } 
+                            />
+                            {howTo}
+                          </label>
+                        </div>
+                      )
+                    })
+                  }
                 </div>
                 <label htmlFor="">
                   2.3.4を選択の場合は広告紙名、紹介者名、その他理由をご記入ください
                   <input
-                    required
+                    id="howContent"
+                    name="howContent"
+                    value={value['howContent'] || ``}
                     onChange={handleChange}
                     className="mt-2 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
                   />
@@ -353,11 +450,10 @@ const ReserveForm = () => {
               <div>
                 <label htmlFor="">ご予約に関するご質問・お問合わせ
                   <textarea
-                    required
-                    id="message"
-                    value={value['message'] || ``}
+                    id="reserveMessage"
+                    value={value['reserveMessage'] || ``}
                     onChange={handleChange}
-                    name="message" 
+                    name="reserveMessage" 
                     className="h-[300px] mt-2 w-full bg-white border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2" 
                     placeholder='こちらにご記入ください。'
                   />
@@ -378,8 +474,19 @@ const ReserveForm = () => {
                     ○メール受信制限設定をされている方は「@one-ocean-toku.com」の受信許可をお願いいたします。
                     予約フォーム送信完了後、送信確認のための自動返信メールを送信しています。
                   </div>
+                  <div className='flex justify-center my-4'>
+                    <Link
+                      to="/notes"
+                      className='block border-b-2 border-main-blue text-main-blue'
+                    >
+                      注意事項ページへ
+                    </Link>
+                  </div>
                   <label htmlFor="">
-                    <input type="checkbox" />
+                    <input 
+                      type="checkbox"
+                      required
+                    />
                     申込みに関する注意事項に同意する
                   </label>
                 </div>
