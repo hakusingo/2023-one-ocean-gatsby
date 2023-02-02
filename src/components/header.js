@@ -69,7 +69,7 @@ const Header = () => {
   <div id="top" className="relative">
 
     <div id="front-pc-menu" className="hidden md:block opacity-0 invisible transition delay-200 ease-in-out fixed top-[80px] left-[60px] right-[60px] bg-white z-[40] h-[calc(100vh-80px)]">
-      <div className="w-full h-[calc(100vh-80px)] grid grid-cols-12 max-w-[1000px] mx-auto">
+      <div className="h-[calc(100vh-80px)] grid grid-cols-12 w-[80%] max-w-[1000px] mx-auto">
         <div className="col-span-6 mt-[100px] ml-12">
           <div className="">
             <ul className="front-pc-menu-left font-zenmaru">
@@ -91,14 +91,14 @@ const Header = () => {
                 <Link
                   to={'/trekking'}
                 >
-                  ター滝トレッキング
+                  ター滝アドベンチャー
                 </Link>
               </li>
               <li className="">
                 <Link
                   to={'/yui'}
                 >
-                  結プログラム
+                  親子 結プログラム
                 </Link>
               </li>
               <li className="">
@@ -117,16 +117,16 @@ const Header = () => {
               </li>
               <li className="">
                 <Link
-                  to={'/contact'}
+                  to={'/reserve'}
                 >
-                  お問合せ
+                  ご予約
                 </Link>
               </li>
               <li className="">
                 <Link
-                  to={'/reserve'}
+                  to={'/contact'}
                 >
-                  ご予約
+                  お問合せ
                 </Link>
               </li>
             </ul>
@@ -136,7 +136,7 @@ const Header = () => {
           <ul className="font-zenmaru text-[22px] text-center">
             <li className="">
               <Link
-                to={'/reserve'}
+                to={'/news'}
               >
                 お知らせ
               </Link>
@@ -163,7 +163,7 @@ const Header = () => {
               </Link>
             </li>
           </ul>
-          <div className="w-[70%] max-w-[300px] mx-auto px-8 pt-4 pb-6 bg-main-blue mt-[12rem] rounded-lg">
+          <div className="w-[70%] h-auto max-w-[300px] mx-auto px-8 pt-4 pb-6 bg-main-blue mt-[8rem] rounded-lg">
             <div className="text-white text-right">
               <h2 className="text-[34px]">
                 OneOcean
@@ -186,8 +186,8 @@ const Header = () => {
 
     <div id="sp-menu-cover" className="md:hidden fixed top-[60px] left-0 w-[100%] h-[calc(100vh-60px)] bg-gray-700 z-40">
     </div>
-    <div id="sp-menu-open" className="md:hidden fixed top-[60px] left-0 bg-white w-[76%] z-40  h-[calc(100vh-60px)]">
-      <ul className="text-center font-zenmaru text-main-blue absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[55%] whitespace-nowrap text-[22px] font-700">
+    <div id="sp-menu-open" className="md:hidden fixed top-[60px] left-0 bg-white w-[76%] z-40 h-[calc(100vh-60px)]">
+      <ul className="text-center font-zenmaru text-main-blue absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[55%] whitespace-nowrap text-[22px]">
         <li className="py-4">
           <Link
             to={'/'}
@@ -232,16 +232,16 @@ const Header = () => {
         </li>
         <li className="py-4">
           <Link
-            to={'/contact'}
+            to={'/reserve'}
           >
-            お問合せ
+            ご予約
           </Link>
         </li>
         <li className="py-4">
           <Link
-            to={'/reserve'}
+            to={'/contact'}
           >
-            ご予約
+            お問合せ
           </Link>
         </li>
       </ul>
@@ -253,7 +253,7 @@ const Header = () => {
           <p>:090-4471-7311</p>
         </div>
       </div>
-      <div role="presentation" id="sidebar-left-menu" className="animate-pulse cursor-pointer absolute whitespace-nowrap top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-90deg] font-semibold text-main-blue">
+      <div role="presentation" id="sidebar-left-menu" className="will-change-transform animate-pulse cursor-pointer absolute whitespace-nowrap top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-90deg] font-semibold text-main-blue">
         MENU
         <div id="menu-button-cross" className="absolute -top-[13px] w-[50px] h-[50px] bg-white grid place-items-center transition delay-200 ease-in-out scale-0">
           <RxCrossCircled
@@ -281,7 +281,7 @@ const Header = () => {
         © {new Date().getFullYear()} &middot; one-ocean-toku.com All Rights reserved.
       </div>
     </div>
-    <header className="h-[60px] bg-main-blue md:h-[80px] fixed z-50 w-full shadow-xl">
+    <header id="header" className="h-[60px] bg-main-blue md:h-[80px] fixed z-50 w-full shadow-xl">
       <div className="pl-4 pr-4 lg:pl-[60px] lg:pr-[60px] mx-auto flex justify-between h-full">
         <Link to={`/`}>
           <HeaderLogo

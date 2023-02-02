@@ -2,10 +2,10 @@ import React from 'react'
 import { useEffect } from 'react';
 import { StaticImage } from "gatsby-plugin-image"
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectFade, Autoplay } from "swiper";
-import 'swiper/css';
-import "swiper/css/effect-fade";
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// import { EffectFade, Autoplay } from "swiper";
+// import 'swiper/css';
+// import "swiper/css/effect-fade";
 
 
 const Hero = () => {
@@ -18,28 +18,28 @@ const Hero = () => {
 
   useEffect(() => {
 
-    let heroTextTop = document.getElementById("hero-text-top")
-    let heroTextMiddle = document.getElementById("hero-text-middle")
-    let heroTextBottom = document.getElementById("hero-text-bottom")
-    let heroSubtitle = document.querySelectorAll(".hero-subtitle")
-    setTimeout(function() {
-      heroTextTop.classList.remove("opacity-0", "translate-x-4")
-      heroTextTop.classList.add("opacity-100", "translate-x-0")
-      setTimeout(function() {
-        heroTextMiddle.classList.remove("opacity-0", "-translate-x-4")
-        heroTextMiddle.classList.add("opacity-100", "translate-x-0")
-        setTimeout(function() {
-          heroTextBottom.classList.remove("opacity-0", "translate-x-4")
-          heroTextBottom.classList.add("opacity-100", "translate-x-0")
-          setTimeout(function() {
-            heroSubtitle.forEach(function(value) {
-              value.classList.remove("opacity-0")
-              value.classList.add("opacity-100")
-            },300)
-          },500)
-        },500)
-      },500)
-    },1000)
+    // let heroTextTop = document.getElementById("hero-text-top")
+    // let heroTextMiddle = document.getElementById("hero-text-middle")
+    // let heroTextBottom = document.getElementById("hero-text-bottom")
+    // let heroSubtitle = document.querySelectorAll(".hero-subtitle")
+    // setTimeout(function() {
+    //   heroTextTop.classList.remove("opacity-0", "translate-x-4")
+    //   heroTextTop.classList.add("opacity-100", "translate-x-0")
+    //   setTimeout(function() {
+    //     heroTextMiddle.classList.remove("opacity-0", "-translate-x-4")
+    //     heroTextMiddle.classList.add("opacity-100", "translate-x-0")
+    //     setTimeout(function() {
+    //       heroTextBottom.classList.remove("opacity-0", "translate-x-4")
+    //       heroTextBottom.classList.add("opacity-100", "translate-x-0")
+    //       setTimeout(function() {
+    //         heroSubtitle.forEach(function(value) {
+    //           value.classList.remove("opacity-0")
+    //           value.classList.add("opacity-100")
+    //         },300)
+    //       },500)
+    //     },500)
+    //   },500)
+    // },1000)
 
     let temp
 
@@ -62,15 +62,16 @@ const Hero = () => {
   return (
     <section id="front-hero" className="h-[calc(100vh-60px)] md:h-[calc(100vh-80px)] w-full mx-auto relative -z-10">
       {/* <div id="front-hero-cover" className="absolute z-20"></div> */}
-      {/* <StaticImage
+      <StaticImage
         imgClassName="hero-image absolute top-0 left-0 bottom-0 right-0 -z-10"
         className="hero-image absolute top-0 left-0 bottom-0 right-0 -z-10"
         src="../../images/hero/hero-pic1.jpg"
         alt="ター滝ツアーの写真"
         objectPosition="30% 50%"
         placeholder="blurred"
-      /> */}
-      <Swiper
+        loading="eager" 
+      />
+      {/* <Swiper
         className="hero-image absolute top-0 left-0 bottom-0 right-0 -z-10"
         speed={4000}
         autoplay={{
@@ -119,9 +120,9 @@ const Hero = () => {
             quality={90}
           />
         </SwiperSlide>
-      </Swiper>
+      </Swiper> */}
       <div className="absolute w-[92%] sm:w-[88%] h-[94%] border-white border-2 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[60%] md:-translate-y-[50%]">
+      <div className="will-change-transform absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[60%] md:-translate-y-[50%]">
         <svg 
           id="hero-text-top"
           className="duration-1000 opacity-0 translate-x-4 w-[300px] sm:w-[400px] lg:w-[500px] xl:w-[600px]"
