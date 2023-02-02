@@ -1,0 +1,70 @@
+let person1Content = 
+`
+<p>参加者１</p>
+<p>名前: ${person1.name}</p>
+<p>年齢: ${person1.age}</p>
+<p>性別: ${person1.sex}</p>
+<p>体重: ${person1.weight}</p>
+`
+
+// console.log(person1Content)
+
+
+  let person1 = []
+  let person2 = []
+  let person3 = []
+  let person4 = []
+  let person5 = []
+  let person6 = []
+  let person7 = []
+  let person8 = []
+  let person9 = []
+  let person10 = []
+  let person11 = []
+  let person12 = []
+  let person13 = []
+  let person14 = []
+  let person15 = []
+  let person16 = []
+  let person17 = []
+  let person18 = []
+  let person19 = []
+  let person20 = []
+  if(body.partName0) {
+    person1.name = body.partName0
+    person1.age = body.partAge0
+    person1.sex = body.partSex0
+    person1.weight = body.partWeight0
+  }
+  console.log(body.partName0)
+  if(body.partName1) {
+    person2.name = body.partName1
+    person2.age = body.partAge1
+    person2.sex = body.partSex1
+    person2.weight = body.partWeight1
+  }
+  if(body.partName3) {
+    person3.name = body.partName2
+    person3.age = body.partAge2
+    person3.sex = body.partSex2
+    person3.weight = body.partWeight2
+  }
+  if(body.partName4) {
+    person4.name = body.partName3
+    person4.age = body.partAge3
+    person4.sex = body.partSex3
+    person4.weight = body.partWeight3
+  }
+  if(body.partName5) {
+    person5.name = body.partName4
+    person5.age = body.partAge4
+    person5.sex = body.partSex4
+    person5.weight = body.partWeight4
+  }
+  if(body.partName6) {
+    person6.name = body.partName5
+    person6.age = body.partAge5
+    person6.sex = body.partSex5
+    person6.weight = body.partWeight5
+  }
+  // console.log(person1, person2, value)
