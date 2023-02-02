@@ -68,3 +68,8 @@ let person1Content =
     person6.weight = body.partWeight5
   }
   // console.log(person1, person2, value)
+
+weather
+appid: "250f298a0a84d6c21b9d810c9631b248", 
+
+https://api.openweathermap.org/data/2.5/weather?q=OKINAWA&appid=250f298a0a84d6c21b9d810c9631b248

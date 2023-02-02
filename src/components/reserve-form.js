@@ -545,6 +545,7 @@ const ReserveForm = () => {
               <hr className='my-4'/>
               <div className="flex justify-center">
                 <button
+                  aria-label="submit"
                   type="submit"
                   className='inline-block border font-semibold bg-main-blue text-white py-1 px-4 rounded'
                 >

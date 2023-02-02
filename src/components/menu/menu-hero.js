@@ -17,6 +17,7 @@ const MenuHero = ( props ) => {
           className="absolute top-0 left-0 right-0 bottom-0 md:hidden"
           image={heroImg}
           alt="メニューヒーロー写真"
+          quality={90}
           loading='eager'
         />
         {
@@ -27,13 +28,15 @@ const MenuHero = ( props ) => {
               objectPosition="50% 90%"
               alt="メニューPCヒーロー写真"
               loading='eager'
+              quality={90}
             />
           ) : (
             <GatsbyImage
               className="absolute top-0 left-0 right-0 bottom-0 hidden md:block"
               image={heroImgPc}
               alt="メニューPCヒーロー写真"
-              loading='eager'
+              loading='eager'  
+              quality={90}
             />
           )
         }
