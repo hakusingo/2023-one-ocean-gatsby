@@ -68,29 +68,18 @@ body {
   }
   &.fadein-opacity {
     transform: none;
-    transition: .5s ease-out;
+    transition: .3s ease-out;
     will-change: transform;
-    &.active {
-      opacity: 1;
-    }
   }
   &.fadein-left {
     transform: translateX(-50px);
     transition: .5s ease-out;
     will-change: transform;
-    &.active {
-      opacity: 1;
-      transform: none;
-    }
   }
   &.fadein-right {
     transform: translateX(50px);
     transition: .5s ease-out;
     will-change: transform;
-    &.active {
-      opacity: 1;
-      transform: none;
-    }
   }
 }
 
