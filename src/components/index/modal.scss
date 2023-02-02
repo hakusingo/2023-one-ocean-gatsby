@@ -3,6 +3,7 @@
   animation-fill-mode: backwards;/*2で解説*/
   animation-duration: .3s;/*3で解説*/
   animation-timing-function: ease-in;/*5で解説*/
+  will-change: transform;
 }
 
 @keyframes fadeInAnime{
