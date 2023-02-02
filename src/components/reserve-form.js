@@ -8,7 +8,19 @@ const ReserveForm = () => {
   const [value, setValue] = useState({ 
     menu: "マングローブカヤック",
     adalt: "1",
-    anxiety: "無し"
+    anxiety: "無し",
+    child: "0",
+    date2: "",
+    time2: "",
+    date3: "",
+    time3: "",
+    anxietyText: "",
+    stayPlace: "",
+    arrival: "",
+    Departure: "",
+    how: "",
+    howContent: "",
+    reserveMessage: "",
   },)
   const [serverResponse, setServerResponse] = useState(``)
 
@@ -26,14 +38,6 @@ const ReserveForm = () => {
   const partList = [
     {
       id: 1,
-      name: "",
-      age: "",
-      sex: "",
-      height: "",
-      weight: "",
-      foot: "",
-      eyesight: "",
-      glasses: "",
     },
   ]
   const [ participants, setParticipants ] = useState(partList)
@@ -46,14 +50,13 @@ const ReserveForm = () => {
   const createParticipant = (participant) => {
     setParticipants([...participants, participant])
   }
-
   // フォームの入力内容をリアルタイムでリッスンし仮保存しておく関数②.
   function handleChange(e) {
     value[e.target.id] = e.target.value
     setServerResponse(``)
     setValue({ ...value })
-    console.log(value)
   }
+
   // フォームが送信されたら、送信処理のために
   // 入力内容（values）をapi/send.jsに送る関数①.
   async function onSubmit(e) {
@@ -72,6 +75,39 @@ const ReserveForm = () => {
 
     console.log("送信完了")
   }
+
+  // let body = value
+
+  // const mailData = {
+  //   from: 'hakusingo@gmail.com',
+  //   to: body.formEmail,
+  //   bcc: 'hakusingo@gmail.com',
+  //   subject: 'ワンオーシャンへのご予約ありがとうございます。',
+  //   html: 
+  //   `<p>以下の内容でご予約を受け付けました。回答をお待ちください。<br>
+  //   ワンオーシャン代表 徳門</p>
+  //   <hr>
+  //   <p>ツアー内容: ${body.menu}</p>
+  //   <p>第一希望日時: ${body.date1} ${body.time1}</p>
+  //   <p>第二希望日時: ${body.date2} ${body.time2}</p>
+  //   <p>第三希房日時: ${body.date3} ${body.time2}</p>
+  //   <p>代表者様のお名前: ${body.formName}</p>
+  //   <p>フリガナ名: ${body.furigana}</p>
+  //   <p>メールアドレス: ${body.formEmail}</p>
+  //   <p>お電話番号: ${body.phone}</p>
+  //   <p>参加人数: 大人${body.adalt}名 お子様${body.child}名</p>
+  //   <br>
+  //   <p>参加者一覧: ${Text}</p>
+  //   <br>
+  //   <p>健康面での不安: ${body.anxiety}</p>
+  //   <p>健康面の不安内容: ${body.anxietyText}</p>
+  //   <p>宿泊先: ${body.stayPlace}</p>
+  //   <p>沖縄到着日: ${body.arrival}</p>
+  //   <p>沖縄からお帰りなる日: ${body.Departure}</p>
+  //   <p>ワンオーシャンをお知りになった媒体: ${body.how}</p>
+  //   <p>媒体の内容: ${body.howContent}</p>
+  //   <p style="white-space: pre-wrap;">お問合わせ内容： ${body.reserveMessage}</p>`,
+  // }
 
   return (
     <div className="pt-12 md:pt-[8rem]">
@@ -126,7 +162,7 @@ const ReserveForm = () => {
                   <p htmlFor='date1' className='mb-2 col-span-1'>希望日1<span className='text-pink'>*</span></p>
                   <div className="grid grid-cols-2 gap-2">
                     <input
-                      required
+                      // required
                       id="date1"
                       type="date"
                       name="date1" 
@@ -190,7 +226,7 @@ const ReserveForm = () => {
                 <div className="mb-2">
                   <label htmlFor="formName" className="inline-block mb-2">お名前<span className='text-pink'>*</span></label>
                   <input
-                    required
+                    // required
                     type="text"
                     name="formName" 
                     id="formName" 
@@ -203,7 +239,6 @@ const ReserveForm = () => {
                   <label htmlFor="formName" className="inline-block mb-2">フリガナ<span className='text-pink'>*</span></label>
                   <input
                     // required
-                    required
                     type="text"
                     name="furigana" 
                     id="furigana" 
@@ -215,7 +250,7 @@ const ReserveForm = () => {
                 <div className="mb-2">
                   <label htmlFor="formEmail" className="inline-block mb-2">メールアドレス<span className='text-pink'>*</span></label>
                   <input
-                    required
+                    // required
                     type="email"
                     name="formEmail" 
                     id="formEmail"
@@ -228,7 +263,7 @@ const ReserveForm = () => {
                 <div className="mb-2">
                   <label htmlFor="formEmailConfirm" className="inline-block mb-2">確認用メールアドレス<span className='text-pink'>*</span></label>
                   <input
-                    required
+                    // required
                     type="email"
                     id="formEmailConfirm"
                     placeholder='example@mail.com' 
@@ -240,7 +275,7 @@ const ReserveForm = () => {
                 <div className="mb-2">
                   <label htmlFor="phone" className="inline-block mb-2">電話番号<span className='text-pink'>*</span></label>
                   <input
-                    required
+                    // required
                     type="tel"
                     name="phone" 
                     id="phone"
@@ -258,7 +293,7 @@ const ReserveForm = () => {
                   <div className="mb-2">
                     <label htmlFor='adalt' className="block mb-2 text-right">大人</label>
                     <select
-                      required
+                      // required
                       value={value['adalt'] || ``}
                       onChange={handleChange}
                       name="adalt" 
