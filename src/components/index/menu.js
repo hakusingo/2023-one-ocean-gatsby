@@ -20,14 +20,14 @@ const Menu = () => {
         <div className="">
           <div className="md:flex md:gap-[1rem] lg:justify-center max-w-[1200px] mx-auto">
             {/* カヤックメニュー */}
-            <div className="iso-target fadein-opacity pt-12 max-w-[400px] mx-auto lg:max-w-[500px] drop-shadow-xl">
+            <div className="iso-target fadein-opacity pt-12 h-auto max-w-[400px] mx-auto lg:max-w-[500px] drop-shadow-xl">
               <div className="flex justify-center -mb-[1.4rem] relative z-10">
                 <p className="bg-main-green text-yellow font-bold py-2 px-8 inline-block rounded-[8px] lg:text-[22px]">
                   １歳からでも参加できる!!
                 </p>
               </div>
               <StaticImage
-                className="rounded-[12px] rounded-tr-none rounded-bl-none"
+                className="rounded-[12px] rounded-tr-none rounded-bl-none w-full h-auto"
                 alt="マングローブカヤック"
                 src="../../images/tour-menu/menu-kayak.jpg"
                 quality={90}
@@ -53,7 +53,7 @@ const Menu = () => {
               </div>
               <div className="lg:flex lg:justify-center">  
                 <StaticImage
-                  className="mr-4 ml-4 -mt-8 lg:w-[300px]" 
+                  className="mr-4 ml-4 -mt-8 w-[90%] max-h-[400px] h-auto" 
                   imgClassName=""
                   src="../../images/tour-menu/menu-kayak.png"
                   alt="親子カヤック写真"
@@ -83,7 +83,7 @@ const Menu = () => {
                 </p>
               </div>
               <StaticImage
-                className="rounded-[12px] rounded-tr-none rounded-bl-none"
+                className="rounded-[12px] rounded-tr-none rounded-bl-none w-full h-auto"
                 alt="トレッキング"
                 src="../../images/tour-menu/menu-trekking.jpg"
                 quality={90}
@@ -109,7 +109,7 @@ const Menu = () => {
               </div>
               <div className="lg:flex lg:justify-center">
                 <StaticImage
-                  className="mr-4 ml-4 -mt-8 lg:w-[280px]"
+                  className="mr-4 ml-4 -mt-8 w-auto h-[320px]"
                   src="../../images/tour-menu/menu-trekking.png"
                   alt="親子トレッキング写真"
                   quality={90}
@@ -141,7 +141,7 @@ const Menu = () => {
                 </p>
               </div>
               <StaticImage
-                className="rounded-[12px] rounded-tr-none rounded-bl-none"
+                className="rounded-[12px] rounded-tr-none rounded-bl-none w-full h-auto"
                 alt="結プログラム"
                 src="../../images/tour-menu/menu-yui.jpg"
                 quality={90}
@@ -199,7 +199,7 @@ const Menu = () => {
                 </p>
               </div>
               <StaticImage
-                className="rounded-[12px] rounded-tr-none rounded-bl-none"
+                className="rounded-[12px] rounded-tr-none rounded-bl-none w-full h-auto"
                 alt="拝しょ"
                 src="../../images/tour-menu/menu-mui.jpg"
                 quality={90}

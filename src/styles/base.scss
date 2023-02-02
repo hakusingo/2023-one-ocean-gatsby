@@ -28,6 +28,7 @@ body {
 .swiper-slide-prev{
   img {
     animation: zoom 12s linear 0s 1 normal both;
+    will-change: transform;
   } 
 }
 
@@ -42,6 +43,7 @@ body {
 
 .fadeIn {
   animation: fadeIn 500ms linear both;
+  will-change: transform;
 }
 
 @keyframes fadeIn {
@@ -103,6 +105,7 @@ body {
 
 .katakata {
   animation: katakata 1s infinite step-start;
+  will-change: transform;
 }
 
 @keyframes bort {
@@ -124,7 +127,9 @@ body {
 }
 .bort1 {
   animation: bort 3s infinite linear;
+  will-change: transform;
 }
 .bort2 {
   animation: bort 3.3s infinite linear 1s;
+  will-change: transform;
 }

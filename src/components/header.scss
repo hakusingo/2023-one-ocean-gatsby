@@ -4,12 +4,14 @@
   will-change: transform;
   transition: .3s ease-in;
   li {
+    font-weight: bold;
     &:not(:last-child) {
-      border-bottom: 1px dashed gray;
+      border-bottom: 1px dashed lightgray;
     }
   }
 }
 #sp-menu-cover {
+  will-change: transform;
   visibility: hidden;
   opacity: 0;
 }
@@ -20,6 +22,7 @@
   }
 }
 #sp-button-line.close {
+  will-change: transform;
   & > div:first-child {
     transform-origin: left;
     transform: rotate(33deg);
@@ -92,14 +95,33 @@ header {
   z-index: -10;
 }
 
+// ヘッダーロゴ、縦スクロールで大きさ変える
 #header-logo-wide {
+  transform-origin: left top;
   will-change: transform;
   transition: .3s ease-in-out;
+  width: 186px;
+  height: auto;
+  &.wider {
+    // width: 140px;
+    transform: scale(.8);
+  }
+}
+@media screen and (min-width: 1024px) {
+  #header-logo-wide {
+    will-change: transform;
+    transition: .3s ease-in-out;
+    width: 300px;
+    &.wider {
+      // width: 240px;
+      transform: scale(.8);
+    }
+  }
 }
 
 #front-pc-menu {
   .front-pc-menu-left {
-    font-size: 38px;
+    font-size: 32px;
     font-weight: 700;
     color: #1EA4D9;
     li {
