@@ -6,7 +6,7 @@ const HeaderLogo = () => {
   
   const [isWider, setWider] = useState(false)
   const toggleWider = () => {
-    window.scrollY > 100
+    window.scrollY > 3
       ? setWider(true)
       : setWider(false)
   }

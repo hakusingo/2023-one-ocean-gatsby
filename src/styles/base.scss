@@ -19,6 +19,7 @@ body {
 }
 
 .fade-in-target{
+  will-change: transform;
   transition: 1s;
 }
 
@@ -57,6 +58,7 @@ body {
 .iso-target {
   opacity: 0;
   transition: .3s ease-out;
+  will-change: transform;
   transform: scale(.6);
   &.active {
     opacity: 1;
@@ -65,6 +67,7 @@ body {
   &.fadein-opacity {
     transform: none;
     transition: .5s ease-out;
+    will-change: transform;
     &.active {
       opacity: 1;
     }
@@ -72,6 +75,7 @@ body {
   &.fadein-left {
     transform: translateX(-50px);
     transition: .5s ease-out;
+    will-change: transform;
     &.active {
       opacity: 1;
       transform: none;
@@ -80,6 +84,7 @@ body {
   &.fadein-right {
     transform: translateX(50px);
     transition: .5s ease-out;
+    will-change: transform;
     &.active {
       opacity: 1;
       transform: none;
