@@ -34,7 +34,7 @@ const Menu = () => {
               />
               <div className="bg-white relative">
                 <StaticImage
-                  className="absolute -right-2 w-[80px] lg:w-[100px] -top-[4rem]"
+                  className="absolute -right-2 w-[80px] h-auto lg:w-[100px] -top-[4rem]"
                   src="../../images/tour-menu/menu-kayak-map.png"
                   alt="名護市大浦湾"
                 />
@@ -53,8 +53,8 @@ const Menu = () => {
               </div>
               <div className="lg:flex lg:justify-center">  
                 <StaticImage
-                  className="mr-4 ml-4 -mt-8 w-[90%] max-h-[400px] h-auto" 
-                  imgClassName=""
+                  className="-mt-8 w-auto h-[200px]" 
+                  imgClassName='object-contain'
                   src="../../images/tour-menu/menu-kayak.png"
                   alt="親子カヤック写真"
                   quality={90}
@@ -109,7 +109,8 @@ const Menu = () => {
               </div>
               <div className="lg:flex lg:justify-center">
                 <StaticImage
-                  className="mr-4 ml-4 -mt-8 w-auto h-[320px]"
+                  className="-mt-8 w-auto h-[200px]" 
+                  imgClassName='object-contain'
                   src="../../images/tour-menu/menu-trekking.png"
                   alt="親子トレッキング写真"
                   quality={90}
@@ -131,9 +132,9 @@ const Menu = () => {
               </div>
             </div>
           </div>
-          <div className="iso-target fadein-opacity md:flex md:gap-[1rem] max-w-[1200px] justify-center mx-auto">
+          <div className="md:flex md:gap-[1rem] max-w-[1200px] justify-center mx-auto">
             {/* 結プログラムメニュー */}
-            <div className="pt-12 max-w-[400px] mx-auto lg:max-w-[500px] drop-shadow-xl">
+            <div className="iso-target fadein-opacity pt-12 max-w-[400px] mx-auto lg:max-w-[500px] drop-shadow-xl">
               <div className="flex justify-center -mb-[1.4rem] relative z-10 md:-mb-[3.3rem]">
                 <p className="text-center bg-pink text-yellow font-bold py-2 px-8 inline-block rounded-[8px] lg:text-[22px]">
                   保育園児・学童クラブ・しょうがい児<br />
@@ -170,7 +171,8 @@ const Menu = () => {
               </div>
               <div className="flex justify-center">
                 <StaticImage
-                  className="mr-4 ml-4 -mt-8 w-[280px]"
+                  className="-mt-8 w-auto h-[200px]" 
+                  imgClassName='object-contain'
                   src="../../images/tour-menu/menu-yui.png"
                   alt="結プログラム写真"
                   quality={90}
@@ -227,7 +229,8 @@ const Menu = () => {
               </div>
               <div className="flex justify-center">
                 <StaticImage
-                  className="mr-4 ml-4 -mt-8 w-[280px]"
+                  className="-mt-8 w-auto h-[200px]" 
+                  imgClassName='object-contain'
                   src="../../images/tour-menu/menu-mui.png"
                   alt="オキナワ拝しょ"
                 />
