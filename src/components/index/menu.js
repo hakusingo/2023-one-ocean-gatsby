@@ -347,12 +347,9 @@ const Menu = () => {
         </div> */}
 
       </div>
-      <div className="pt-12">
-
-      </div>
-      {/* <Wave
+      <Wave
         color="white"
-      /> */}
+      />
     </section>
   )
 }
