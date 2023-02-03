@@ -58,24 +58,7 @@ const Menu = () => {
           {
             menuContents.map((content, i) => {
               return (
-                <div key={i} className="">
-                  <div className='bg-main-blue text-yellow'>
-                    カヤック脱ペ
-                  </div>
-                  <StaticImage
-                    className="iso-target fadein-opacity rounded-[12px] rounded-tr-none rounded-bl-none w-full h-auto"
-                    alt="マングローブカヤック"
-                    src="../../images/tour-menu/menu-kayak.jpg"
-                    width={500}
-                  />
-                  <div className="lg:flex lg:justify-center">  
-                    <StaticImage
-                      className="-mt-8 w-auto h-[200px]" 
-                      imgClassName='object-contain'
-                      src="../../images/tour-menu/menu-kayak.png"
-                      alt="親子カヤック写真"
-                    />
-                  </div>
+                <div key={i} className="pt-12 max-w-[400px] mx-auto lg:max-w-[500px] w-full drop-shadow-xl">
                   <div className="flex justify-center -mb-[1.4rem] relative z-10">
                     <p className="bg-main-green text-yellow font-bold py-2 px-8 inline-block rounded-[8px] lg:text-[22px]">
                       {content.subTitle}
