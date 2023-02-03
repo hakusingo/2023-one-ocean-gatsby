@@ -1,18 +1,20 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
 
 
 const HeaderLogo = () => {
   
-  const [isWider, setWider] = useState(false)
-  const toggleWider = () => {
-    window.scrollY > 3
-      ? setWider(true)
-      : setWider(false)
-  }
-  useEffect(() => {
-    window.addEventListener('scroll', toggleWider, { passive: true })
-  },[])
+  // const [isWider, setWider] = useState(false)
+  // const toggleWider = () => {
+  //   window.scrollY > 3
+  //     ? setWider(true)
+  //     : setWider(false)
+  // }
+  // useEffect(() => {
+  //   window.addEventListener('scroll', toggleWider, { passive: true })
+  // },[])
+
+  const isWider = true
 
   return (
     <svg
