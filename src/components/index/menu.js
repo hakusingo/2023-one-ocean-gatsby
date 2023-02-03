@@ -14,6 +14,7 @@ const menuContents = [
 そのなかでもマングローブは、植物や動物の宝庫です。
 静かなマングローブのトンネルをぬける景色はとても幻想的。
 ワンオーシャンイチオシの大人気アドベンチャーツアーです。`,
+    color: "main-green"
   },
   {
     subTitle: "チャレンジ 滝つぼダイブ!!",
@@ -22,6 +23,7 @@ const menuContents = [
 ただ行くだけではもったいない！
 アドベンチャー感満載のリバートレッキング ツアーで思い出づくりしませんか？
 コースが選べるので、アクティブでものんびりでも楽しめます。`,
+    color: "main-blue"
   },
   {
     subTitle: "親子 結プログラム",
@@ -29,13 +31,15 @@ const menuContents = [
     desc: `お客様のご要望にお答えして、出来上がった 結（ゆい）プログラム。
 「親と子。人と人。が、助け合いながら進む。」 をテーマにお客様に合わせたプログラムを組み立 てています。
 保育園、学童クラブ集団プログラム受け入れ 可能です。（要事前相談）`,
+    color: "pink"
   },
   {
     subTitle: "古琉球の扉をひらく!!",
     title: "オリジナルムイツアー",
     desc: `沖縄の独特で濃いミステリアスな歴史をたどるディープツアー です。
 地元沖縄の聖地巡りが大好きな、ワンオーシャンの スタッフだからこそご、案内できるオリジナルムイツアー。
-ムイとは社のことで、他では体験できない大人気 急上昇中のツアーです。`
+ムイとは社のことで、他では体験できない大人気 急上昇中のツアーです。`,
+    color: "navy"
   },
 ]
 
@@ -59,31 +63,33 @@ const Menu = () => {
             menuContents.map((content, i) => {
               return (
                 <div key={i} className="pt-12 h-auto max-w-[400px] mx-auto lg:max-w-[500px] w-full">
-                  <div className="flex justify-center -mb-[1.4rem] relative z-10">
-                    <p className="bg-main-green text-yellow font-bold py-2 px-8 inline-block rounded-[8px] lg:text-[22px]">
-                      {content.subTitle}
-                    </p>
-                  </div>
-                  <StaticImage
-                    className="iso-target fadein-opacity rounded-[12px] rounded-tr-none rounded-bl-none w-full h-auto"
-                    alt="マングローブカヤック"
-                    src="../../images/tour-menu/menu-kayak.jpg"
-                    width={500}
-                  />
-                  <div className="bg-white relative">
+                  <div className="drop-shadow-lg">
+                    <div className="flex justify-center -mb-[1.4rem] relative z-10">
+                      <p className={`bg-${content.color} text-yellow font-bold py-2 px-8 inline-block rounded-[8px] lg:text-[22px]`}>
+                        {content.subTitle}
+                      </p>
+                    </div>
                     <StaticImage
-                      className="absolute -right-2 w-[80px] h-auto lg:w-[100px] -top-[4rem]"
-                      src="../../images/tour-menu/menu-kayak-map.png"
-                      alt="名護市大浦湾"
+                      className="iso-target fadein-opacity rounded-[12px] rounded-tr-none rounded-bl-none w-full h-auto"
+                      alt="マングローブカヤック"
+                      src="../../images/tour-menu/menu-kayak.jpg"
+                      width={500}
                     />
-                    <h3 className="text-[24px] lg:text-[28px] font-bold text-center pt-6">
-                      <span>
-                        {content.title}
-                      </span>
-                    </h3>
-                    <p className="pt-6 w-[85%] lg:h-[220px] mx-auto pb-12 whitespace-pre-wrap">
-                      {content.desc}
-                    </p>
+                    <div className="bg-white relative">
+                      <StaticImage
+                        className="absolute -right-2 w-[80px] h-auto lg:w-[100px] -top-[4rem]"
+                        src="../../images/tour-menu/menu-kayak-map.png"
+                        alt="名護市大浦湾"
+                      />
+                      <h3 className="text-[24px] lg:text-[28px] font-bold text-center pt-6">
+                        <span>
+                          {content.title}
+                        </span>
+                      </h3>
+                      <p className="pt-6 w-[85%] lg:h-[220px] mx-auto pb-12 whitespace-pre-wrap">
+                        {content.desc}
+                      </p>
+                    </div>
                   </div>
                   <div className="lg:flex lg:justify-center">  
                     <StaticImage
@@ -95,7 +101,7 @@ const Menu = () => {
                   </div>
                   <div className="py-12 flex justify-center lg:pt-8">
                     <Link
-                      className="flex items-center justify-center bg-main-green text-white w-[80%] text-center shadow-lg py-2 px-4 rounded-[12px] font-bold"
+                      className={`flex items-center justify-center bg-${content.color} text-white w-[80%] text-center shadow-lg py-2 px-4 rounded-[12px] font-bold`}
                       to={'/kayak'}
                     >
                       <span>
