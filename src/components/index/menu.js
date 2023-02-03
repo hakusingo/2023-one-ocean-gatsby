@@ -34,7 +34,7 @@ const Menu = () => {
               />
               <div className="bg-white relative">
                 <StaticImage
-                  className="rounded-[12px] rounded-tr-none rounded-bl-none w-full h-auto"
+                  className="absolute -right-2 w-[80px] h-auto lg:w-[100px] -top-[4rem]"
                   src="../../images/tour-menu/menu-kayak-map.png"
                   alt="名護市大浦湾"
                 />
