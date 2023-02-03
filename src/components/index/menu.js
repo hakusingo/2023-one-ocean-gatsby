@@ -27,14 +27,14 @@ const Menu = () => {
                 </p>
               </div>
               <StaticImage
-                className="rounded-[12px] rounded-tr-none rounded-bl-none w-full h-auto"
+                clawssName="rounded-[12px] rounded-tr-none rounded-bl-none w-full h-auto"
                 alt="マングローブカヤック"
                 src="../../images/tour-menu/menu-kayak.jpg"
-                quality={90}
+                width={500}
               />
               <div className="bg-white relative">
                 <StaticImage
-                  className="absolute -right-2 w-[80px] h-auto lg:w-[100px] -top-[4rem]"
+                  className="rounded-[12px] rounded-tr-none rounded-bl-none w-full h-auto"
                   src="../../images/tour-menu/menu-kayak-map.png"
                   alt="名護市大浦湾"
                 />
@@ -57,7 +57,6 @@ const Menu = () => {
                   imgClassName='object-contain'
                   src="../../images/tour-menu/menu-kayak.png"
                   alt="親子カヤック写真"
-                  quality={90}
                 />
               </div>
               <div className="py-12 flex justify-center lg:pt-8">
@@ -86,7 +85,7 @@ const Menu = () => {
                 className="rounded-[12px] rounded-tr-none rounded-bl-none w-full h-auto"
                 alt="トレッキング"
                 src="../../images/tour-menu/menu-trekking.jpg"
-                quality={90}
+                width={500}
               />
               <div className="bg-white relative">
                 <StaticImage
@@ -145,6 +144,7 @@ const Menu = () => {
                 className="rounded-[12px] rounded-tr-none rounded-bl-none w-full h-auto"
                 alt="結プログラム"
                 src="../../images/tour-menu/menu-yui.jpg"
+                width={500}
                 quality={90}
               />
               <div className="bg-white relative">
@@ -204,6 +204,7 @@ const Menu = () => {
                 className="rounded-[12px] rounded-tr-none rounded-bl-none w-full h-auto"
                 alt="拝しょ"
                 src="../../images/tour-menu/menu-mui.jpg"
+                width={500}
                 quality={90}
               />
               <div className="bg-white relative">

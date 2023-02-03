@@ -25,9 +25,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    {
-      resolve: "gatsby-plugin-lodash",
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
