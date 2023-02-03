@@ -61,7 +61,7 @@ const Menu = () => {
                       {content.subTitle}
                     </p>
                   </div>
-                  {/* <StaticImage
+                  <StaticImage
                     className="iso-target fadein-opacity rounded-[12px] rounded-tr-none rounded-bl-none w-full h-auto"
                     alt="マングローブカヤック"
                     src="../../images/tour-menu/menu-kayak.jpg"
@@ -81,8 +81,8 @@ const Menu = () => {
                     <p className="pt-6 w-[85%] lg:h-[220px] mx-auto pb-12 whitespace-pre-wrap">
                       {content.desc}
                     </p>
-                  </div> */}
-                  <div className="lg:flex lg:justify-center">  
+                  </div>
+                  {/* <div className="lg:flex lg:justify-center">  
                     <StaticImage
                       className="-mt-8 w-auto h-[200px]" 
                       imgClassName='object-contain'
@@ -103,7 +103,7 @@ const Menu = () => {
                         size="1.4rem"
                       />
                     </Link>
-                  </div>
+                  </div> */}
                 </div>
               )
             })
