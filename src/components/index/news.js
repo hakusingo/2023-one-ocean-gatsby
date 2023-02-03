@@ -65,41 +65,6 @@ const News = () => {
               </Link>
             )
           })}
-          {/* <Link 
-            to={'/'}
-            className="w-[80%] mx-auto py-6 pb-4 block"
-          >
-            <time className="text-[12px]">
-              2022.11.29
-            </time>
-            <p className="py-2">
-              ゴミ拾いプロジェクトに参加してきました。
-            </p>
-          </Link>
-          <hr className="w-[80%] mx-auto border-t-2 border-dotted border-gray-400" />
-          <Link 
-            to={'/'}
-            className="w-[80%] mx-auto py-6 pb-4 block"
-          >
-            <time className="text-[12px]">
-              2022.11.29
-            </time>
-            <p className="py-2">
-              東京からいらしたお客様から嬉しい差し入れ！！
-            </p>
-          </Link>
-          <hr className="w-[80%] mx-auto border-t-2 border-dotted border-gray-400" />
-          <Link 
-            to={'/'}
-            className="w-[80%] mx-auto pt-6 pb-4 block"
-          >
-            <time className="text-[12px]">
-              2022.11.29
-            </time>
-            <p className="py-2">
-              結プログラムを楽しんでもらえてよかった。
-            </p>
-          </Link> */}
           <hr />
         </div>
       </div>
