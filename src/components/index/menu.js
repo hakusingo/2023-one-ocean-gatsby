@@ -61,13 +61,13 @@ const Menu = () => {
                       {content.subTitle}
                     </p>
                   </div>
-                  {/* <StaticImage
+                  <StaticImage
                     className="iso-target fadein-opacity rounded-[12px] rounded-tr-none rounded-bl-none w-full h-auto"
                     alt="マングローブカヤック"
                     src="../../images/tour-menu/menu-kayak.jpg"
                     width={500}
-                  /> */}
-                  <div className="bg-white relative">
+                  />
+                  {/* <div className="bg-white relative">
                     <StaticImage
                       className="absolute -right-2 w-[80px] h-auto lg:w-[100px] -top-[4rem]"
                       src="../../images/tour-menu/menu-kayak-map.png"
@@ -103,7 +103,7 @@ const Menu = () => {
                         size="1.4rem"
                       />
                     </Link>
-                  </div>
+                  </div> */}
                 </div>
               )
             })
