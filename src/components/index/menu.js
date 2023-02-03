@@ -56,7 +56,7 @@ const Menu = () => {
             menuContents.map((content, i) => {
               return (
                 <div key={i} className="pt-12 h-auto max-w-[400px] mx-auto lg:max-w-[500px] w-full drop-shadow-xl">
-                  <div className="flex justify-center -mb-[1.4rem] relative z-10">
+                  <div className="flex justify-center -mb-[1.4rem] z-10">
                     <p className="bg-main-green text-yellow font-bold py-2 px-8 inline-block rounded-[8px] lg:text-[22px]">
                       {content.subTitle}
                     </p>
@@ -67,7 +67,7 @@ const Menu = () => {
                     src="../../images/tour-menu/menu-kayak.jpg"
                     width={500}
                   />
-                  <div className="bg-white relative">
+                  <div className="bg-white">
                     <StaticImage
                       className="absolute -right-2 w-[80px] h-auto lg:w-[100px] -top-[4rem]"
                       src="../../images/tour-menu/menu-kayak-map.png"
