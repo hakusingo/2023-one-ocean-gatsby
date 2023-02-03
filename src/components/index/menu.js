@@ -67,7 +67,7 @@ const Menu = () => {
                     src="../../images/tour-menu/menu-kayak.jpg"
                     width={500}
                   />
-                  {/* <div className="bg-white relative">
+                  <div className="bg-white relative">
                     <StaticImage
                       className="absolute -right-2 w-[80px] h-auto lg:w-[100px] -top-[4rem]"
                       src="../../images/tour-menu/menu-kayak-map.png"
@@ -103,7 +103,7 @@ const Menu = () => {
                         size="1.4rem"
                       />
                     </Link>
-                  </div> */}
+                  </div>
                 </div>
               )
             })
@@ -350,9 +350,9 @@ const Menu = () => {
       <div className="pt-12">
 
       </div>
-      <Wave
+      {/* <Wave
         color="white"
-      />
+      /> */}
     </section>
   )
 }
