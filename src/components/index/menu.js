@@ -58,7 +58,7 @@ const Menu = () => {
           {
             menuContents.map((content, i) => {
               return (
-                <div key={i} className="pt-12 h-auto max-w-[400px] mx-auto lg:max-w-[500px] w-full drop-shadow-xl">
+                <div key={i} className="">
                   <div className='bg-main-blue text-yellow'>
                     カヤック脱ペ
                   </div>
@@ -76,7 +76,7 @@ const Menu = () => {
                       alt="親子カヤック写真"
                     />
                   </div>
-                  {/* <div className="flex justify-center -mb-[1.4rem] relative z-10">
+                  <div className="flex justify-center -mb-[1.4rem] relative z-10">
                     <p className="bg-main-green text-yellow font-bold py-2 px-8 inline-block rounded-[8px] lg:text-[22px]">
                       {content.subTitle}
                     </p>
@@ -123,7 +123,7 @@ const Menu = () => {
                         size="1.4rem"
                       />
                     </Link>
-                  </div> */}
+                  </div>
                 </div>
               )
             })
