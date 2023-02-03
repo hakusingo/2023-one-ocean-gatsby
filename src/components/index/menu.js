@@ -66,7 +66,7 @@ const Menu = () => {
                     alt="マングローブカヤック"
                     src="../../images/tour-menu/menu-kayak.jpg"
                     width={500}
-                  />
+                  /> */}
                   <div className="bg-white relative">
                     <StaticImage
                       className="absolute -right-2 w-[80px] h-auto lg:w-[100px] -top-[4rem]"
@@ -103,7 +103,7 @@ const Menu = () => {
                         size="1.4rem"
                       />
                     </Link>
-                  </div> */}
+                  </div>
                 </div>
               )
             })
