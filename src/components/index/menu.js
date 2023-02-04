@@ -63,33 +63,31 @@ const Menu = () => {
             menuContents.map((content, i) => {
               return (
                 <div key={i} className="pt-12 h-auto max-w-[400px] mx-auto lg:max-w-[500px] w-full">
-                  <div className="drop-shadow-lg">
-                    <div className="flex justify-center -mb-[1.4rem] relative z-10">
-                      <p className={`bg-${content.color} text-yellow font-bold py-2 px-8 inline-block rounded-[8px] lg:text-[22px]`}>
-                        {content.subTitle}
-                      </p>
-                    </div>
+                  <div className="flex justify-center -mb-[1.4rem] relative z-10">
+                    <p className={`bg-${content.color} text-yellow font-bold py-2 px-8 inline-block rounded-[8px] lg:text-[22px]`}>
+                      {content.subTitle}
+                    </p>
+                  </div>
+                  <StaticImage
+                    className="iso-target fadein-opacity rounded-[12px] rounded-tr-none rounded-bl-none w-full h-auto"
+                    alt="マングローブカヤック"
+                    src="../../images/tour-menu/menu-kayak.jpg"
+                    width={500}
+                  />
+                  <div className="bg-white relative">
                     <StaticImage
-                      className="iso-target fadein-opacity rounded-[12px] rounded-tr-none rounded-bl-none w-full h-auto"
-                      alt="マングローブカヤック"
-                      src="../../images/tour-menu/menu-kayak.jpg"
-                      width={500}
+                      className="absolute -right-2 w-[80px] h-auto lg:w-[100px] -top-[4rem]"
+                      src="../../images/tour-menu/menu-kayak-map.png"
+                      alt="名護市大浦湾"
                     />
-                    <div className="bg-white relative">
-                      <StaticImage
-                        className="absolute -right-2 w-[80px] h-auto lg:w-[100px] -top-[4rem]"
-                        src="../../images/tour-menu/menu-kayak-map.png"
-                        alt="名護市大浦湾"
-                      />
-                      <h3 className="text-[24px] lg:text-[28px] font-bold text-center pt-6">
-                        <span>
-                          {content.title}
-                        </span>
-                      </h3>
-                      <p className="pt-6 w-[85%] lg:h-[220px] mx-auto pb-12 whitespace-pre-wrap">
-                        {content.desc}
-                      </p>
-                    </div>
+                    <h3 className="text-[24px] lg:text-[28px] font-bold text-center pt-6">
+                      <span>
+                        {content.title}
+                      </span>
+                    </h3>
+                    <p className="pt-6 w-[85%] lg:h-[220px] mx-auto pb-12 whitespace-pre-wrap">
+                      {content.desc}
+                    </p>
                   </div>
                   <div className="lg:flex lg:justify-center">  
                     <StaticImage
