@@ -22,7 +22,7 @@ const Emotion = () => {
       </div>
       <StaticImage
         className="absolute top-0 left-0 right-0 bottom-0"
-        src="../../images/emotion/front-emotion.jpg"
+        src="../../images/emotion/front-emotion2.jpg"
         alt="ター滝"
         objectPosition="80% 90%"
         quality={90}

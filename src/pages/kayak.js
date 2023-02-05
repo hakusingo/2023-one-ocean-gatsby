@@ -167,7 +167,9 @@ const MenuEmotionP = () => {
       <br />
       水中から力強くのびるマングローブを<br />間近に観察できるのは、<br />カヤックならでは最大の魅力です。<br />
       <br />
-      大自然に囲まれた水上を<br />さっそうと進むのは<br />いつでも気持ちいい。
+      大自然に囲まれた水上を<br />さっそうと進むのは<br />いつでも気持ちいい。<br />
+      <br />
+      大人から、子供まで初心者から楽しめる、大人気の自然体験アクティビティーです。
     </p>
   )
 }
@@ -178,8 +180,8 @@ const Kayak = ({ data }) => {
   let heroImgPc = getImage(data.kayakHeroPc.childImageSharp.gatsbyImageData)
   let introPic1 = getImage(data.kayakIntro1.childImageSharp.gatsbyImageData)
   let introPic2 = getImage(data.kayakIntro2.childImageSharp.gatsbyImageData)
-  let contentsPic1 = getImage(data.kayakContentsPic1.childImageSharp.gatsbyImageData)
-  let contentsPic2 = getImage(data.kayakContentsPic2.childImageSharp.gatsbyImageData)
+  let contentsPic1 = getImage(data.kayakContentsPic2.childImageSharp.gatsbyImageData)
+  let contentsPic2 = getImage(data.kayakContentsPic1.childImageSharp.gatsbyImageData)
   let contentsPic3 = getImage(data.kayakContentsPic3.childImageSharp.gatsbyImageData)
   let schedulePics = []
   schedulePics.push(getImage(data.kayakSchedulePic1.childImageSharp.gatsbyImageData))
@@ -240,7 +242,7 @@ const Kayak = ({ data }) => {
 
 export const query = graphql`
   query {
-    kayakHero: file(relativePath: {eq: "menu/kayak/kayak-hero.jpg"}) {
+    kayakHero: file(relativePath: {eq: "menu/kayak/kayak-hero-pc.jpg"}) {
     childImageSharp {
       gatsbyImageData(layout: FULL_WIDTH)
     }
@@ -300,7 +302,7 @@ export const query = graphql`
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakSchedulePic6: file(relativePath: {eq: "menu/kayak/kayak-contents-pic1.jpg"}) {
+    kayakSchedulePic6: file(relativePath: {eq: "menu/kayak/KIMG0770.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
