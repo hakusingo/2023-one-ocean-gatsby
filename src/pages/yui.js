@@ -157,13 +157,14 @@ const menuSchedule = [
 const MenuEmotionP = () => {
   return (
     <p className="mt-12 text-center lg:text-[20px]">
-      沖縄県名護市指定文化財である<br/>大浦湾のマングローブ林。<br />
+      人と人とのふれあいを大切にすることは、自分自身だけでなく<br/>周りの人々にも影響を与えることができます。<br/>
       <br />
-      ゆったりと進むカヤックからの<br />視点や眺めは最高!!<br/>
+      一緒に過ごす時間や体験を通じて、仲間意識や協調性も養われます。<br/>
       <br />
-      水中から力強くのびるマングローブを<br />間近に観察できるのは、<br />カヤックならでは最大の魅力です。<br />
+      結プログラムでは、人と人との触れ合いを大切にしながら進む、自然体験プログラムです。<br/>
       <br />
-      大自然に囲まれた水上を<br />さっそうと進むのは<br />いつでも気持ちいい。
+      自然ととけこむことで、人との触れ合いもいつもより楽しくなる<br />
+      お客様のご要望で作り上げたオリジナルプログラムです。
     </p>
   )
 }
@@ -226,7 +227,7 @@ const Kayak = ({ data }) => {
         menuInfoHeader = {KayakScheduleHeader}
       />
       <MenuEmotion
-        menuEmotionH3 = "マングローブは生物・植物の宝庫です"
+        menuEmotionH3 = "「人と自然と繋がる」が冒険のテーマ"
         menuEmotionP = {MenuEmotionP}
         emotion = {emotion}
       />

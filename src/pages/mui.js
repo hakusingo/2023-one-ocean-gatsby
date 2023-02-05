@@ -190,13 +190,14 @@ const menuSchedule = [
 const MenuEmotionP = () => {
   return (
     <p className="mt-12 text-center lg:text-[20px]">
-      沖縄県名護市指定文化財である<br/>大浦湾のマングローブ林。<br />
+      沖縄の歴史はとてのミステリアスで興味深いものです。<br />
       <br />
-      ゆったりと進むカヤックからの<br />視点や眺めは最高!!<br/>
+      沖縄の歴史を紐解く探検がライフワークのワンオーシャンだから案内できる<br />
+      ワンオーシャンオリジナルムイツアー。<br />
       <br />
-      水中から力強くのびるマングローブを<br />間近に観察できるのは、<br />カヤックならでは最大の魅力です。<br />
+      自然体験アドベンチャーに歴史探訪がプラスされた、人気急上昇のメニューです。<br />
       <br />
-      大自然に囲まれた水上を<br />さっそうと進むのは<br />いつでも気持ちいい。
+      沖縄の魅力を本格的に紐解きたいならぜひ、ご参加ください。
     </p>
   )
 }
@@ -261,7 +262,7 @@ const Kayak = ({ data }) => {
         menuInfoHeader = {KayakScheduleHeader}
       />
       <MenuEmotion
-        menuEmotionH3 = "マングローブは生物・植物の宝庫です"
+        menuEmotionH3 = "古琉球の扉をひらく"
         menuEmotionP = {MenuEmotionP}
         emotion = {emotion}
       />

@@ -230,12 +230,12 @@ const Kayak = ({ data }) => {
 
 export const query = graphql`
   query {
-    kayakHero: file(relativePath: {eq: "menu/trekking/trekking-hero-pic1.jpg"}) {
+    kayakHero: file(relativePath: {eq: "tour-menu/menu-trekking.jpg"}) {
     childImageSharp {
       gatsbyImageData(layout: FULL_WIDTH)
     }
   }
-    kayakHeroPc: file(relativePath: {eq: "menu/trekking/trekking-hero-pic1.jpg"}) {
+    kayakHeroPc: file(relativePath: {eq: "tour-menu/menu-trekking.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
@@ -245,7 +245,7 @@ export const query = graphql`
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakIntro2: file(relativePath: {eq: "menu/trekking/trekking-intro-pic2.jpg"}) {
+    kayakIntro2: file(relativePath: {eq: "menu/trekking/trekking-intro-pic3.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
@@ -300,7 +300,7 @@ export const query = graphql`
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
-    kayakSchedulePic8: file(relativePath: {eq: "menu/trekking/trekking-photo.jpg"}) {
+    kayakSchedulePic8: file(relativePath: {eq: "menu/trekking/trekking-schedule-photo.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }

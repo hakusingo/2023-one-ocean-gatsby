@@ -18,6 +18,10 @@ body {
   overflow: hidden;
 }
 
+.text-shadow {
+  text-shadow: "0px 2px 3px darkgrey"
+}
+
 .fade-in-target{
   will-change: transform;
   transition: 1s;

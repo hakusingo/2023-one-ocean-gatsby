@@ -59,11 +59,11 @@ const Stuff = (props) => {
                 沖縄に来た貴重な時間で、<br />
                 貴重な体験を提供したい。
               </h3>
-              <h4 className="font-serif	font-semibold text-center relative">
+              <h4 className="font-serif	font-semibold text-center relative text-shadow">
                 <StaticImage
                   src="../../images//stuff/stuff-name-script.svg"
                   alt="tokujo masanao"
-                  className="iso-target fadein-left delay-[300ms] absolute top-[3rem] left-1/2"
+                  className="iso-target fadein-left delay-[300ms] absolute top-[2rem] left-1/2"
                 />
                 ワンオーシャン代表<br />
                 徳門 正尚
