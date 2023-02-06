@@ -79,11 +79,17 @@ body {
     transform: translateX(-50px);
     transition: .5s ease-out;
     will-change: transform;
+    &.active {
+      transform: none;
+    }
   }
   &.fadein-right {
     transform: translateX(50px);
     transition: .5s ease-out;
     will-change: transform;
+    &.active {
+      transform: none;
+    }
   }
 }
 

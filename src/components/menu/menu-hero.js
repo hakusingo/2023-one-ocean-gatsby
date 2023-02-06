@@ -9,6 +9,13 @@ const MenuHero = ( props ) => {
   let heroTitle = props.heroTitle
   let heroSubTitle = props.heroSubTitle
   let color = props.color
+  let objectPosition
+  if(props.color === "pink") {
+    objectPosition = "50% 70%"
+  }
+  if(props.color === "navy") {
+    objectPosition = "50% 100%"
+  }
 
   return (
     <section className="w-full relative">
@@ -19,13 +26,14 @@ const MenuHero = ( props ) => {
           alt="メニューヒーロー写真"
           quality={90}
           loading='eager'
+          objectPosition={objectPosition}
         />
         {
           mui ? (
             <GatsbyImage
               className="absolute top-0 left-0 right-0 bottom-0 hidden md:block"
               image={heroImgPc}
-              objectPosition="50% 90%"
+              objectPosition="50% 80%"
               alt="メニューPCヒーロー写真"
               loading='eager'
               quality={90}
@@ -34,6 +42,7 @@ const MenuHero = ( props ) => {
             <GatsbyImage
               className="absolute top-0 left-0 right-0 bottom-0 hidden md:block"
               image={heroImgPc}
+              objectPosition={objectPosition}
               alt="メニューPCヒーロー写真"
               loading='eager'  
               quality={90}

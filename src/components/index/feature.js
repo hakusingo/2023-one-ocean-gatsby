@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticImage } from 'gatsby-plugin-image'
+// import { StaticImage } from 'gatsby-plugin-image'
 import { GatsbyImage, getImage} from 'gatsby-plugin-image'
 import { useStaticQuery } from 'gatsby'
 import { graphql } from 'gatsby'

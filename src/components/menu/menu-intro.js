@@ -5,13 +5,15 @@ import Wave from '../svg/wave'
 import KayakIntroAccent from '../svg/kayak-intro-accent'
 
 const MenuIntro = (props) => {
-
   let IntroH3 = props.IntroH3
   let color = props.color
   let IntroP = props.IntroP
   let IntroPic1 = props.IntroPic1
   let IntroPic2 = props.IntroPic2
-
+  let objectPosition
+  if(props.color === "pink") {
+    objectPosition = "50% 76%"
+  }
   return (
     <section id="menu-intro" className='relative'>
       <div className="section-container">
@@ -23,6 +25,7 @@ const MenuIntro = (props) => {
             <GatsbyImage
               className='iso-target aspect-video hidden lg:block flex-1'
               image={IntroPic1}
+              objectPosition={objectPosition}
               alt="写真"
             />
             <div className="flex-2 relative pt-8 w-[90%] mx-auto sm:w-[60%] md:py-8">

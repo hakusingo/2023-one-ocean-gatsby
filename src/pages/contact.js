@@ -15,15 +15,15 @@ const contact = () => {
         <div className="h-[340px] relative md:h-[400px] lg:h-[600px]">
           <StaticImage
             className="absolute top-0 left-0 right-0 bottom-0 md:hidden"
-            src='../images/notes/notes-hero.jpg'
+            src='../images/contact/contact-hero.jpg'
             alt="ター滝トレッキング写真"
-            objectPosition="50% 30%"
+            objectPosition="50% 50%"
           />
           <StaticImage
             className="absolute top-0 left-0 right-0 bottom-0 hidden md:block"
-            src='../images/notes/notes-hero.jpg'
+            src='../images/contact/contact-hero.jpg'
             alt="ター滝トレッキング写真"
-            objectPosition="50% 80%"
+            objectPosition="50% 40%"
           />
         </div>
         <div className="absolute w-[92%] h-[94%] border-white border-2 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 rounded-[12px] rounded-tr-none"></div>
