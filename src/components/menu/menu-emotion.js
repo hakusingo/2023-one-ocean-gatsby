@@ -29,9 +29,9 @@ const MenuEmotion = (props) => {
         className="absolute top-0 left-0 right-0 bottom-0"
         image={emotion}
         alt="ター滝"
-        objectPosition="50% 50%"
+        objectPosition="50% 70%"
       />
-      <div className="relative z-10 text-white flex flex-col justify-center items-center h-full">
+      <div id="menu-emotion" className="relative z-10 text-white flex flex-col justify-center items-center h-full">
         <h3 className="text-[18px] font-semibold lg:text-[24px]">
           {props.menuEmotionH3}
         </h3>

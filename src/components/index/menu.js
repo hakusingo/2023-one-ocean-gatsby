@@ -170,6 +170,7 @@ const Menu = () => {
                     // src="../../images/tour-menu/menu-kayak.jpg"
                     image={heroJpg[i]}
                     width={500}
+                    objectPosition="50% 66%"
                   />
                   <div className="bg-white relative shadow-xl rounded-b-[12px]">
                     <GatsbyImage

@@ -152,10 +152,10 @@ const MenuSchedule = (props) => {
           />
         </Link>
       </div> */}
-      <div className="iso-target fadein-left flex justify-center py-[4rem]">
+      <div className="iso-target fadein-left flex justify-center w-full py-[4rem] text-center">
         <Link
-          className='max-w-[300px] w-[60%] inline-block mx-auto'
-          to={'/contact'}
+          className='max-w-[300px] w-[60%] h-auto'
+          to={'/reserve'}
         >
           <ContactButtom/>
         </Link>
