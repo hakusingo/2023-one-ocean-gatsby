@@ -1,3 +1,12 @@
+<p>
+  コンタクトフォーム・予約はSendGridにてメール送信<br/>
+  CSSフレームワーク Tailwind<br/>
+  最終的にlolipopサーバーにてホスト予定<br/>
+  ブログや最新情報などのデータはサブドメインを取得し、ワードプレスにて管理。<br/>
+  データをgraphqlにて取得し、表示する<br/>
+  ワードプレスを更新したらリビルドする機能を追加予定
+</p>
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.com">
