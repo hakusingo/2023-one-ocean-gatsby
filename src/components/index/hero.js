@@ -74,7 +74,6 @@ const Hero = () => {
       <Swiper
         className="hero-image absolute top-0 left-0 bottom-0 right-0 -z-10"
         speed={2000}
-        loop={true}
         autoplay={{
           delay: 4000,
           disableOnInteraction: false,
