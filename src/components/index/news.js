@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from "gatsby"
+import { useStaticQuery, graphql } from 'gatsby'
 
 import FrontNewsHeader from "../../components/svg/front-news-header"
 import NewsTreeTr from "../../components/svg/news-tree-tr"
@@ -9,27 +10,39 @@ import Wave from '../svg/wave'
 import { BsCaretRightFill } from "react-icons/bs"
 
 const News = () => {
-
-  const newsList = [
-    {
-      url: "/",
-      time: "2022年11月12日",
-      timeZone: 2022-11-12,
-      text: "最高の天気で、お客様に喜んでもらえました！！"
-    },
-    {
-      url: "/",
-      time: "2022年12月12日",
-      timeZone: 2022-11-12,
-      text: "今週のカヤックは最高の景色が予想されています。"
-    },
-    {
-      url: "/",
-      time: "2023年1月12日",
-      timeZone: 2022-11-12,
-      text: "台風時のご案内"
+  const data = useStaticQuery(graphql`
+    query {
+      allWpNews(limit: 3) {
+        nodes {
+          timeDate: date
+          date(formatString: "YYYY年MM月DD日")
+          uri
+          title
+        }
+      }
     }
-  ]
+  `)
+
+  // const newsList = [
+  //   {
+  //     url: "/",
+  //     time: "2022年11月12日",
+  //     timeZone: 2022-11-12,
+  //     text: "最高の天気で、お客様に喜んでもらえました！！"
+  //   },
+  //   {
+  //     url: "/",
+  //     time: "2022年12月12日",
+  //     timeZone: 2022-11-12,
+  //     text: "今週のカヤックは最高の景色が予想されています。"
+  //   },
+  //   {
+  //     url: "/",
+  //     time: "2023年1月12日",
+  //     timeZone: 2022-11-12,
+  //     text: "台風時のご案内"
+  //   }
+  // ]
 
   return (
     <section id="front-news" className="bg-light-blue relative">
@@ -48,19 +61,17 @@ const News = () => {
           <div className="absolute -bottom-[4rem] -left-[1rem]">
             <NewsTreeBl/>
           </div>
-          {newsList.map((list, i) => {
+          {data.allWpNews.nodes.map((list, i) => {
             return (
               <Link
-                to={list.url}
+                to={list.uri}
                 key={i}
                 className="w-[80%] mx-auto py-6 pb-4 block"
               >
-                <time dateTime={list.timeZone} className="text-[12px] font-bold text-main-blue">
-                  {list.time}
+                <time dateTime={list.timeDate} className="text-[12px] font-bold text-main-blue">
+                  {list.date}
                 </time>
-                <p className="py-2 text-center lg:text-[18px]">
-                  {list.text}
-                </p>
+                <h3 id="new-title" dangerouslySetInnerHTML={{ __html: list.title }} className="py-2 text-center lg:text-[18px] font-bold" />
                 {i !== 2 && <hr className="w-[80%] mx-auto border-t-2 border-dotted border-gray-400" /> }
               </Link>
             )
@@ -71,7 +82,7 @@ const News = () => {
       <div className="flex justify-center pb-20">
         <Link
           className="flex justify-center items-center news-btn mt-12 py-2 px-8 text-white text-[14px] font-semibold rounded-[22px]"
-          to={'/news-list'}
+          to={'/news/'}
         >
           <span>
             お知らせ一覧

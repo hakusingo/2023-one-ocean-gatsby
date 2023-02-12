@@ -110,7 +110,7 @@ const Header = () => {
               </li>
               <li className="">
                 <Link
-                  to={'/'}
+                  to={'/blog'}
                 >
                   ブログ
                 </Link>
@@ -225,7 +225,7 @@ const Header = () => {
         </li>
         <li className="py-4">
           <Link
-            to={'/'}
+            to={'/blog'}
           >
             ブログ
           </Link>
