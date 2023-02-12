@@ -5,27 +5,128 @@ import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import Seo from "../components/seo"
 
+import Wave from '../components/svg/wave'
+import BlogHeader from '../components/svg/blog-header'
+import FooterLogo from '../components/svg/footer-logo'
 import "./wp-block.css"
 import "./wp-style.css"
 import Pagination from '../components/pagenation'
 
 const BlogArchiveTemplate = ({ data, pageContext }) => {
+  let blogData = data.allWpPost.edges
+  console.log(blogData)
 
   return (
     <Layout>
-      <main className="container mx-auto">
-        <h2 className='py-8 text-[24px] font-bold text-teal-400 text-center'>ブログ一覧</h2>
-        <div className="grid grid-cols-12 gap-4">
-          <div className='col-span-3'>
-            <h3
-              className='bg-teal-400 text-white inline-block py-2 px-4 rounded-xl mb-4'
-            >
-              カテゴリー</h3>
-            <ul>
+      <main className='relative'>
+        <div className="lg:hidden">
+          <Wave
+            color = "main-blue"
+          />
+        </div>
+        <div className="pl-4 pr-4 pt-16 pb-20 lg:pb-8">
+          <div className="max-w-[500px] mx-auto">
+            <h2 className="">
+              <BlogHeader   
+                alt="ブログ"
+              />
+            </h2>
+          </div>
+          <div className="mx-auto xl:grid gap-8 grid-cols-12 my-8 max-w-[1300px]">
+            <div className="hidden xl:block col-span-3">
+              <div className="flex justify-center">
+                <h3
+                  className='text-white bg-main-blue font-bold inline-block px-4 py-1 rounded-xl text-center'
+                >
+                  ブログカテゴリー</h3>
+              </div>
+              <ul className='text-center mt-4'>
+                {
+                  data.allWpCategory.edges.map((cat, i) => {
+                    return (
+                      <li key={i} className="my-2">
+                        <Link
+                          to={`/cat/${cat.node.name}`}
+                        >
+                          {`${cat.node.name} (${cat.node.count})`}
+                        </Link>
+                      </li>
+                    )
+                  })
+                }
+              </ul>
+            </div>
+            <div className="lg:grid grid-cols-3 gap-4 xl:col-span-9">
+              {
+                blogData.map((data, i) => {
+                  return (
+                    <article key={i} className="border-b-4 border-gray-400 border-dotted w-[80%] mx-auto py-8 lg:h-[340px]">
+                      <Link
+                        key={i}
+                        to={`.${data.node.uri}`}
+                        className="block"
+                      >
+                        <h3 className="line-clamp-2 text-center text-[18px] font-bold">{ data.node.title }</h3>
+                        <time dateTime={data.node.date} className="text-[14px] font-bold text-main-blue pt-4 block text-right" >{data.node.jpDate}</time>
+                        {
+                          data.node.featuredImage ? (
+                            <GatsbyImage
+                              className='w-full h-auto aspect-video rounded-xl mt-4 border-4 border-main-blue'
+                              image={data.node.featuredImage.node.localFile.childImageSharp.gatsbyImageData}
+                              alt="ブログ写真"
+                              quality={90}
+                            />
+                          ) : (
+                            <div className='grid place-items-center bg-main-blue h-auto w-full aspect-video rounded-xl mt-4 border-4 border-main-blue'>
+                              <FooterLogo />
+                            </div>
+                          )
+                        }
+                      </Link>
+                    </article>
+                  )
+                })
+              }
+              {/* {data.allWpPost.edges.map(({ node }) => (
+                <article className='col-span-1 w-full' key={node.id}>
+                  <Link
+                    to={`/blog${node.uri}`}
+                    alt="/"
+                  >
+                    {node.featuredImage ? (
+                      <GatsbyImage
+                        className="w-auto h-[120px]"
+                        image={node.featuredImage.node.localFile.childImageSharp.gatsbyImageData}
+                        alt={node.featuredImage.node.description ? node.featuredImage.node.description : "イメージ写真"}
+                      />
+                    ) : (
+                      <div
+                        className='bg-teal-400 text-white w-auto h-[120px] grid place-items-center'
+                      >
+                        写真なし
+                      </div>
+                    )}
+                    <h3>{node.title}</h3>
+                  </Link>
+                </article>
+              ))} */}
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <Pagination totalCount={ data.allWpPost.totalCount } pageContext={ pageContext } />
+          </div>
+          <div className='mt-12 xl:hidden'>
+            <div className="flex justify-center">
+              <h3
+                className='text-white bg-main-blue font-bold inline-block px-4 py-1 rounded-xl text-center'
+              >
+                ブログカテゴリー</h3>
+            </div>
+            <ul className='text-center mt-4'>
               {
                 data.allWpCategory.edges.map((cat, i) => {
                   return (
-                    <li key={i}>
+                    <li key={i} className="my-2">
                       <Link
                         to={`/cat/${cat.node.name}`}
                       >
@@ -37,63 +138,7 @@ const BlogArchiveTemplate = ({ data, pageContext }) => {
               }
             </ul>
           </div>
-          <div className="grid grid-cols-3 gap-4 col-span-9">
-            {data.allWpPost.edges.map(({ node }) => (
-              <article className='col-span-1 w-full' key={node.id}>
-                <Link
-                  to={`/blog${node.uri}`}
-                  alt="/"
-                >
-                  {node.featuredImage ? (
-                    <GatsbyImage
-                      className="w-auto h-[120px]"
-                      image={node.featuredImage.node.localFile.childImageSharp.gatsbyImageData}
-                      alt={node.featuredImage.node.description ? node.featuredImage.node.description : "イメージ写真"}
-                    />
-                  ) : (
-                    <div
-                      className='bg-teal-400 text-white w-auto h-[120px] grid place-items-center'
-                    >
-                      写真なし
-                    </div>
-                  )}
-                  <h3>{node.title}</h3>
-                </Link>
-              </article>
-            ))}
-          </div>
         </div>
-        <ul className='py-8 text-[18px] font-bold text-teal-400 grid grid-cols-3 mx-auto'>
-          <div className="col-span-1">
-            {!pageContext.isFirst && (
-              <li>
-                <Link
-                  to={
-                    pageContext.currentPage === 2
-                      ? `/blog/`
-                      : `/blog/${pageContext.currentPage - 1}/`
-                  }
-                  rel="prev"
-                >
-                  <span>＜ 前のページ</span>
-                </Link>
-              </li>
-            )}
-          </div>
-          <Pagination totalCount={ data.allWpPost.totalCount } pageContext={ pageContext } />
-          <div className='col-span-1 ml-auto'>
-            {!pageContext.isLast && (
-              <li className=''>
-                <Link
-                  to={`/blog/${pageContext.currentPage + 1}/`}
-                  rel="next"
-                >
-                  <span>次のページ ＞</span>
-                </Link>
-              </li>
-            )}
-          </div>
-        </ul>
       </main>
     </Layout>
   )
@@ -116,6 +161,8 @@ export const query = graphql`
           title
           id
           uri
+          jpDate: date(formatString: "YYYY年MM月DD日")
+          date
           slug
           featuredImage {
             node {

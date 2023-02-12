@@ -162,7 +162,7 @@ const Hero = () => {
       <div className="z-30 absolute bottom-[4%] right-[7%] bg-main-blue w-[124px] h-[124px] rounded-[50%] flex justify-center items-center">
         <div className="w-[110px] h-[110px] border-2 border-dashed rounded-[50%]">
           <div className="text-white w-full h-full flex flex-col justify-center items-center">
-            <div className="flex justify-center font-semibold pb-2">
+            <div className="flex justify-center font-semibold">
               <time dateTime={now} className="text-[12px] block">
                 {`${week}.${month}.${today}.${year}`}
               </time>
