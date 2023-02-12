@@ -35,6 +35,9 @@
     -webkit-line-clamp: 2;
     display: -webkit-box;
   }
+  .news-content:last-of-type {
+    padding-bottom: 2rem !important;
+  }
 }
 
 #tour-menu {

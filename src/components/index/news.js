@@ -23,27 +23,6 @@ const News = () => {
     }
   `)
 
-  // const newsList = [
-  //   {
-  //     url: "/",
-  //     time: "2022年11月12日",
-  //     timeZone: 2022-11-12,
-  //     text: "最高の天気で、お客様に喜んでもらえました！！"
-  //   },
-  //   {
-  //     url: "/",
-  //     time: "2022年12月12日",
-  //     timeZone: 2022-11-12,
-  //     text: "今週のカヤックは最高の景色が予想されています。"
-  //   },
-  //   {
-  //     url: "/",
-  //     time: "2023年1月12日",
-  //     timeZone: 2022-11-12,
-  //     text: "台風時のご案内"
-  //   }
-  // ]
-
   return (
     <section id="front-news" className="bg-light-blue relative">
       <div className="pr-4 pl-4">
@@ -61,21 +40,21 @@ const News = () => {
           <div className="absolute -bottom-[4rem] -left-[1rem]">
             <NewsTreeBl/>
           </div>
-          {data.allWpNews.nodes.map((list, i) => {
-            return (
-              <Link
-                to={list.uri}
-                key={i}
-                className="w-[80%] mx-auto py-6 pb-4 block"
-              >
-                <time dateTime={list.timeDate} className="text-[12px] font-bold text-main-blue">
-                  {list.date}
-                </time>
-                <h3 id="new-title" dangerouslySetInnerHTML={{ __html: list.title }} className="py-2 text-center lg:text-[18px] font-bold" />
-                {i !== 2 && <hr className="w-[80%] mx-auto border-t-2 border-dotted border-gray-400" /> }
-              </Link>
-            )
-          })}
+            {data.allWpNews.nodes.map((list, i) => {
+              return (
+                <Link
+                  to={list.uri}
+                  key={i}
+                  className="news-content w-[80%] mx-auto py-6 pb-4 block"
+                >
+                  <time dateTime={list.timeDate} className="text-[12px] font-bold text-main-blue">
+                    {list.date}
+                  </time>
+                  <h3 id="new-title" dangerouslySetInnerHTML={{ __html: list.title }} className="py-2 text-center lg:text-[18px] font-bold" />
+                  {i !== 2 && <hr className="w-[80%] mx-auto border-t-2 border-dotted border-gray-400" /> }
+                </Link>
+              )
+            })}
           <hr />
         </div>
       </div>

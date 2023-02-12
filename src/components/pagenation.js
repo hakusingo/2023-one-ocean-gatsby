@@ -34,7 +34,7 @@ const Pagination = ({ totalCount, pageContext }) => {
             {current_index === path ? path === '/' ? '1' : path.slice(1) : 
             <Link 
               to={`${path}`}
-              className={current == (path === "/blog/" ? 1 : path.replace("/blog/", "")) ? "text-red-400" : ""}
+              className={current == (path === "/blog/" ? 1 : path.replace("/blog/", "")) ? "text-main-blue font-black border-b-2 border-main-blue text-[18px]" : "text-[18px]"}
             >
               { path === "/blog/" ? 1 : path.replace("/blog/", "") }
             </Link>}
