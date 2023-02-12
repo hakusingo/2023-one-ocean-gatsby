@@ -30,7 +30,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: `http://oneoceandemo.local/graphql`,
+        url: `https://blog.haku-design.net/graphql`,
       },
     },
     {
