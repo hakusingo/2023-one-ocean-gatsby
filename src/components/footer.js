@@ -191,7 +191,7 @@ const Footer = () => (
             </li>
             <li>
               <Link
-                to={'/blog-list'}
+                to={'/blog'}
               >
                 ブログ
               </Link>
