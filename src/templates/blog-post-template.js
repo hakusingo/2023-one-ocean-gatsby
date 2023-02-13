@@ -108,7 +108,7 @@ const BlogPostTemplate = ({ data, pageContext }) => {
 
 export default BlogPostTemplate
 
-export const Head = (data) => <Seo title={data.wpPost.title} />
+export const Head = () => <Seo title="ワンオーシャンブログ" />
 
 export const query = graphql`
   query($id: String!) {

@@ -108,7 +108,7 @@ const NewsPostTemplate = ({ data, pageContext }) => {
 
 export default NewsPostTemplate
 
-export const Head = (data) => <Seo title={data.wpNews.title} />
+export const Head = () => <Seo title="お知らせページ" />
 
 export const query = graphql`
   query($id: String!) {
