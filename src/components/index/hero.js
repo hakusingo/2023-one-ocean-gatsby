@@ -159,11 +159,11 @@ const Hero = () => {
         src="../../images/hero/hero-weather.svg"
         alt="okinawa weathernews"
       /> */}
-      <div className="z-30 absolute bottom-[4%] right-[7%] bg-main-blue w-[124px] h-[124px] rounded-[50%] flex justify-center items-center">
-        <div className="w-[110px] h-[110px] border-2 border-dashed rounded-[50%]">
+      <div className="z-30 absolute bottom-[4%] right-[7%] bg-main-blue w-[128px] h-[128px] rounded-[50%] flex justify-center items-center">
+        <div className="w-[118px] h-[118px] border-2 border-dashed rounded-[50%]">
           <div className="text-white w-full h-full flex flex-col justify-center items-center">
             <div className="flex justify-center font-semibold">
-              <time dateTime={now} className="text-[12px] block">
+              <time dateTime={now} className="text-[12px]">
                 {`${week}.${month}.${today}.${year}`}
               </time>
             </div>

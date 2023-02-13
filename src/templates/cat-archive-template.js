@@ -12,7 +12,6 @@ import CategoryHeader from '../components/svg/category-header'
 
 const CatArchiveTemplate = ({ data, pageContext }) => {
   let catName = pageContext.catname
-  console.log(data)
 
   return (
     <Layout>
@@ -142,7 +141,7 @@ const CatArchiveTemplate = ({ data, pageContext }) => {
 
 export default CatArchiveTemplate
 
-export const Head = () => <Seo title="カテゴリ一覧ページ" description="カテゴリ一覧ページです" />
+export const Head = ({pageContext}) => <Seo title={`カテゴリ一覧ページ${pageContext.currentPage}`} description={`カテゴリ一覧ページ${pageContext.currentPage}ページめです。`} />
 
 export const query = graphql`
   query($skip: Int!, $limit: Int! $catid: String!) {

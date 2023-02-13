@@ -112,7 +112,7 @@ const NewsArchiveTemplate = ({ data, path, pageContext }) => {
 
 export default NewsArchiveTemplate
 
-export const Head = () => <Seo title="ニュース一覧ページ" description="ニュース一覧ページです" />
+export const Head = ({pageContext}) => <Seo title={`ニュース一覧ページ${pageContext}`} description={`ニュース一覧ページ${pageContext}`} />
 
 export const query = graphql`
   query($skip: Int!, $limit: Int!) {

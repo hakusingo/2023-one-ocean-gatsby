@@ -17,6 +17,8 @@ import "./template.scss"
 const BlogPostTemplate = ({ data, pageContext }) => {
   let title = data.wpPost.title
   let date = data.wpPost.dateJP
+  let dateTime = data.wpPost.date
+
   let eyeCatch 
   if(data.wpPost.featuredImage) {
     eyeCatch = data.wpPost.featuredImage.node.localFile.chidImageSharp
@@ -28,7 +30,8 @@ const BlogPostTemplate = ({ data, pageContext }) => {
     if(data.wpPost.featuredImage.node.description) {
       imgDesc = data.wpPost.featuredImage.node.description
     }
-  } 
+  }
+  
   if(imgDesc === undefined) {
     imgDesc = `${title}のアイキャッチ`
   }
@@ -50,8 +53,32 @@ const BlogPostTemplate = ({ data, pageContext }) => {
             </h2>
           </div>
           <article className='w-4/5 mx-auto'>
-            <h2 dangerouslySetInnerHTML={{ __html: title }} className='text-[24px] font-black text-main-blue text-center my-8' />
-            <p dangerouslySetInnerHTML={{ __html: date }} className="text-right" />
+            <h2 dangerouslySetInnerHTML={{ __html: title }} className='text-[24px] font-bold text-main-blue text-center my-8' />
+            <ul className='flex flex-wrap text-main-blue font-bold'>
+              <li id='blog-category-first' className='inline-block'>
+                <Link
+                  to="/blog/"
+                  className='whitespace-nowrap'
+                >
+                  ブログ
+                </Link>
+              </li>
+              {
+                data.wpPost.categories.nodes.map((cat, i) => {
+                  return (
+                    <li className='categories inline-block' key={i}>
+                      <Link
+                        className='whitespace-nowrap'
+                        to={`/cat/${cat.name}/`}
+                      >
+                        {cat.name}
+                      </Link>
+                    </li>
+                  )
+                })
+              }
+            </ul>
+            <time dateTime={dateTime} dangerouslySetInnerHTML={{ __html: date }} className="text-right block" />
               {
                 eyeCatch && (
                   <GatsbyImage
@@ -66,31 +93,31 @@ const BlogPostTemplate = ({ data, pageContext }) => {
           </article>
           <div className="max-w-[1000px] mx-auto mt-16">
             <ul className='page-navi flex justify-between w-4/5 mx-auto'>
-              {pageContext.next && (
-                <li className=''>
-                  <Link
-                    className='flex text-[14px] lg:text-4 gap-2 news-btn justify-center items-center news-btn py-2 px-4 text-white font-bold rounded-[12px]'
-                    to={`/blog${pageContext.next.uri}`} 
-                    rel="prev"
-                  >
-                    <BsCaretLeftFill
-                      size="1rem"
-                    />
-                    <span>
-                      次の記事
-                    </span>
-                  </Link>
-                </li>
-              )}
               {pageContext.previous && (
-                <li className="ml-auto">
+                <li className="">
                   <Link
                     className='flex text-[14px] lg:text-4 gap-2 news-btn justify-center items-center news-btn py-2 px-4 text-white font-bold rounded-[12px]'
                     to={`/blog${pageContext.previous.uri}`} 
                     rel="next"
                   >
+                    <BsCaretLeftFill
+                      size="1rem"
+                    />
                     <span>
                       前の記事
+                    </span>
+                  </Link>
+                </li>
+              )}
+              {pageContext.next && (
+                <li className='ml-auto'>
+                  <Link
+                    className='flex text-[14px] lg:text-4 gap-2 news-btn justify-center items-center news-btn py-2 px-4 text-white font-bold rounded-[12px]'
+                    to={`/blog${pageContext.next.uri}`} 
+                    rel="prev"
+                  >
+                    <span>
+                      次の記事
                     </span>
                     <BsCaretRightFill
                       size="1rem"
@@ -108,11 +135,17 @@ const BlogPostTemplate = ({ data, pageContext }) => {
 
 export default BlogPostTemplate
 
-export const Head = () => <Seo title="ワンオーシャンブログ" />
+export const Head = ({ data }) => <Seo title={`${data.wpPost.title}`} />
 
 export const query = graphql`
   query($id: String!) {
     wpPost(id: { eq: $id }) {
+      categories {
+        nodes {
+          name
+          uri
+        }
+      }
       title
       dateJP: date(formatString: "YYYY年MM月DD日")
       date
