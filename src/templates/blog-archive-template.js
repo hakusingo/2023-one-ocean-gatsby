@@ -64,7 +64,7 @@ const BlogArchiveTemplate = ({ data, pageContext }) => {
                     <article key={i} className="border-b-4 border-gray-400 border-dotted w-[80%] mx-auto py-8 lg:h-[340px]">
                       <Link
                         key={i}
-                        to={`.${data.node.uri}`}
+                        to={`/blog${data.node.uri}`}
                         className="block"
                       >
                         <h3 className="line-clamp-2 text-center text-[18px] font-bold">{ data.node.title }</h3>
@@ -124,7 +124,7 @@ const BlogArchiveTemplate = ({ data, pageContext }) => {
 
 export default BlogArchiveTemplate
 
-export const Head = () => <Seo title="ブログ一覧ページ" description="ブログ一覧ページです" />
+export const Head = ({ data, pageContext }) => <Seo title={`ブログ一覧ページ${pageContext.currentPage}`} description={`ブログ一覧ページの${pageContext.currentPage}ページ目です。`} />
 
 export const query = graphql`
   query($skip: Int!, $limit: Int!) {

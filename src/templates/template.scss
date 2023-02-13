@@ -23,9 +23,21 @@
   overflow: hidden;
 }
 
+#blog-category-first::after {
+  content: ">";
+  margin-left: .25rem;
+  margin-right: .25rem;
+}
+
+.categories:not(:last-child) {
+  &::after {
+    content: "・";
+    margin-left: .25rem;
+    margin-right: .25rem;
+  }
+}
+
 #wp-content {
-
-
   p {
     padding-bottom: 1rem;
     line-height: 1.6;
