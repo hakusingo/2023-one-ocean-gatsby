@@ -187,57 +187,64 @@ const Header = () => {
     <div id="sp-menu-cover" className="md:hidden fixed top-[60px] left-0 w-[100%] h-[calc(100vh-60px)] bg-gray-700 z-40">
     </div>
     <div id="sp-menu-open" className="md:hidden fixed top-[60px] left-0 bg-white w-[76%] z-40 h-[calc(100vh-60px)]">
-      <ul className="text-center font-zenmaru text-main-blue absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[55%] whitespace-nowrap text-[22px]">
-        <li className="py-4">
+      <ul className="text-center mt-6 font-zenmaru text-main-blue absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[55%] whitespace-nowrap text-[22px]">
+        <li className="py-3">
           <Link
             to={'/'}
           >
             ホーム
           </Link>
         </li>
-        <li className="py-4">
+        <li className="py-3">
           <Link
             to={'/kayak'}
           >
             マングローブカヤック
           </Link>
         </li>
-        <li className="py-4">
+        <li className="py-3">
           <Link
             to={'/trekking'}
           >
             ター滝トレッキング
           </Link>
         </li>
-        <li className="py-4">
+        <li className="py-3">
           <Link
             to={'/yui'}
           >
             結プログラム
           </Link>
         </li>
-        <li className="py-4">
+        <li className="py-3">
           <Link
             to={'/mui'}
           >
             オリジナルムイツアー
           </Link>
         </li>
-        <li className="py-4">
+        <li className="py-3">
+          <Link
+            to={'/news'}
+          >
+            お知らせ
+          </Link>
+        </li>
+        <li className="py-3">
           <Link
             to={'/blog'}
           >
             ブログ
           </Link>
         </li>
-        <li className="py-4">
+        <li className="py-3">
           <Link
             to={'/reserve'}
           >
             ご予約
           </Link>
         </li>
-        <li className="py-4">
+        <li className="py-3">
           <Link
             to={'/contact'}
           >

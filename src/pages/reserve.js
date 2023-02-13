@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 // import { Link } from 'gatsby'
 
+import Seo from '../components/seo'
 import Wave from '../components/svg/wave'
 import Layout from '../components/layout'
 import ReserveForm from '../components/reserve-form'
@@ -74,5 +75,7 @@ const contact = () => {
     </Layout>
   )
 }
+
+export const Head = () => <Seo title="ご予約ページ" />
 
 export default contact

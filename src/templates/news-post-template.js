@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
+import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Wave from '../components/svg/wave'
 import FrontNewsHeader from '../components/svg/front-news-header'
@@ -14,27 +15,26 @@ import "./template.scss"
 
 const NewsPostTemplate = ({ data, pageContext }) => {
   const title = data.wpNews.title
+  const date = data.wpNews.dateJP
+
   let eyeCatch
   if(data.wpNews.featuredImage) {
     eyeCatch = data.wpNews.featuredImage.node.localFile.childImageSharp.gatsbyImageData
   }
   
-  const date = data.wpNews.dateJP
-
   let imgDesc
-
-  console.log(data.wpNews.featuredImage)
   if(data.wpNews.featuredImage) {
     if(data.wpNews.featuredImage.node.description) {
       imgDesc = data.wpNews.featuredImage.node.description
     }
-  } else {
-    imgDesc = title
+  } 
+  if(imgDesc === undefined) {
+    imgDesc = `${title}のアイキャッチ`
   }
 
   return (
     <Layout>
-      <main className='relative'>
+      <main className='relative md:border-b-4 border-main-blue'>
         <div className="lg:hidden">
           <Wave
             color = "main-blue"
@@ -61,7 +61,7 @@ const NewsPostTemplate = ({ data, pageContext }) => {
                   />
                 )
               }
-            <div id="wp-content" dangerouslySetInnerHTML={{ __html: data.wpNews.content }} className="my-8" />
+            <div id="wp-content" dangerouslySetInnerHTML={{ __html: data.wpNews.content }} className="my-8 lg:w-4/5 lg:mx-auto"  />
           </article>
           <div className="max-w-[1000px] mx-auto mt-16">
             <ul className='page-navi flex justify-between w-4/5 mx-auto'>
@@ -99,7 +99,7 @@ const NewsPostTemplate = ({ data, pageContext }) => {
                 </li>
               )}
             </ul>
-        </div>
+          </div>
         </div>
       </main>
     </Layout>
@@ -107,6 +107,8 @@ const NewsPostTemplate = ({ data, pageContext }) => {
 }
 
 export default NewsPostTemplate
+
+export const Head = (data) => <Seo title={data.wpNews.title} />
 
 export const query = graphql`
   query($id: String!) {

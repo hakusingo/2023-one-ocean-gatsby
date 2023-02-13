@@ -324,7 +324,6 @@ export const query = graphql`
     }
   }
 `
-
 export const Head = () => <Seo title="マングローブカヤックメニュー | ワンオーシャン" />
 
 export default Kayak

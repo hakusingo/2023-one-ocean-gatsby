@@ -14,11 +14,10 @@ import Pagination from '../components/pagenation'
 
 const BlogArchiveTemplate = ({ data, pageContext }) => {
   let blogData = data.allWpPost.edges
-  console.log(blogData)
 
   return (
     <Layout>
-      <main className='relative'>
+      <main className='relative md:border-b-4 border-main-blue'>
         <div className="lg:hidden">
           <Wave
             color = "main-blue"
@@ -32,6 +31,7 @@ const BlogArchiveTemplate = ({ data, pageContext }) => {
               />
             </h2>
           </div>
+
           <div className="mx-auto xl:grid gap-8 grid-cols-12 my-8 max-w-[1300px]">
             <div className="hidden xl:block col-span-3">
               <div className="flex justify-center">
@@ -56,6 +56,7 @@ const BlogArchiveTemplate = ({ data, pageContext }) => {
                 }
               </ul>
             </div>
+
             <div className="lg:grid grid-cols-3 gap-4 xl:col-span-9">
               {
                 blogData.map((data, i) => {
@@ -77,9 +78,9 @@ const BlogArchiveTemplate = ({ data, pageContext }) => {
                               quality={90}
                             />
                           ) : (
-                            <div className='grid place-items-center bg-main-blue h-auto w-full aspect-video rounded-xl mt-4 border-4 border-main-blue'>
-                              <FooterLogo />
-                            </div>
+                              <div className='grid place-items-center bg-main-blue h-auto w-full aspect-video rounded-xl mt-4 border-4 border-main-blue'>
+                                <FooterLogo />
+                              </div>
                           )
                         }
                       </Link>
@@ -87,29 +88,6 @@ const BlogArchiveTemplate = ({ data, pageContext }) => {
                   )
                 })
               }
-              {/* {data.allWpPost.edges.map(({ node }) => (
-                <article className='col-span-1 w-full' key={node.id}>
-                  <Link
-                    to={`/blog${node.uri}`}
-                    alt="/"
-                  >
-                    {node.featuredImage ? (
-                      <GatsbyImage
-                        className="w-auto h-[120px]"
-                        image={node.featuredImage.node.localFile.childImageSharp.gatsbyImageData}
-                        alt={node.featuredImage.node.description ? node.featuredImage.node.description : "イメージ写真"}
-                      />
-                    ) : (
-                      <div
-                        className='bg-teal-400 text-white w-auto h-[120px] grid place-items-center'
-                      >
-                        写真なし
-                      </div>
-                    )}
-                    <h3>{node.title}</h3>
-                  </Link>
-                </article>
-              ))} */}
             </div>
           </div>
           <div className="flex justify-center">

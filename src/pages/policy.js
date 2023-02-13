@@ -3,6 +3,7 @@ import Layout from '../components/layout'
 import { StaticImage } from 'gatsby-plugin-image'
 import PrivacyPolicy from "../components/svg/privacy-policy"
 import Example from '../components/example'
+import Seo from '../components/seo'
 
 const policy = () => {
 
@@ -138,5 +139,7 @@ const policy = () => {
     </Layout>
   )
 }
+
+export const Head = () => <Seo title="プライバシーポリシー" />
 
 export default policy

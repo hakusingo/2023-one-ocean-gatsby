@@ -4,6 +4,7 @@ import Layout from '../components/layout'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
+import Seo from '../components/seo'
 import FrontNewsHeader from '../components/svg/front-news-header'
 import Wave from '../components/svg/wave'
 import { BsCaretRightFill } from 'react-icons/bs'
@@ -19,7 +20,7 @@ const NewsArchiveTemplate = ({ data, path, pageContext }) => {
 
   return (
     <Layout>
-      <main className='relative'>
+      <main className='relative md:border-b-4 border-main-blue'>
         <div className="lg:hidden">
           <Wave
             color = "main-blue"
@@ -110,6 +111,8 @@ const NewsArchiveTemplate = ({ data, path, pageContext }) => {
 }
 
 export default NewsArchiveTemplate
+
+export const Head = () => <Seo title="ニュース一覧ページ" description="ニュース一覧ページです" />
 
 export const query = graphql`
   query($skip: Int!, $limit: Int!) {

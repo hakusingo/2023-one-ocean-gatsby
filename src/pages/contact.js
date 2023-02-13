@@ -2,11 +2,13 @@ import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
 
+import Seo from "../components/seo"
 import Wave from '../components/svg/wave'
 import Layout from '../components/layout'
 import ContactHeader from '../components/svg/conatct-header'
 import ContactForm from '../components/contact-form'
 import ContactPhoneSns from '../components/contact-phon-sns'
+
 
 const contact = () => {
   return (
@@ -79,5 +81,7 @@ const contact = () => {
     </Layout>
   )
 }
+
+export const Head = () => <Seo title="コンタクト・お問い合せページ" />
 
 export default contact
