@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link } from 'gatsby'
-import ContactComplete from './contact-complete'
+import ReserveComplete from './reserve-complete'
 import ReserveParticipant from './reserve-participant'
 
 const ReserveForm = () => {
@@ -21,6 +21,18 @@ const ReserveForm = () => {
     how: "",
     howContent: "",
     reserveMessage: "",
+    partList: [
+      {
+        id: 0,
+        name: "",
+        age: "",
+        sex: "",
+        weight: "",
+        footSize: "",
+        eyeSight: "",
+        glasses: "無し",
+      },
+    ],
   },)
   const [serverResponse, setServerResponse] = useState(``)
 
@@ -34,13 +46,8 @@ const ReserveForm = () => {
   const [how, setHow] = useState("")
   const HOW_RADIO = ["1 YahooやGoogleなどの検索", "2 広告", "3 紹介", "4 その他"]
 
-  // 参加者リストのロジック
-  const partList = [
-    {
-      id: 1,
-    },
-  ]
-  const [ participants, setParticipants ] = useState(partList)
+  // 参加者追加・削除ロジック
+  const [ participants, setParticipants ] = useState(value.partList)
   const deleteParticipant = (id) => {
     const newParticipants = participants.filter((participant) => {
       return participant.id !== id
@@ -50,12 +57,25 @@ const ReserveForm = () => {
   const createParticipant = (participant) => {
     setParticipants([...participants, participant])
   }
+
   // フォームの入力内容をリアルタイムでリッスンし仮保存しておく関数②.
+  function partListChange(e) {
+    e.preventDefault()
+    const num = value.partList.length - 1
+    value.partList[num][e.target.id] = e.target.value
+    setServerResponse(``)
+    setValue({ ...value })
+
+  }
+
   function handleChange(e) {
     value[e.target.id] = e.target.value
     setServerResponse(``)
     setValue({ ...value })
+
+    // console.log(value)
   }
+
 
   // フォームが送信されたら、送信処理のために
   // 入力内容（values）をapi/send.jsに送る関数①.
@@ -75,6 +95,20 @@ const ReserveForm = () => {
 
     console.log("送信完了")
   }
+
+
+  // let partTextData = []
+  // for(let i = 0; i < value.partList.length; i++) {
+  //   partTextData[i] = 
+  //   `
+  //   <p>参加者 ${i + 1}</p>
+  //   <p>お名前: ${value.partList[i].name}</p>
+  //   <p>年齢: ${value.partList[i].age}歳</p>
+  //   <p>性別: ${value.partList[i].sex}</p>
+  //   <p>体重: ${value.partList[i].weight}Kg</p>
+  //   <p>視力: ${value.partList[i].eyeSight}</p>
+  //   <p>コンタク・メガネ: ${value.partList[i].glasses}</p>`
+  // }
 
   // let body = value
 
@@ -97,7 +131,8 @@ const ReserveForm = () => {
   //   <p>お電話番号: ${body.phone}</p>
   //   <p>参加人数: 大人${body.adalt}名 お子様${body.child}名</p>
   //   <br>
-  //   <p>参加者一覧: ${Text}</p>
+  //   <p>参加者一覧</p>
+  //   ${partTextData.join()}
   //   <br>
   //   <p>健康面での不安: ${body.anxiety}</p>
   //   <p>健康面の不安内容: ${body.anxietyText}</p>
@@ -109,12 +144,14 @@ const ReserveForm = () => {
   //   <p style="white-space: pre-wrap;">お問合わせ内容： ${body.reserveMessage}</p>`,
   // }
 
+  // console.log(mailData.html)
+
   return (
     <div className="pt-12 md:pt-[8rem]">
       <div className="max-w-screen-2xl mx-auto">
         {/* text - start */}
         <div className="mb-10 md:mb-16 w-[80%] mx-auto max-w-xl">
-          <h2 className="text-main-blue text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6">お問合わせフォーム</h2>
+          <h2 className="text-main-blue text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6">ご予約フォーム</h2>
           <p className='max-w-[400px] mx-auto'>
             お急ぎの場合はお手数ですがお電話にてお問い合わせください。<br />
             なお、ツアー催行中などで電話に出られない場合は、こちらから折り返しご連絡させていただきます。
@@ -126,7 +163,7 @@ const ReserveForm = () => {
         {/* form - start */}
         <div className="bg-white border-4 border-main-blue rounded-lg mt-12 items-start max-w-[1000px] mx-auto">
 
-          { serverResponse ? <ContactComplete/> : (
+          { serverResponse ? <ReserveComplete/> : (
             <form onSubmit={onSubmit}  method="POST" action="/api/send" name="contact" className="max-w-screen-md mx-auto px-4">
               <div className='mt-8'>
                 <h3 className='inline-block mb-4 font-semibold text-main-blue text-[1.2rem] md:text-[1.6rem]'>1. ご希望のコース</h3>
@@ -298,7 +335,7 @@ const ReserveForm = () => {
                       onChange={handleChange}
                       name="adalt" 
                       id="adalt" 
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     >
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -319,7 +356,7 @@ const ReserveForm = () => {
                       onChange={handleChange}
                       name="child" 
                       id="child" 
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     >
                       <option value="0">0</option>
                       <option value="1">1</option>
@@ -349,6 +386,8 @@ const ReserveForm = () => {
                       deleteParticipant={deleteParticipant}
                       handleChange={handleChange}
                       value={value}
+                      setValue={setValue}
+                      partListChange={partListChange}
                     />
                   </div>
                 </div>
@@ -536,7 +575,7 @@ const ReserveForm = () => {
                     className='mr-2' 
                     type="checkbox"
                   />
-                  <label>
+                  <label htmlFor='course'>
                     お問い合わせの内容はこちらでよろしいですか？
                     よろしければチェックを入れて送信ボタンをクリックしてください。
                   </label>

@@ -11,7 +11,7 @@ import "swiper/css/effect-fade";
 const Hero = () => {
 
   let now = new Date()
-  let month = new Intl.DateTimeFormat('en', { month: 'short'}).format(new Date);
+  let month = Intl.DateTimeFormat('en', { month: 'short'}).format(now);
   let week=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][new Date().getDay()];
   let today = now.getDate()
   let year = now.getFullYear()
@@ -116,7 +116,7 @@ const Hero = () => {
             className="hero-image absolute top-0 left-0 bottom-0 right-0 -z-10"
             alt="マングローブカヤック"
             src="../../images/hero/hero-pic4.jpg"
-            objectPosition="20% 50%"
+            objectPosition="60% 50%"
             quality={90}
           />
         </SwiperSlide>
