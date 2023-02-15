@@ -1,7 +1,6 @@
 import React from 'react'
 
-const ReserveParticipant = ({participants, deleteParticipant, createParticipant, value, handleChange}) => {
-
+const ReserveParticipant = ({participants, deleteParticipant, createParticipant, value, handleChange, partListChange, setValue}) => {
   // let partNum = 1
   const addParticipant = (e) => {
     e.preventDefault()
@@ -9,6 +8,18 @@ const ReserveParticipant = ({participants, deleteParticipant, createParticipant,
       id: Math.floor(Math.random() * 1e4),
     }
     createParticipant(newParticipant)
+    let num = value.partList.length
+    value.partList[num] = {
+      id: num,
+      name: "",
+      age: "",
+      sex: "",
+      weight: "",
+      footSize: "",
+      eyeSight: "",
+      glasses: "無し",
+    }
+    setValue(value)
   }
   const deletePart = (id) => {
     deleteParticipant(id)
@@ -19,18 +30,23 @@ const ReserveParticipant = ({participants, deleteParticipant, createParticipant,
       {
         participants.map((part, i) => {
           return(
-            <li className='ml-4 mr-4 bg-sky-100 px-2 py-2 my-2 rounded-lg' key={part.id}>
+            <li className='ml-4 mr-4 bg-sky-100 px-2 py-2 my-2 rounded-lg' key={i}>
               <div className="py-2">
                 <label className='block mb-2'>
                   名前
                   <input
+                    required
                     type="text"
                     className="mt-2 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
                     placeholder='お名前'
-                    name={`partName${i}`}
-                    id={`partName${i}`}
-                    value={value[`partName${i}`] || ``}
-                    onChange={handleChange}
+                    name="name"
+                    id="name"
+                    value={value.partList[i]["name"] || ``}
+                    onChange={partListChange}
+                    // name={`name${i}`}
+                    // id={`name${i}`}
+                    // value={value[`name${i}`] || ``}
+                    // onChange={handleChange}
                   />
                 </label>
               </div>
@@ -41,25 +57,25 @@ const ReserveParticipant = ({participants, deleteParticipant, createParticipant,
                     <input
                       className="mt-2 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
                       type="number"
-                      name={`partAge${i}`}
-                      id={`partAge${i}`}
-                      value={value[`partAge${i}`] || ``}
-                      onChange={handleChange}
+                      name="age"
+                      id="age"
+                      value={value.partList[i]["age"] || ``}
+                      onChange={partListChange}
                     />
                   </label>
                 </div>
                 <div className='py-2 col-span-1'>
-                  <label htmlFor={`partSex${i}`} className='block mb-2'>
+                  <label htmlFor="sex" className='block mb-2'>
                     性別
                   </label>
                   <select
                     className='w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2'
-                    value={value[`partSex${i}`] || ``}
-                    onChange={handleChange}
-                    name={`partSex${i}`}
-                    id={`partSex${i}`}
+                    value={value.partList[i]["sex"] || ``}
+                    onChange={partListChange}
+                    name="sex"
+                    id="sex"
                   >
-                    <option value="選択">選択</option>
+                    <option value="">選択</option>
                     <option value="男性">男性</option>
                     <option value="女性">女性</option>
                   </select>
@@ -72,15 +88,15 @@ const ReserveParticipant = ({participants, deleteParticipant, createParticipant,
                     <input
                       className="mt-2 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
                       type="number"
-                      name={`partWeight${i}`}
-                      id={`partWeight${i}`}
-                      value={value[`partWeight${i}`] || ``}
-                      onChange={handleChange}
+                      name={"weight"}
+                      id={"weight"}
+                      value={value.partList[i]["weight"] || ``}
+                      onChange={partListChange}
                     />
                   </label>
                 </div>
                 <div className='py-2 col-span-1'>
-                  <label htmlFor={`partFoot${i}`} className='block mb-2'>
+                  <label htmlFor="footSize" className='block mb-2'>
                     足のサイズ
                     {/* <input
                       className="mt-2 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
@@ -93,12 +109,12 @@ const ReserveParticipant = ({participants, deleteParticipant, createParticipant,
                   </label>
                   <select
                     className='w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2'
-                    value={value[`partFoot${i}`] || ``}
-                    onChange={handleChange}
-                    name={`partFoot${i}`}
-                    id={`partFoot${i}`}
+                    value={value.partList[i]["footSize"] || ``}
+                    onChange={partListChange}
+                    name="footSize"
+                    id="footSize"
                   >
-                    <option value=""></option>
+                    <option value="選択して下さい">選択して下さい</option>
                     <option value="13.0cm">13.0cm</option>
                     <option value="13.5cm">13.5cm</option>
                     <option value="14.0cm">14.0cm</option>
@@ -137,76 +153,51 @@ const ReserveParticipant = ({participants, deleteParticipant, createParticipant,
                   </select> 
                 </div>
               </div>
-              <div className="flex gap-4">
-                <div className='py-2'>
-                  <label htmlFor={`partMusk${i}`} className='block mb-2'>
-                    度付きマスク希望
-                    {/* <input
-                      className="mt-2 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
-                      type="number"
-                      name={`partMusk${i}`}
-                      id={`partMusk${i}`}
-                      value={value[`Musk${i}`] || ``}
-                      onChange={handleChange}
-                    /> */}
-                  </label>
-                  <select
-                    className='w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-2 py-2'
-                    name={`partMusk${i}`}
-                    id={`partMusk${i}`}
-                    value={value[`partMusk${i}`] || ``}
-                    onChange={handleChange}
-                  >
-                    <option value=""></option>
-                    <option value="度付きマスク希望">度付きマスク希望</option>
-                  </select>
-                </div>
-                <div className='py-2'>
-                  <label 
-                    htmlFor={`partEyeSight${i}`}
-                    className='block mb-2'>
-                    視力
-                    {/* <input
-                      className="mt-2 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
-                      type="number"
-                      name={`partEyeSight${i}`}
-                      id={`partEyeSightk${i}`}
-                      value={value[`partEyeSight${i}`] || ``}
-                      onChange={handleChange}
-                    /> */}
-                  </label>
-                  <select
-                    className='w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-2 py-2'
+              <div className='py-2'>
+                <label 
+                  htmlFor="eyeSight"
+                  className='block mb-2'>
+                  視力
+                  {/* <input
+                    className="mt-2 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
+                    type="number"
                     name={`partEyeSight${i}`}
-                    id={`partEyeSight${i}`}
+                    id={`partEyeSightk${i}`}
                     value={value[`partEyeSight${i}`] || ``}
                     onChange={handleChange}
-                  >
-                    <option value=""></option>
-                    <option value="2.0">2.0</option>
-                    <option value="1.5">1.5</option>
-                    <option value="1.2">1.2</option>
-                    <option value="1.0">1.0</option>
-                    <option value="0.9">0.9</option>
-                    <option value="0.8">0.8</option>
-                    <option value="0.7">0.7</option>
-                    <option value="0.6">0.6</option>
-                    <option value="0.5">0.5</option>
-                    <option value="0.4">0.4</option>
-                    <option value="0.3">0.3</option>
-                    <option value="0.2">0.2</option>
-                    <option value="0.1">0.1</option>
-                    <option value="0.1以下">0.1以下</option>
-                  </select>
-                </div>
+                  /> */}
+                </label>
+                <select
+                  className='w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-2 py-2'
+                  name="eyeSight"
+                  id="eyeSight"
+                  value={value.partList[i]["eyeSight"] || ``}
+                  onChange={partListChange}
+                >
+                  <option value="選択してください">選択してください</option>
+                  <option value="2.0">2.0</option>
+                  <option value="1.5">1.5</option>
+                  <option value="1.2">1.2</option>
+                  <option value="1.0">1.0</option>
+                  <option value="0.9">0.9</option>
+                  <option value="0.8">0.8</option>
+                  <option value="0.7">0.7</option>
+                  <option value="0.6">0.6</option>
+                  <option value="0.5">0.5</option>
+                  <option value="0.4">0.4</option>
+                  <option value="0.3">0.3</option>
+                  <option value="0.2">0.2</option>
+                  <option value="0.1">0.1</option>
+                  <option value="0.1以下">0.1以下</option>
+                </select>
               </div>
               <div className='py-2'>
-                <label htmlFor={`glasses${i}`} className='block mb-2'>
+                <label htmlFor="glasses" className='block mb-2'>
                   コンタクト・メガネ
                   {/* <input
                     className="mt-2 w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
                     type="number"
-                    name={`glasses${i}`}
+                    name="glasses"
                     id={`glassesk${i}`}
                     value={value[`glasses${i}`] || ``}
                     onChange={handleChange}
@@ -214,12 +205,12 @@ const ReserveParticipant = ({participants, deleteParticipant, createParticipant,
                 </label>
                 <select
                   className='w-full text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2'
-                  name={`glasses${i}`}
-                  id={`glasses${i}`}
-                  value={value[`glasses${i}`] || ``}
-                  onChange={handleChange}
+                  name="glasses"
+                  id="glasses"
+                  value={value.partList[i]["glasses"] || ``}
+                  onChange={partListChange}
                 >
-                  <option value=""></option>
+                  <option value="無し">無し</option>
                   <option value="コンタクトレンズ">コンタクトレンズ</option>
                   <option value="めがね">めがね</option>
                 </select>
@@ -231,6 +222,8 @@ const ReserveParticipant = ({participants, deleteParticipant, createParticipant,
                     onClick={(e) => {
                       e.preventDefault()
                       deletePart(part.id)
+                      value.partList.splice(i, 1)
+                      setValue(value)
                     }}>削除</button>
                 )
               }

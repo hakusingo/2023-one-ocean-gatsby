@@ -1,16 +1,15 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-const Pagination = ({ totalCount, pageContext }) => {
-  // console.log(pageContext)
-
+const PagenationCat = ({ pageContext, totalCount }) => {
+  const catName = pageContext.catname
   // const totalPage = pageContext.pageCount
   const current = pageContext.currentPage
   // const firstPage = 0
   const pre_page = pageContext.limit
   const total = pageContext.totalPosts
   
-  const nav = [...Array(Math.ceil(total / pre_page))].map((_, i) => i + 1 === 1 ? '/blog/' : `/blog/${i + 1}`) // リンク生成用の配列を作成
+  const nav = [...Array(Math.ceil(total / pre_page))].map((_, i) => i + 1 === 1 ? `/${catName}/` : `/${catName}/${i + 1}`) // リンク生成用の配列を作成
 
   const current_index = current - 1
   const start = Math.max(current_index - 2, 0) // ページネーションリンクの開始index
@@ -33,10 +32,10 @@ const Pagination = ({ totalCount, pageContext }) => {
           >
             {current_index === path ? path === '/' ? '1' : path.slice(1) : 
             <Link 
-              to={`${path}`}
-              className={current === (path === "/blog/" ? 1 : path.replace("/blog/", "")) ? "text-main-blue font-black border-b-2 border-main-blue text-[18px]" : "text-[18px]"}
+              to={`/cat${path}`}
+              className={current === (path === `/${catName}/` ? 1 : path.replace(`/${catName}/`, "")) ? "text-main-blue font-black border-b-2 border-main-blue text-[18px]" : "text-[18px]"}
             >
-              { path === "/blog/" ? 1 : path.replace("/blog/", "") }
+              { path === `/${catName}/` ? 1 : path.replace(`/${catName}/`, "") }
             </Link>}
           </li>
         ))
@@ -45,4 +44,4 @@ const Pagination = ({ totalCount, pageContext }) => {
   )
 }
 
-export default Pagination
+export default PagenationCat

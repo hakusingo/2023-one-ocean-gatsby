@@ -5,12 +5,13 @@ import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import Seo from "../components/seo"
 
-import Pagination from '../components/pagenation'
 import Wave from '../components/svg/wave'
 import FooterLogo from '../components/svg/footer-logo'
 import CategoryHeader from '../components/svg/category-header'
+import PagenationCat from '../components/pagenation-cat'
 
 const CatArchiveTemplate = ({ data, pageContext }) => {
+
   let catName = pageContext.catname
 
   return (
@@ -38,7 +39,7 @@ const CatArchiveTemplate = ({ data, pageContext }) => {
             <div className="hidden xl:block col-span-3">
               <div className="flex justify-center my-8 text-main-blue font-bold text-[18px]">
                 <Link
-                  to="../../blog/"
+                  to="/blog/"
                   className=''
                 >
                   ブログ一覧ページへ
@@ -57,6 +58,7 @@ const CatArchiveTemplate = ({ data, pageContext }) => {
                       <li key={i} className="my-2">
                         <Link
                           to={`/cat/${cat.node.name}`}
+                          activeClassName="text-main-blue font-bold"
                         >
                           {`${cat.node.name} (${cat.node.count})`}
                         </Link>
@@ -98,13 +100,13 @@ const CatArchiveTemplate = ({ data, pageContext }) => {
           </div>
 
           <div className="flex justify-center">
-            <Pagination totalCount={ data.allWpPost.totalCount } pageContext={ pageContext } />
+            <PagenationCat totalCount={ data.allWpPost.totalCount } pageContext={ pageContext } />
           </div>
 
           <div className='mt-12 xl:hidden'>
             <div className="flex justify-center my-8 text-main-blue font-bold text-[18px]">
               <Link
-                to="../../blog/"
+                to={"/blog"}
                 className=''
               >
                 ブログ一覧ページへ
@@ -120,9 +122,12 @@ const CatArchiveTemplate = ({ data, pageContext }) => {
               {
                 data.allWpCategory.edges.map((cat, i) => {
                   return (
-                    <li key={i} className="my-2">
+                    <li key={i} 
+                      className="my-2"
+                    >
                       <Link
                         to={`/cat/${cat.node.name}`}
+                        activeClassName="text-main-blue font-bold"
                       >
                         {`${cat.node.name} (${cat.node.count})`}
                       </Link>

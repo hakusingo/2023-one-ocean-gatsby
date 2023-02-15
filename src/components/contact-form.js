@@ -162,7 +162,7 @@ const ContactForm = () => {
                     className='mr-2' 
                     type="checkbox"
                   />
-                  <label>
+                  <label htmlFor='course'>
                     お問い合わせの内容はこちらでよろしいですか？
                     よろしければチェックを入れて送信ボタンをクリックしてください。
                   </label>
