@@ -81,22 +81,22 @@ const Menu = () => {
         }
         kayakJpg: file(relativePath: {eq: "tour-menu/menu-kayak.jpg"}) {
           childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
+            gatsbyImageData(width: 500)
           }
         }
         trekkingJpg: file(relativePath: {eq: "menu/trekking/trekking-intro-pic2.jpg"}) {
           childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
+            gatsbyImageData(width: 500)
           }
         }
         yuiJpg: file(relativePath: {eq: "tour-menu/menu-yui.jpg"}) {
           childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
+            gatsbyImageData(width: 500)
           }
         }
         muiJpg: file(relativePath: {eq: "tour-menu/menu-mui.jpg"}) {
           childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
+            gatsbyImageData(width: 500)
           }
         }
         kayakPngUnder: file(relativePath: {eq: "tour-menu/menu-kayak.png"}) {
