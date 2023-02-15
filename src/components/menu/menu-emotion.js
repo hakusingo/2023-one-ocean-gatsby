@@ -28,7 +28,7 @@ const MenuEmotion = (props) => {
       <GatsbyImage
         className="absolute top-0 left-0 right-0 bottom-0"
         image={emotion}
-        alt="ター滝"
+        alt="ワンオーシャンならこんな雰囲気を味わえます"
         objectPosition="50% 70%"
       />
       <div id="menu-emotion" className="relative z-10 text-white flex flex-col justify-center items-center h-full">

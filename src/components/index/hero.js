@@ -74,9 +74,9 @@ const Hero = () => {
       <Swiper
         className="hero-image absolute top-0 left-0 bottom-0 right-0 -z-10"
         speed={2000}
+        loop="true"
         autoplay={{
           delay: 4000,
-          disableOnInteraction: false,
         }}
         effect={"fade"}
         modules={[EffectFade, Autoplay]}
@@ -116,7 +116,7 @@ const Hero = () => {
             className="hero-image absolute top-0 left-0 bottom-0 right-0 -z-10"
             alt="マングローブカヤック"
             src="../../images/hero/hero-pic4.jpg"
-            objectPosition="60% 50%"
+            objectPosition="30% 50%"
             quality={90}
           />
         </SwiperSlide>
