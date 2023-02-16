@@ -55,7 +55,7 @@ const Modal = ( props ) => {
           </button>
           
           <div className="pt-8 flex justify-center">
-            <div className="w-[80%] h-full max-w-[500px] xl:max-w-[800px]">
+            <div className="w-[75%] h-full max-w-[500px] xl:max-w-[800px]">
               <svg 
                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88.74 23.01"
                 className='w-[70%] h-auto mx-auto max-w-[300px]'
@@ -66,7 +66,7 @@ const Modal = ( props ) => {
               </svg>
               <div className="xl:flex gap-8 xl:text-[20px]">
                 <StaticImage
-                  className="mt-2 w-[60%] block mx-auto rounded flex-1 xl:max-w-[300px]"
+                  className="aspect-video sm:aspect-auto mt-2 w-[60%] block mx-auto rounded flex-1 xl:max-w-[300px]"
                   src="../../images/modal/modal-stuff-pic.jpg"
                   alt="stuff-pic"
                 />
@@ -75,13 +75,13 @@ const Modal = ( props ) => {
                     Profile
                   </h3>
                   <hr className='' />
-                  <h4 className='pt-2'>
+                  <h4 className='pt-1 text-center'>
                     【ニックネーム】
                   </h4>
                   <p>
                     Toku トクちゃん
                   </p>
-                  <h4 className='pt-2'>
+                  <h4 className='pt- text-center'>
                     【資格】
                   </h4>
                   <ul>
