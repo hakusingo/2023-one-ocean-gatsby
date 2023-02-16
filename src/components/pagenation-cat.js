@@ -33,7 +33,9 @@ const PagenationCat = ({ pageContext, totalCount }) => {
             {current_index === path ? path === '/' ? '1' : path.slice(1) : 
             <Link 
               to={`/cat${path}`}
-              className={current === (path === `/${catName}/` ? 1 : path.replace(`/${catName}/`, "")) ? "text-main-blue font-black border-b-2 border-main-blue text-[18px]" : "text-[18px]"}
+              activeClassName="text-main-blue font-black border-b-2 border-main-blue text-[18px]"
+              // className={current === (path === `/${catName}/` ? 1 : path.replace(`/${catName}/`, "")) ? "text-main-blue font-black border-b-2 border-main-blue text-[18px]" : "text-[18px]"}
+              className='text-[18px]'
             >
               { path === `/${catName}/` ? 1 : path.replace(`/${catName}/`, "") }
             </Link>}
