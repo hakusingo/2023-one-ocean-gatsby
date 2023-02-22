@@ -47,10 +47,10 @@ const News = () => {
                   key={i}
                   className="news-content w-[80%] mx-auto py-6 pb-4 block"
                 >
-                  <time dateTime={list.timeDate} className="text-[14px] font-bold text-main-blue">
+                  <time dateTime={list.timeDate} className="text-[14px] text-main-blue">
                     {list.date}
                   </time>
-                  <h3 id="new-title" dangerouslySetInnerHTML={{ __html: list.title }} className="py-2 text-center lg:text-[18px]" />
+                  <h3 id="new-title" dangerouslySetInnerHTML={{ __html: list.title }} className="py-2 text-center text-[18px] lg:text-[22px]" />
                   {i !== 2 && <hr className="w-[80%] mx-auto border-t-2 border-dotted border-gray-400" /> }
                 </Link>
               )

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { StaticImage } from "gatsby-plugin-image"
 
 // import { Swiper, SwiperSlide } from 'swiper/react';
@@ -16,47 +16,93 @@ const Hero = () => {
   let today = now.getDate()
   let year = now.getFullYear()
 
+  const heroTextTop = useRef()
+  const heroTextMiddle = useRef()
+  const heroTextBottom = useRef()
+  const heroSubtitle1 = useRef()
+  const heroSubtitle2 = useRef()
+
+  const tempNum = useRef()
+
+  const [weather, setWeather] = useState("")
+
   useEffect(() => {
+    // heroTextTop.current.classList.remove("opacity-0", "translate-x-4")
+    // heroTextMiddle.current.classList.remove("opacity-0", "-translate-x-4")
+    // heroTextBottom.current.classList.remove("opacity-0", "translate-x-4")
 
-    let heroTextTop = document.getElementById("hero-text-top")
-    let heroTextMiddle = document.getElementById("hero-text-middle")
-    let heroTextBottom = document.getElementById("hero-text-bottom")
-    let heroSubtitle = document.querySelectorAll(".hero-subtitle")
-    setTimeout(function() {
-      heroTextTop.classList.remove("opacity-0", "translate-x-4")
-      heroTextTop.classList.add("opacity-100", "translate-x-0")
-      setTimeout(function() {
-        heroTextMiddle.classList.remove("opacity-0", "-translate-x-4")
-        heroTextMiddle.classList.add("opacity-100", "translate-x-0")
-        setTimeout(function() {
-          heroTextBottom.classList.remove("opacity-0", "translate-x-4")
-          heroTextBottom.classList.add("opacity-100", "translate-x-0")
-          setTimeout(function() {
-            heroSubtitle.forEach(function(value) {
-              value.classList.remove("opacity-0")
-              value.classList.add("opacity-100")
-            },300)
-          },500)
-        },500)
-      },500)
-    },1000)
+    new Promise((resolve) => {
+      setTimeout(resolve, 1200)
+    })
+    .then(() => {
+      return new Promise((resolve) => {
+        heroTextTop.current.classList.remove("opacity-0", "translate-x-4")
+        setTimeout(resolve, 500)
+      })
+    })
+    .then(() => {
+      return new Promise((resolve) => {
+        heroTextMiddle.current.classList.remove("opacity-0", "-translate-x-4")
+        setTimeout(resolve, 500)
+      })
+    })
+    .then(() => {
+      return new Promise((resolve) => {
+        heroTextBottom.current.classList.remove("opacity-0", "translate-x-4")
+        setTimeout(resolve, 500)
+      })
+    })
+    .then(() => {
+      return new Promise((resolve) => {
+        heroSubtitle1.current.classList.remove("opacity-0")
+        heroSubtitle2.current.classList.remove("opacity-0")
+        // setTimeout(resolve, 300)
+      })
+    })
+    // let heroTextTop = document.getElementById("hero-text-top")
+    // let heroTextMiddle = document.getElementById("hero-text-middle")
+    // let heroTextBottom = document.getElementById("hero-text-bottom")
+    // let heroSubtitle = document.querySelectorAll(".hero-subtitle")
+    // setTimeout(function() {
+    //   heroTextTop.classList.remove("opacity-0", "translate-x-4")
+    //   heroTextTop.classList.add("opacity-100", "translate-x-0")
+    //   setTimeout(function() {
+    //     heroTextMiddle.classList.remove("opacity-0", "-translate-x-4")
+    //     heroTextMiddle.classList.add("opacity-100", "translate-x-0")
+    //     setTimeout(function() {
+    //       heroTextBottom.classList.remove("opacity-0", "translate-x-4")
+    //       heroTextBottom.classList.add("opacity-100", "translate-x-0")
+    //       setTimeout(function() {
+    //         heroSubtitle.forEach(function(value) {
+    //           value.classList.remove("opacity-0")
+    //           value.classList.add("opacity-100")
+    //         },300)
+    //       },500)
+    //     },500)
+    //   },500)
+    // },1000)
 
-    let temp
+    
+    const fetchWeater = async () => {
+      let temp
+      await fetch(`https://api.openweathermap.org/data/2.5/weather/?q=Okinawa&APPID=250f298a0a84d6c21b9d810c9631b248`)
+      .then(res => res.json())
+      .then(result => {
+        temp = (result.main.temp - 273.15)
+        temp = Math.round(temp)
+        tempNum.current.textContent  = `${temp}℃`
+        if(result.weather[0].main === "Clear") {
+          // document.getElementById("Clear").classList.remove("hidden")
+          setWeather("clear")
+        } else if(result.weather[0].main === "Clouds") {
+          setWeather("clouds")
+        } else {
+          setWeather("rain")
+        }
+      });
+    }
+    fetchWeater()
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather/?q=Okinawa&APPID=250f298a0a84d6c21b9d810c9631b248`)
-    .then(res => res.json())
-    .then(result => {
-      temp = (result.main.temp - 273.15)
-      temp = Math.round(temp)
-      document.getElementById("temp").textContent  = `${temp}℃`
-      if(result.weather[0].main === "Clear") {
-        document.getElementById("Clear").classList.remove("hidden")
-      } else if(result.weather[0].main === "Clouds") {
-        document.getElementById("Clouds").classList.remove("hidden")
-      } else {
-        document.getElementById("Rain").classList.remove("hidden")
-      }
-    });
   },[])
 
   return (
@@ -70,6 +116,7 @@ const Hero = () => {
         objectPosition="30% 50%"
         placeholder="blurred"
         loading="eager" 
+        quality="90"
       />
       {/* <Swiper
         className="hero-image absolute top-0 left-0 bottom-0 right-0 -z-10"
@@ -125,28 +172,31 @@ const Hero = () => {
       <div className="will-change-transform absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[60%] md:-translate-y-[50%]">
         <svg 
           id="hero-text-top"
+          ref={heroTextTop}
           className="duration-1000 opacity-0 translate-x-4 w-[300px] sm:w-[400px] lg:w-[500px] xl:w-[600px]"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 288 100">
           alt="オキナワ"
           <g transform="translate(-71.596 -250.724)"><g transform="translate(68.402 247.492)"><text transform="translate(147.194 80.232)" fill="#fff684" fontSize={72} fontFamily="mplus-1c-medium, 'M\+ \u31 c'" fontWeight={500} opacity="0.473"><tspan x={-144} y={0}>オキナワ</tspan></text><path d="M-101.656-58.456h9.416v11.232h15.48V-38.6H-92.24V-8.784c0,5-.656,7.975-2.064,9.354s-4.382,2.014-9.376,2.014a121.721,121.721,0,0,1-12.2-.725l-.957-.1.56-8.772,1.041.114a102.846,102.846,0,0,0,10.835.714c2,0,2.374-.341,2.389-.355s.355-.407.355-2.461V-29.577a165.641,165.641,0,0,1-14.283,12.423A146.3,146.3,0,0,1-132.922-5.827l-.875.5-4.363-7.8.87-.489a140.123,140.123,0,0,0,17.657-11.814A156.747,156.747,0,0,0-104.9-38.6h-32.9v-8.624h36.144Zm7.416,2h-5.416v11.232H-135.8V-40.6h35.619l-1.626,1.693A159.89,159.89,0,0,1-118.4-23.855a142.445,142.445,0,0,1-17.043,11.49l2.405,4.3a144.732,144.732,0,0,0,15.876-10.672,164.971,164.971,0,0,0,15.8-13.937l1.707-1.707V-9c0,2.029-.29,3.224-.941,3.875s-1.824.941-3.8.941A100.052,100.052,0,0,1-114.413-4.8l-.3,4.764c4.2.411,7.914.619,11.037.619,5.659,0,7.426-.9,7.976-1.442s1.464-2.277,1.464-7.926V-40.6h15.48v-4.624H-94.24Zm60.594-1.493,1.011,12.132,24.088-.865.372,8.841-23.72.791,1.207,14.923,25.022-.865.372,8.838-24.656.863,1.509,18.681-9.913.721-1.587-19.119-26.392.865-.372-8.838,26.024-.863-1.206-14.849-21.566.793-.372-8.838,21.2-.791-.933-11.7Zm-.824,14.2-1.005-12.06-5.929.431.939,11.772-21.278.793.2,4.842,21.49-.791,1.53,18.847-26.1.865.2,4.842,26.312-.863,1.581,19.041L-30.6,3.54l-1.515-18.759,24.736-.865-.2-4.842-24.946.863L-34.057-38.98l23.8-.793-.2-4.839ZM33.56-57.52h9.92v14.04H67.24v9.2H43.48v.8a59.862,59.862,0,0,1-1.634,14.757A29.7,29.7,0,0,1,36.865-7.959,27.181,27.181,0,0,1,27.994-.648a48.784,48.784,0,0,1-13.1,4.508l-.841.174L10.755-4.844l1.136-.239a41.725,41.725,0,0,0,10.475-3.51,19.018,19.018,0,0,0,6.5-5.191c3.112-4.074,4.691-10.7,4.691-19.7v-.8H4.76v-9.2h28.8Zm7.92,2H35.56v14.04H6.76v5.2h28.8v2.8a53.038,53.038,0,0,1-1.252,12.258,23.066,23.066,0,0,1-3.85,8.653,20.987,20.987,0,0,1-7.176,5.753,42.2,42.2,0,0,1-9.849,3.441l1.891,5.1A45.861,45.861,0,0,0,27.05-2.412a25.2,25.2,0,0,0,8.229-6.765A27.73,27.73,0,0,0,39.91-19.221,57.888,57.888,0,0,0,41.48-33.48v-2.8H65.24v-5.2H41.48ZM80-52.84h56.36V-37.8a49.356,49.356,0,0,1-2.739,17.068,32.8,32.8,0,0,1-8.285,12.676A38.435,38.435,0,0,1,111.594.025,69.642,69.642,0,0,1,92.577,3.518l-.907.052L90.285-5.391l1.091-.071a63.808,63.808,0,0,0,16.1-2.884A29.371,29.371,0,0,0,118.3-14.482a24.218,24.218,0,0,0,6.2-9.651A40.736,40.736,0,0,0,126.584-37.8v-5.84H89.56v18.36H80Zm54.36,2H82v23.56h5.56V-45.64h41.024v7.84a42.71,42.71,0,0,1-2.209,14.341,26.2,26.2,0,0,1-6.711,10.437A31.341,31.341,0,0,1,108.113-6.45,64.332,64.332,0,0,1,92.594-3.543l.774,5.008a66.653,66.653,0,0,0,17.562-3.327,36.456,36.456,0,0,0,13.034-7.651,30.813,30.813,0,0,0,7.78-11.912A47.378,47.378,0,0,0,134.36-37.8Z" transform="translate(144 77)" fill="#fff" /></g></g>
         </svg>
-        <p className="duration-1000 opacity-0 hero-subtitle font-zenmaru text-[24px] md:text-[32px] leading-[1.4rem] lg:leading-[1rem] font-bold text-white text-center">
+        <p ref={heroSubtitle1} className="duration-1000 opacity-0 hero-subtitle font-zenmaru text-[24px] md:text-[32px] leading-[1.4rem] lg:leading-[1rem] font-bold text-white text-center">
           LET'S ENJOY<br/>
         </p>
         <svg
           id="hero-text-middle"
+          ref={heroTextMiddle}
           className="duration-1000 opacity-0 -translate-x-4 w-[300px] sm:w-[400px] lg:w-[500px] xl:w-[600px]"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 288.899 100">
           alt="ボウケン"
           <g transform="translate(-70.698 -386.956)"><g transform="translate(68.402 383.724)"><text transform="translate(147.194 80.232)" fill="#fff684" fontSize={72} fontFamily="mplus-1c-medium, 'M\+ \u31 c'" fontWeight={500} opacity="0.473"><tspan x={-144} y={0}>ボウケン</tspan></text><path d="M-78.231-62.515l.472.813c2.256,3.888,4.252,7.564,5.934,10.927l.452.9-7.212,3.511h.386v8.84h-24.84v31.4c0,4.6-.6,7.367-1.9,8.72s-4,2-8.462,2a84.456,84.456,0,0,1-11.733-.946l-.965-.138,1.025-8.755,1.015.145a66.42,66.42,0,0,0,9,.782,6.812,6.812,0,0,0,1.912-.174,11.535,11.535,0,0,0,.184-2.642V-37.52h-26.28v-8.84h26.28V-57.88h9.92v11.52h13.582c-1.711-3.326-3.639-6.868-5.73-10.528l-.519-.908,7.1-3.647.478.819c2.017,3.458,3.966,7.063,5.791,10.713l.447.894L-87.2-46.36h8.568l-.441-.838c-1.429-2.716-3.412-6.342-5.892-10.778l-.511-.914Zm4.161,11.731c-1.443-2.839-3.1-5.893-4.949-9.1l-3.694,1.847c2.007,3.6,3.668,6.634,4.952,9.051Zm-10.507.873c-1.53-3.019-3.142-6-4.8-8.886l-3.554,1.825c1.73,3.051,3.344,6.015,4.81,8.836Zm-20.464-5.97h-5.92v11.52h-26.28v4.84h26.28V-7.128c0,2.618-.244,3.464-.61,3.93-.495.629-1.5.886-3.486.886a64.516,64.516,0,0,1-8.269-.661l-.56,4.781A80.025,80.025,0,0,0-113.4,2.6c4.953,0,6.523-.867,7.018-1.384s1.342-2.173,1.342-7.336v-33.4H-80.2v-4.84h-24.84Zm63.72-3.08h9.56V-47.8H-7.64v13.6a41.736,41.736,0,0,1-2.708,15.481A31.077,31.077,0,0,1-18.52-7,38.539,38.539,0,0,1-31.85.595,67.859,67.859,0,0,1-49.983,3.878l-.922.052L-52.113-4.9l1.079-.063a59.361,59.361,0,0,0,14.96-2.6A30.305,30.305,0,0,0-25.55-13.283,22.821,22.821,0,0,0-19.3-22.1a32.483,32.483,0,0,0,2.1-12.1v-4.976H-55.016V-22.4H-64.36V-47.8h23.04Zm7.56,2h-5.56V-45.8H-62.36v21.4h5.344V-41.176H-15.2V-34.2a34.46,34.46,0,0,1-2.245,12.846,24.8,24.8,0,0,1-6.792,9.58A32.282,32.282,0,0,1-35.449-5.656,60.039,60.039,0,0,1-49.84-3.031l.664,4.856A64.869,64.869,0,0,0-32.5-1.3,36.558,36.558,0,0,0-19.856-8.484a29.094,29.094,0,0,0,7.65-10.975A39.756,39.756,0,0,0-9.64-34.2V-45.8H-33.76Zm49.8-1.055,9.326.64-.1,1.028a76.435,76.435,0,0,1-1.387,8.907H67.6v8.84H50.311a73.225,73.225,0,0,1-1.829,16.147A37,37,0,0,1,43.046-9.828,29.331,29.331,0,0,1,33.63-1.321,43.5,43.5,0,0,1,20.061,3.5l-.866.167L16.41-4.872l1.114-.214A33.926,33.926,0,0,0,28.145-8.839a21.1,21.1,0,0,0,6.991-6.41,29.078,29.078,0,0,0,4-9.954,66.529,66.529,0,0,0,1.4-13.4H21.21A57.34,57.34,0,0,1,10.761-21.59l-.571.653L2.541-25.913l.725-.865A54.131,54.131,0,0,0,11.731-40.67a60.667,60.667,0,0,0,4.2-16.4Zm7.123,2.494L17.8-55.89A62.291,62.291,0,0,1,13.577-39.9,56.088,56.088,0,0,1,5.514-26.365l4.307,2.8a54.842,54.842,0,0,0,9.761-16.386l.242-.651H42.548l0,1a70.178,70.178,0,0,1-1.455,14.83,31.042,31.042,0,0,1-4.3,10.638,23.082,23.082,0,0,1-7.643,7.018A34.971,34.971,0,0,1,19.01-3.349l1.537,4.713A40.811,40.811,0,0,0,32.629-3.053,27.345,27.345,0,0,0,41.41-10.98a35.023,35.023,0,0,0,5.129-11.945A72.616,72.616,0,0,0,48.32-39.6l0-1H65.6v-4.84H21.327l.311-1.243A68.18,68.18,0,0,0,23.16-55.521Zm61.871.991.87.422c8.1,3.93,15.587,7.941,22.252,11.921l.841.5-4.8,8.427-.873-.513c-7.957-4.669-15.3-8.654-21.821-11.844l-.926-.453Zm21.255,13.56c-6.161-3.643-13.011-7.311-20.388-10.915l-2.6,4.929c6.091,3.013,12.862,6.691,20.156,10.949Zm24.331-6.738L139.75-45.7l-.165.944a63.919,63.919,0,0,1-6.23,18.885,47.918,47.918,0,0,1-11.278,14.158A53.3,53.3,0,0,1,105.816-2.4,82.258,82.258,0,0,1,84.688,2.076l-.94.083-1.37-9.318,1.047-.1a75.415,75.415,0,0,0,18.376-3.9,44.719,44.719,0,0,0,13.656-7.673,39.906,39.906,0,0,0,9.4-11.715,57.568,57.568,0,0,0,5.56-16.153Zm6.827,3.55-5.267-1.159A58.79,58.79,0,0,1,126.62-29.6a41.9,41.9,0,0,1-9.875,12.3,46.707,46.707,0,0,1-14.262,8.023,76.315,76.315,0,0,1-17.82,3.909L85.451,0a79.4,79.4,0,0,0,19.674-4.27,51.308,51.308,0,0,0,15.654-8.962,45.927,45.927,0,0,0,10.808-13.571A61.286,61.286,0,0,0,137.444-44.158ZM-88.515-33.106l.417.835c4.309,8.618,8.315,17.286,11.906,25.761l.4.933L-84.7-1.941l-.384-.91C-88.856-11.767-92.8-20.4-96.8-28.5l-.472-.956ZM-78.429-6.662c-3.356-7.866-7.065-15.889-11.041-23.879l-5.066,2.111c3.723,7.583,7.387,15.611,10.9,23.892Zm-50.793-26.051,9.015,3.1-.4.981c-3.547,8.629-7.558,17.208-11.92,25.5l-.437.831L-141.7-6.217l.49-.941c4.24-8.146,8.152-16.455,11.63-24.7Zm6.356,4.3-5.241-1.8c-3.271,7.69-6.915,15.431-10.846,23.04l5.087,2.279C-129.865-12.561-126.169-20.464-122.866-28.415Z" transform="translate(144 77)" fill="#fff" /></g></g>
         </svg>
-        <p className="duration-1000 opacity-0 hero-subtitle font-zenmaru text-[24px] md:text-[32px] lg-[32px] leading-[1.4rem] lg:leading-[1rem] font-bold text-white text-center ">
+        <p ref={heroSubtitle2} className="duration-1000 opacity-0 hero-subtitle font-zenmaru text-[24px] md:text-[32px] lg-[32px] leading-[1.4rem] lg:leading-[1rem] font-bold text-white text-center ">
           OKINAWA<br/>
         </p>
         <svg
           id="hero-text-bottom"
+          ref={heroTextBottom}
           xmlns="http://www.w3.org/2000/svg" 
           className="duration-1000 opacity-0 translate-x-4 w-[300px] sm:w-[400px] lg:w-[500px] xl:w-[600px]"
           viewBox="0 0 288 100">
@@ -169,24 +219,21 @@ const Hero = () => {
             </div>
             <div className="flex justify-center">
               <div className="">
-                {/* <img src={`https://api.openweathermap.org/data/2.5/${data.weather[0].icon}.png`} 
-                  alt={data.weather[0].description}
-                /> */}
                 <svg
                   id="Clear"
-                  className='hidden'
+                  className={ weather === "clear" ? "block" : "hidden"}
                   xmlns="http://www.w3.org/2000/svg" 
                   width="38.639" height="38.675" viewBox="0 0 38.639 38.675"><path d="M5.244,24.119A1.537,1.537,0,0,1,5.7,22.992a1.572,1.572,0,0,1,1.091-.437H10.5a1.379,1.379,0,0,1,1.055.455,1.709,1.709,0,0,1,.018,2.219,1.352,1.352,0,0,1-1.055.455H6.808a1.485,1.485,0,0,1-1.091-.455A1.513,1.513,0,0,1,5.244,24.119Zm5.2,12.607a1.685,1.685,0,0,1,.418-1.11l2.674-2.6a1.4,1.4,0,0,1,1.073-.418,1.541,1.541,0,0,1,1.091.418,1.36,1.36,0,0,1,.437,1.037,1.716,1.716,0,0,1-.437,1.164L13.121,37.8a1.652,1.652,0,0,1-2.238,0A1.469,1.469,0,0,1,10.447,36.726Zm0-25.177a1.685,1.685,0,0,1,.418-1.11,1.747,1.747,0,0,1,1.164-.455,1.529,1.529,0,0,1,1.073.437L15.7,13.1a1.412,1.412,0,0,1,.437,1.073A1.492,1.492,0,0,1,14.613,15.7a1.412,1.412,0,0,1-1.073-.437l-2.656-2.6A1.523,1.523,0,0,1,10.447,11.549Zm4.639,12.57a9.182,9.182,0,0,1,1.273-4.73,9.5,9.5,0,0,1,3.475-3.475,9.333,9.333,0,0,1,8.4-.509,9.5,9.5,0,0,1,3.02,2.037,9.546,9.546,0,0,1,2.765,6.694,9.2,9.2,0,0,1-1.273,4.748,9.54,9.54,0,0,1-3.456,3.456,9.488,9.488,0,0,1-9.5,0,9.54,9.54,0,0,1-3.456-3.456A9.665,9.665,0,0,1,15.086,24.119Zm3.093,0a6.428,6.428,0,0,0,6.4,6.44,6.46,6.46,0,0,0,6.44-6.44,6.132,6.132,0,0,0-1.892-4.493,6.233,6.233,0,0,0-4.548-1.856,6.151,6.151,0,0,0-4.512,1.856A6.063,6.063,0,0,0,18.178,24.119Zm4.839,14.153a1.429,1.429,0,0,1,.455-1.091,1.54,1.54,0,0,1,1.091-.437,1.523,1.523,0,0,1,1.11.437,1.481,1.481,0,0,1,.437,1.091v3.62a1.537,1.537,0,0,1-.455,1.128,1.485,1.485,0,0,1-1.091.455,1.456,1.456,0,0,1-1.091-.455,1.537,1.537,0,0,1-.455-1.128Zm0-28.2V6.364a1.485,1.485,0,0,1,.455-1.091,1.513,1.513,0,0,1,1.11-.473,1.456,1.456,0,0,1,1.091.455,1.485,1.485,0,0,1,.455,1.091v3.729a1.379,1.379,0,0,1-.455,1.055,1.524,1.524,0,0,1-1.091.418,1.572,1.572,0,0,1-1.091-.418A1.432,1.432,0,0,1,23.017,10.076ZM33.059,34.052A1.429,1.429,0,0,1,34.5,32.615a1.541,1.541,0,0,1,1.091.418l2.656,2.6a1.583,1.583,0,0,1,.437,1.11,1.469,1.469,0,0,1-.437,1.073,1.62,1.62,0,0,1-2.183,0l-2.583-2.583A1.771,1.771,0,0,1,33.059,34.052Zm0-19.865a1.41,1.41,0,0,1,.418-1.073l2.583-2.674A1.529,1.529,0,0,1,37.134,10a1.429,1.429,0,0,1,1.091.455,1.485,1.485,0,0,1,.455,1.091,1.536,1.536,0,0,1-.437,1.128l-2.656,2.6a1.6,1.6,0,0,1-1.091.437,1.321,1.321,0,0,1-1.019-.437A1.541,1.541,0,0,1,33.059,14.187Zm4.111,9.933a1.627,1.627,0,0,1,.437-1.128,1.417,1.417,0,0,1,1.037-.437h3.675a1.544,1.544,0,0,1,1.091,2.656,1.485,1.485,0,0,1-1.091.455H38.644a1.352,1.352,0,0,1-1.055-.455A1.572,1.572,0,0,1,37.17,24.119Z" transform="translate(-5.244 -4.8)" fill="#fff" />
                 </svg>
                 <svg
                   id="Clouds"
-                  className='hidden'
+                  className={ weather === "clouds" ? "block" : "hidden"}
                   xmlns="http://www.w3.org/2000/svg" 
                   width="38.639" height="38.675" viewBox="0 0 64 64"><title>くもり</title><path fill="#fff" d="M42.08105,31.9375c-4.87631-12.112-22.42279-10.675-25.40574,1.97576a11.28553,11.28553,0,1,0-1.38967,22.48518h28.8003A12.31273,12.31273,0,1,0,42.08105,31.9375Zm2.00489,22.46094H15.28564a9.285,9.285,0,1,1,1.9757-18.35731A1.00644,1.00644,0,0,0,18.46581,35.21,11.34464,11.34464,0,0,1,40.48,33.39551a1.00308,1.00308,0,0,0,1.18555.666,10.31607,10.31607,0,0,1,11.02,4.334C57.24829,45.067,52.18463,54.50734,44.08594,54.39844Z" /><path fill="#fff" d="M47.68994,15.83008a12.07762,12.07762,0,0,0-2.00793.18652,13.337,13.337,0,0,0-25.40143,1.9682A11.26478,11.26478,0,0,0,7.6001,29.16992a11.55439,11.55439,0,0,0,.51367,3.38281.99993.99993,0,1,0,1.9121-.58594,9.54763,9.54763,0,0,1-.42577-2.79687,9.3247,9.3247,0,0,1,11.2915-9.072.99172.99172,0,0,0,1.10968-.639C23.85892,7.57255,40.19937,5.98256,44.08013,17.45522a1.00618,1.00618,0,0,0,.97445.67588C54.627,15.77559,61.89,26.77612,55.7582,34.55579a1.00047,1.00047,0,0,0,1.56361,1.24786C63.75592,27.9662,57.84125,15.696,47.68994,15.83008Z" />
                 </svg>
                 <svg 
                   id="Rain"
-                  className='hidden'
+                  className={ weather === "rain" ? "block" : "hidden"}
                   width="38.639" height="38.675" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" enableBackground="new 0 0 64 64" xmlSpace="preserve">
                   <g id="Stroke_Cut_copy_3">
                     <g>
@@ -215,7 +262,7 @@ const Hero = () => {
                 </svg>
               </div>
               <div className="text-center">
-                <p id="temp" className="text-[20px] font-bold mb-[-10px]">
+                <p id="temp" ref={tempNum} className="text-[20px] font-bold mb-[-10px]">
                 </p>
                 <span className="text-[10px] inline-block mt-[-4px] ">
                   OKINAWA

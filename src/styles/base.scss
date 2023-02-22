@@ -79,12 +79,10 @@ body {
   &.fadein-opacity {
     transform: none;
     transition: .3s ease-out;
-    will-change: transform;
   }
   &.fadein-left {
     transform: translateX(-50px);
     transition: .5s ease-out;
-    will-change: transform;
     &.active {
       transform: none;
     }
@@ -92,7 +90,6 @@ body {
   &.fadein-right {
     transform: translateX(50px);
     transition: .5s ease-out;
-    will-change: transform;
     &.active {
       transform: none;
     }
@@ -135,6 +132,6 @@ body {
   will-change: transform;
 }
 .bort2 {
-  animation: bort 3.3s infinite linear 1s;
+  animation: bort 3.3s infinite linear 1.6s;
   will-change: transform;
 }
