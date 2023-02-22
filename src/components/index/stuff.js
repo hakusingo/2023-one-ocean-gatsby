@@ -1,6 +1,5 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
-// import { Link } from 'gatsby'
 
 import KayakSingle from '../svg/kayak-single'
 import KayakCouple from '../svg/kayak-couple'
@@ -30,20 +29,20 @@ const Stuff = (props) => {
             />
           </h2>
         </div>
-        <div className="">
-          <div className="lg:flex flex-row-reverse justify-evenly max-w-[1000px] mx-auto">
+        {/* <div className="w-full"> */}
+          <div className="lg:flex lg:flex-row-reverse justify-evenly max-w-[1000px] mx-auto">
             <div className="relative max-w-[500px] mx-auto md:hidden">
               <div className="iso-target fadein-left border-2 border-white w-[92%] h-[92%] absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[12px] rounded-tr-none rounded-bl-none"></div>
               <StaticImage
                 className="rounded-[12px] rounded-tr-none rounded-bl-none"
-                src="../../images//stuff/stuff-owner.jpg"
+                src="../../images/stuff/stuff-owner.jpg"
                 alt="ワンオーシャンオーナ徳門写真"
               />
             </div>
             <div className="iso-target fadein-left relative pl-8 max-w-[500px] mx-auto hidden md:block md:py-8">
               <StaticImage
                 className="rounded-[12px] rounded-tr-none rounded-bl-none"
-                src="../../images//stuff/stuff-owner-pc.jpg"
+                src="../../images/stuff/stuff-owner-pc.jpg"
                 alt="PC版ワンオーシャンオーナ徳門写真"
               />
               <svg 
@@ -103,7 +102,7 @@ const Stuff = (props) => {
               </div>
             </div>
           </div>
-        </div>
+        {/* </div> */}
       </div>
 
       <div className="pt-12">

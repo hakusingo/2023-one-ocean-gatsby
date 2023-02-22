@@ -7,7 +7,6 @@ import { StaticImage } from "gatsby-plugin-image"
 // import 'swiper/css';
 // import "swiper/css/effect-fade";
 
-
 const Hero = () => {
 
   let now = new Date()
