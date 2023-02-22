@@ -1,6 +1,4 @@
 import React from 'react'
-// import { useEffect } from "react"
-// import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import Mangrove from '../svg/mangrove'
 import Wave from '../svg/wave'
@@ -23,9 +21,6 @@ const Intro = () => {
           className="absolute -bottom-2 -right-[10%] sm:right-0 md:right-[10%] -z-10 h-[188px] w-auto md:h-[260px] md:w-[250px] lg:h-[300px] lg:w-[290px]"
         />
       </div>
-      {/* <Wave
-        color="blue"
-      /> */}
       <div className="">
         <Wave
           color="blue"
@@ -49,7 +44,7 @@ const Intro = () => {
             <StaticImage
               className="iso-target max-w-[400px] w-full h-auto"
               src="../../images/intro/intro-hero.jpg"
-              alt="ター滝ツアーの写真"
+              alt="ター滝ツアーを楽しむ親子"
             />
           </div>
         </div>
@@ -80,7 +75,7 @@ const Intro = () => {
               </span>
             </h3>
             <div className="flex justify-center lg:justify-start">
-              <p className="font-bold iso-target fadein-opacity mt-8 leading-[28px] w-[90%] max-w-[400px] lg:max-w-[600px] lg:text-[18px]">
+              <p className="iso-target fadein-opacity mt-8 leading-[28px] w-[90%] max-w-[400px] lg:max-w-[600px] lg:text-[18px]">
                 ワンオーシャンではお子様連れやカップル、
                 親子３世代でのツアーなど、幅広くお客様のご要望に
                 お答えするツアーをご用意しております。<br />

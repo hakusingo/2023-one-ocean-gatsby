@@ -1,5 +1,5 @@
 import * as React from "react"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Link } from "gatsby"
 
 import { RxCrossCircled } from "react-icons/rx"
@@ -8,41 +8,102 @@ import "./header.scss"
 import HeaderLogo from "./svg/header-logo" 
 
 const Header = () => {
+  // SPのメーニューオープン時と、PCのメニューオープンの左側のデータ
+  const frontSpMenu = [
+    {
+      name: "ホーム",
+      url: "/",
+    },
+    {
+      name: "マングローブカヤック",
+      url: "/kayak",
+    },
+    {
+      name: "ター滝トレッキング",
+      url: "/trekking"
+    },
+    {
+      name: "結プログラム",
+      url: "/yui"
+    },
+    {
+      name: "オリジナルムイツアー",
+      url: "/mui"
+    },
+    {
+      name: "ブログ",
+      url: "/blog"
+    },
+    {
+      name: "ご予約",
+      url: "/reserve"
+    },
+    {
+      name: "お問い合せ",
+      url: "/contact"
+    }
+  ]
+
+  const pcMenuRight = [
+    {
+      name: "お知らせ",
+      url: "/news"
+    },
+    {
+      name: "注意事項",
+      url: "/notes"
+    },
+    {
+      name: "プライバシーポリシー",
+      url: "/policy"
+    },
+    {
+      name: "サイトマップ",
+      url: "/"
+    }
+  ]
+
+  const [ spMenuOpen, setSpMenuOpen ] = useState(false)
+  const spMenuClick = () => {
+    setSpMenuOpen((prevState) => !prevState)
+  }
+  const [ pcMenuOpen, setPcMenuOpen ] = useState(false)
+  const pcMenuClick = () => {
+    setPcMenuOpen((prevState) => !prevState)
+  }
 
   useEffect(() => {
-    let SpNavButoon = document.getElementById("sp-nav-button")
-    let SpMenuOpen = document.getElementById("sp-menu-open")
-    let SpMenuCover = document.getElementById("sp-menu-cover")
-    let SpButtonLine = document.getElementById("sp-button-line")
-    SpNavButoon.addEventListener("click",function() {
-      SpMenuCover.classList.toggle("visible")
-      SpMenuCover.classList.toggle("opacity-80")
-      SpMenuOpen.classList.toggle("translate-x-0")
-      SpMenuOpen.classList.toggle("visible")
-      SpButtonLine.classList.toggle("close")
-    })
-    SpMenuCover.addEventListener("click", function() {
-      SpMenuCover.classList.toggle("visible")
-      SpMenuCover.classList.toggle("opacity-80")
-      SpMenuOpen.classList.toggle("translate-x-0")
-      SpMenuOpen.classList.toggle("visible")
-      SpButtonLine.classList.toggle("close")
-    })
-    let PcMenuButton = document.getElementById("sidebar-left-menu")
-    let PcMenu = document.getElementById("front-pc-menu")
-    let MenuButtonCross = document.getElementById("menu-button-cross")
-    PcMenuButton.addEventListener("click", function() {
-      PcMenu.classList.toggle("opacity-0")
-      PcMenu.classList.toggle("invisible")
-      MenuButtonCross.classList.toggle("scale-0")
-    })
+    // let SpNavButoon = document.getElementById("sp-nav-button")
+    // let SpMenuOpen = document.getElementById("sp-menu-open")
+    // let SpMenuCover = document.getElementById("sp-menu-cover")
+    // let SpButtonLine = document.getElementById("sp-button-line")
+    // SpNavButoon.addEventListener("click",function() {
+    //   // SpMenuCover.classList.toggle("visible")
+    //   // SpMenuCover.classList.toggle("opacity-80")
+    //   // SpMenuOpen.classList.toggle("translate-x-0")
+    //   // SpMenuOpen.classList.toggle("visible")
+    //   // SpButtonLine.classList.toggle("close")
+    // })
+    // SpMenuCover.addEventListener("click", function() {
+    //   SpMenuCover.classList.toggle("visible")
+    //   SpMenuCover.classList.toggle("opacity-80")
+    //   SpMenuOpen.classList.toggle("translate-x-0")
+    //   SpMenuOpen.classList.toggle("visible")
+    //   SpButtonLine.classList.toggle("close")
+    // })
+    // let PcMenuButton = document.getElementById("sidebar-left-menu")
+    // let PcMenu = document.getElementById("front-pc-menu")
+    // let MenuButtonCross = document.getElementById("menu-button-cross")
+    // PcMenuButton.addEventListener("click", function() {
+    //   PcMenu.classList.toggle("opacity-0")
+    //   PcMenu.classList.toggle("invisible")
+    //   MenuButtonCross.classList.toggle("scale-0")
+    // })
 
+    // インターセクションオブザーバー
     const options = {
-      //50px 見えてからコールバック関数を呼び出す
       rootMargin: '-25% 0px'
-      // threshold: [.4]
     }
-    //コールバック関数
     const callback = (entries) => {
       entries.forEach( (entry) => {
         //監視対象の要素が領域内に入った場合の処理
@@ -68,231 +129,11 @@ const Header = () => {
   return (
   <div id="top" className="relative">
 
-    <div id="front-pc-menu" className="hidden md:block opacity-0 invisible transition delay-200 ease-in-out fixed top-[80px] left-[60px] right-[60px] bg-white z-[40] h-[calc(100vh-80px)]">
-      <div className="h-[calc(100vh-80px)] grid grid-cols-12 w-[80%] max-w-[1000px] mx-auto">
-        <div className="col-span-6 mt-[100px] ml-12">
-          <div className="">
-            <ul className="front-pc-menu-left font-zenmaru">
-              <li className="">
-                <Link
-                  to={'/#top'}
-                >
-                  ホーム
-                </Link>
-              </li>
-              <li className="">
-                <Link
-                  to={'/kayak#top'}
-                >
-                  マングローブカヤック
-                </Link>
-              </li>
-              <li className="">
-                <Link
-                  to={'/trekking'}
-                >
-                  ター滝アドベンチャー
-                </Link>
-              </li>
-              <li className="">
-                <Link
-                  to={'/yui'}
-                >
-                  親子 結プログラム
-                </Link>
-              </li>
-              <li className="">
-                <Link
-                  to={'/mui'}
-                >
-                  オリジナルムイツアー
-                </Link>
-              </li>
-              <li className="">
-                <Link
-                  to={'/blog'}
-                >
-                  ブログ
-                </Link>
-              </li>
-              <li className="">
-                <Link
-                  to={'/reserve'}
-                >
-                  ご予約
-                </Link>
-              </li>
-              <li className="">
-                <Link
-                  to={'/contact'}
-                >
-                  お問合せ
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="col-span-6 mt-[100px] front-menu-right relative">
-          <ul className="font-zenmaru text-[22px] text-center">
-            <li className="">
-              <Link
-                to={'/news'}
-              >
-                お知らせ
-              </Link>
-            </li>
-            <li className="">
-              <Link
-                to={'/notes'}
-              >
-                注意事項
-              </Link>
-            </li>
-            <li className="">
-              <Link
-                to={'/policy'}
-              >
-                プライバシーポリシー
-              </Link>
-            </li>
-            <li className="">
-              <Link
-                to={'/reserve'}
-              >
-                サイトマップ
-              </Link>
-            </li>
-          </ul>
-          <div className="w-[70%] h-auto max-w-[300px] mx-auto px-8 pt-4 pb-6 bg-main-blue mt-[8rem] rounded-lg">
-            <div className="text-white text-right">
-              <h2 className="text-[34px]">
-                OneOcean
-              </h2>
-              <p className="text-[12px]">
-                〒904-2312 沖縄県うるま市勝連平安名1199<br/>
-              </p>
-              <div className="text-[22px] border-t border-b font-bold py-1 my-1">
-                TEL 090-4471-7311
-              </div>
-              <p>
-                https//one-ocean-toku.com/<br/>
-                info@one-ocean-toku.com
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="sp-menu-cover" className="md:hidden fixed top-[60px] left-0 w-[100%] h-[calc(100vh-60px)] bg-gray-700 z-40">
-    </div>
-    <div id="sp-menu-open" className="md:hidden fixed top-[60px] left-0 bg-white w-[76%] z-40 h-[calc(100vh-60px)]">
-      <ul className="text-center font-zenmaru text-main-blue absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[55%] whitespace-nowrap text-[22px]">
-        <li className="py-[0.6rem]">
-          <Link
-            to={'/'}
-          >
-            ホーム
-          </Link>
-        </li>
-        <li className="py-[0.6rem]">
-          <Link
-            to={'/kayak'}
-          >
-            マングローブカヤック
-          </Link>
-        </li>
-        <li className="py-[0.6rem]">
-          <Link
-            to={'/trekking'}
-          >
-            ター滝トレッキング
-          </Link>
-        </li>
-        <li className="py-[0.6rem]">
-          <Link
-            to={'/yui'}
-          >
-            結プログラム
-          </Link>
-        </li>
-        <li className="py-[0.6rem]">
-          <Link
-            to={'/mui'}
-          >
-            オリジナルムイツアー
-          </Link>
-        </li>
-        <li className="py-[0.6rem]">
-          <Link
-            to={'/news'}
-          >
-            お知らせ
-          </Link>
-        </li>
-        <li className="py-[0.6rem]">
-          <Link
-            to={'/blog'}
-          >
-            ブログ
-          </Link>
-        </li>
-        <li className="py-[0.6rem]">
-          <Link
-            to={'/reserve'}
-          >
-            ご予約
-          </Link>
-        </li>
-        <li className="py-[0.6rem]">
-          <Link
-            to={'/contact'}
-          >
-            お問合せ
-          </Link>
-        </li>
-      </ul>
-    </div>
-    <div id="sidebar-left" className="w-[60px] h-[calc(100vh-80px)] top-[80px] left-0 bg-white z-40 hidden md:block fixed shadow-2xl">
-      <div id="sidebar-left-phone" className="mt-[106px] absolute top-0 whitespace-nowrap left-1/2 -translate-x-1/2 rotate-[-90deg] text-[22px] text-main-blue font-medium">
-        <div className="flex whitespace-nowrap gap-x-1 items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15.398 15.397"><path d="M14.958,10.88,11.59,9.437a.722.722,0,0,0-.842.208L9.256,11.467A11.147,11.147,0,0,1,3.928,6.138L5.75,4.646A.72.72,0,0,0,5.958,3.8L4.514.436A.727.727,0,0,0,3.687.018L.559.74a.722.722,0,0,0-.559.7A13.953,13.953,0,0,0,13.954,15.4a.722.722,0,0,0,.7-.559l.722-3.128a.73.73,0,0,0-.421-.83Z" fill="#1ea4d9"/></svg>
-          <p>:090-4471-7311</p>
-        </div>
-      </div>
-      <div role="presentation" id="sidebar-left-menu" className="will-change-transform animate-pulse cursor-pointer absolute whitespace-nowrap top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-90deg] font-semibold text-main-blue">
-        MENU
-        <div id="menu-button-cross" className="absolute -top-[13px] w-[50px] h-[50px] bg-white grid place-items-center transition delay-200 ease-in-out scale-0">
-          <RxCrossCircled
-            className="w-[45px] h-[45px]"
-          />
-        </div>
-      </div> 
-      <div className="w-full flex justify-center mt-auto h-full items-end pb-8">
-        <div className="">
-          <div className="">
-            <svg xmlns="http://www.w3.org/2000/svg" width="27.25" height="27.25" viewBox="0 0 27.25 27.25"><path d="M16.551,12.724v4.325a.192.192,0,0,1-.195.195h-.693a.2.2,0,0,1-.158-.079l-1.983-2.676v2.567a.192.192,0,0,1-.195.195h-.693a.192.192,0,0,1-.195-.195V12.73a.192.192,0,0,1,.195-.195h.687a.183.183,0,0,1,.158.085L15.462,15.3V12.73a.192.192,0,0,1,.195-.195h.693a.192.192,0,0,1,.2.189Zm-4.988-.195H10.87a.192.192,0,0,0-.195.195v4.325a.192.192,0,0,0,.195.195h.693a.192.192,0,0,0,.195-.195V12.724a.2.2,0,0,0-.195-.195ZM9.89,16.155H8V12.724A.192.192,0,0,0,7.8,12.53H7.111a.192.192,0,0,0-.195.195v4.325a.179.179,0,0,0,.055.134.205.205,0,0,0,.134.055h2.78a.192.192,0,0,0,.195-.195v-.693a.2.2,0,0,0-.189-.195ZM20.2,12.53h-2.78a.2.2,0,0,0-.195.195v4.325a.2.2,0,0,0,.195.195H20.2a.192.192,0,0,0,.195-.195v-.693a.192.192,0,0,0-.195-.195H18.309v-.73H20.2a.192.192,0,0,0,.195-.195v-.7a.192.192,0,0,0-.195-.195H18.309v-.73H20.2a.192.192,0,0,0,.195-.195v-.693a.2.2,0,0,0-.195-.195Zm7.05-5.31V24.573A4.954,4.954,0,0,1,22.281,29.5H4.927A4.958,4.958,0,0,1,0,24.531V7.177A4.958,4.958,0,0,1,4.969,2.25H22.323A4.954,4.954,0,0,1,27.25,7.219ZM23.5,14.677c0-4.44-4.452-8.053-9.921-8.053s-9.921,3.613-9.921,8.053c0,3.978,3.528,7.311,8.3,7.944,1.162.249,1.028.675.766,2.238-.043.249-.2.979.858.535a32.061,32.061,0,0,0,7.8-5.76A7.186,7.186,0,0,0,23.5,14.677Z" transform="translate(0 -2.25)" fill="#333"/></svg>
-          </div>
-          <div className="pt-4">
-            <a
-              href="https://www.instagram.com/one_ocean/"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="27.256" height="27.25" viewBox="0 0 27.256 27.25"><path d="M13.626,8.876a6.987,6.987,0,1,0,6.987,6.987A6.975,6.975,0,0,0,13.626,8.876Zm0,11.529a4.542,4.542,0,1,1,4.542-4.542A4.55,4.55,0,0,1,13.626,20.4Zm8.9-11.815a1.63,1.63,0,1,1-1.63-1.63A1.626,1.626,0,0,1,22.528,8.59Zm4.627,1.654a8.064,8.064,0,0,0-2.2-5.71,8.117,8.117,0,0,0-5.71-2.2c-2.25-.128-8.993-.128-11.243,0a8.106,8.106,0,0,0-5.71,2.2,8.091,8.091,0,0,0-2.2,5.71c-.128,2.25-.128,8.993,0,11.243a8.064,8.064,0,0,0,2.2,5.71A8.128,8.128,0,0,0,8,29.392c2.25.128,8.993.128,11.243,0a8.064,8.064,0,0,0,5.71-2.2,8.117,8.117,0,0,0,2.2-5.71c.128-2.25.128-8.987,0-11.237ZM24.249,23.9a4.6,4.6,0,0,1-2.59,2.59c-1.794.711-6.05.547-8.032.547s-6.245.158-8.032-.547A4.6,4.6,0,0,1,3,23.9c-.711-1.794-.547-6.05-.547-8.032S2.3,9.618,3,7.83a4.6,4.6,0,0,1,2.59-2.59c1.794-.711,6.05-.547,8.032-.547s6.245-.158,8.032.547a4.6,4.6,0,0,1,2.59,2.59c.711,1.794.547,6.05.547,8.032S24.96,22.107,24.249,23.9Z" transform="translate(0.005 -2.238)" fill="#333"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div className="shadow-2xl w-[60px] h-[calc(100vh-80px)] top-[80px] right-0 bg-white z-40 hidden md:block fixed">
-      <div className="rotate-90 whitespace-nowrap h-full flex justify-center items-center text-main-blue">
-        © {new Date().getFullYear()} &middot; one-ocean-toku.com All Rights reserved.
-      </div>
-    </div>
+    {/* ヘッダー SP・PC共通 */}
     <header id="header" className="h-[60px] bg-main-blue md:h-[80px] fixed z-50 w-full shadow-xl">
       <div className="pl-4 pr-4 lg:pl-[60px] lg:pr-[60px] mx-auto flex justify-between h-full">
         <Link to={`/`}>
-          <HeaderLogo
-          />
+          <HeaderLogo/>
         </Link>
         <div id="sp-menu" className="h-full flex items-center md:hidden">
           <a className="inline-block mr-3" href="https://www.instagram.com/one_ocean/">
@@ -303,7 +144,7 @@ const Header = () => {
               height="27.25" viewBox="0 0 27.256 27.25"><path d="M13.626,8.876a6.987,6.987,0,1,0,6.987,6.987A6.975,6.975,0,0,0,13.626,8.876Zm0,11.529a4.542,4.542,0,1,1,4.542-4.542A4.55,4.55,0,0,1,13.626,20.4Zm8.9-11.815a1.63,1.63,0,1,1-1.63-1.63A1.626,1.626,0,0,1,22.528,8.59Zm4.627,1.654a8.064,8.064,0,0,0-2.2-5.71,8.117,8.117,0,0,0-5.71-2.2c-2.25-.128-8.993-.128-11.243,0a8.106,8.106,0,0,0-5.71,2.2,8.091,8.091,0,0,0-2.2,5.71c-.128,2.25-.128,8.993,0,11.243a8.064,8.064,0,0,0,2.2,5.71A8.128,8.128,0,0,0,8,29.392c2.25.128,8.993.128,11.243,0a8.064,8.064,0,0,0,5.71-2.2,8.117,8.117,0,0,0,2.2-5.71c.128-2.25.128-8.987,0-11.237ZM24.249,23.9a4.6,4.6,0,0,1-2.59,2.59c-1.794.711-6.05.547-8.032.547s-6.245.158-8.032-.547A4.6,4.6,0,0,1,3,23.9c-.711-1.794-.547-6.05-.547-8.032S2.3,9.618,3,7.83a4.6,4.6,0,0,1,2.59-2.59c1.794-.711,6.05-.547,8.032-.547s6.245-.158,8.032.547a4.6,4.6,0,0,1,2.59,2.59c.711,1.794.547,6.05.547,8.032S24.96,22.107,24.249,23.9Z" transform="translate(0.005 -2.238)" fill="#fff" />
             </svg>
           </a>
-          <a className="inline-block mr-3" href="https://www.line.com/">
+          <a className="inline-block mr-3" href="https://line.me/ti/p/Tz2gy2mV1s">
             <svg
               alt="ラインアイコン"
               xmlns="http://www.w3.org/2000/svg" 
@@ -311,14 +152,15 @@ const Header = () => {
               height="27.25" viewBox="0 0 27.25 27.25"><path d="M16.551,12.724v4.325a.192.192,0,0,1-.195.195h-.693a.2.2,0,0,1-.158-.079l-1.983-2.676v2.567a.192.192,0,0,1-.195.195h-.693a.192.192,0,0,1-.195-.195V12.73a.192.192,0,0,1,.195-.195h.687a.183.183,0,0,1,.158.085L15.462,15.3V12.73a.192.192,0,0,1,.195-.195h.693a.192.192,0,0,1,.2.189Zm-4.988-.195H10.87a.192.192,0,0,0-.195.195v4.325a.192.192,0,0,0,.195.195h.693a.192.192,0,0,0,.195-.195V12.724a.2.2,0,0,0-.195-.195ZM9.89,16.155H8V12.724A.192.192,0,0,0,7.8,12.53H7.111a.192.192,0,0,0-.195.195v4.325a.179.179,0,0,0,.055.134.205.205,0,0,0,.134.055h2.78a.192.192,0,0,0,.195-.195v-.693a.2.2,0,0,0-.189-.195ZM20.2,12.53h-2.78a.2.2,0,0,0-.195.195v4.325a.2.2,0,0,0,.195.195H20.2a.192.192,0,0,0,.195-.195v-.693a.192.192,0,0,0-.195-.195H18.309v-.73H20.2a.192.192,0,0,0,.195-.195v-.7a.192.192,0,0,0-.195-.195H18.309v-.73H20.2a.192.192,0,0,0,.195-.195v-.693a.2.2,0,0,0-.195-.195Zm7.05-5.31V24.573A4.954,4.954,0,0,1,22.281,29.5H4.927A4.958,4.958,0,0,1,0,24.531V7.177A4.958,4.958,0,0,1,4.969,2.25H22.323A4.954,4.954,0,0,1,27.25,7.219ZM23.5,14.677c0-4.44-4.452-8.053-9.921-8.053s-9.921,3.613-9.921,8.053c0,3.978,3.528,7.311,8.3,7.944,1.162.249,1.028.675.766,2.238-.043.249-.2.979.858.535a32.061,32.061,0,0,0,7.8-5.76A7.186,7.186,0,0,0,23.5,14.677Z" transform="translate(0 -2.25)" fill="#fff" />
             </svg>
           </a>
-          <div id="sp-nav-button" className="w-[42px] h-[46px] bg-white rounded-md rounded-tr-none relative">
+          {/* SPナビゲーションボタン */}
+          <div id="sp-nav-button" role="presentation" onClick={spMenuClick} className="w-[42px] h-[46px] bg-white rounded-md rounded-tr-none relative">
             <div className="absolute top-1/2 left-1/2 -translate-y-[40%] -translate-x-1/2">
-              <div id="sp-button-line" className="flex flex-col items-center justify-center">
+              <div id="sp-button-line" className={`flex flex-col items-center justify-center ${ spMenuOpen ? "close" : "" }`}>
                 <div className="w-[26px] h-[2px] bg-main-blue rounded-full"></div>
                 <div className="w-[26px] h-[2px] bg-main-blue mt-[5px] rounded-full"></div>
                 <div className="w-[26px] h-[2px] bg-main-blue mt-[5px] rounded-full"></div>
               </div>
-              <div className="font-zenmaru text-[10px] text-[700] text-main-blue font-bold">
+              <div className="text-[10px] text-[700] text-main-blue pt-[2px]">
                 MENU
               </div>
             </div>
@@ -340,7 +182,7 @@ const Header = () => {
             </li>
             <li>
               <Link className="flex flex-col items-center lg:w-[100px]" to={`/trekking`}>
-                <svg xmlns="http://www.w3.org/2000/svg" width={29} height={28} viewBox="0 0 23.495 32.142">
+                <svg xmlns="http://www.w3.org/2000/svg" width="29" height="28" viewBox="0 0 23.495 32.142">
                   <path d="M510.878,456.337l4.869-1.069h0l.011,0a.665.665,0,0,0,.5-.8,5.52,5.52,0,0,1,.422-3.289,10.929,10.929,0,0,0,.526-1.825,11.913,11.913,0,0,0,.023-4.115,10.216,10.216,0,0,0-1.419-3.671,5.122,5.122,0,0,0-2.648-2.248,4.234,4.234,0,0,0-3.291.308,4.123,4.123,0,0,0-2.027,2.71,13.385,13.385,0,0,0-.323,4.677,21.27,21.27,0,0,0,.963,4.851,33.467,33.467,0,0,0,1.632,4.057A.666.666,0,0,0,510.878,456.337Zm-1.131-4.875a19.925,19.925,0,0,1-.9-4.549,12.129,12.129,0,0,1,.271-4.2,2.873,2.873,0,0,1,1.339-1.893,2.947,2.947,0,0,1,2.281-.24,3.835,3.835,0,0,1,1.945,1.7,8.879,8.879,0,0,1,1.232,3.192,10.606,10.606,0,0,1-.023,3.662,9.961,9.961,0,0,1-.469,1.607,7.154,7.154,0,0,0-.58,3.369l-3.728.818A30.558,30.558,0,0,1,509.747,451.462Z" transform="translate(-507.456 -439.115)" fill="#fff" /><path d="M732.909,870.074l-4.594-1.476h0a.664.664,0,0,0-.778.3,13.428,13.428,0,0,0-1.221,2.7,6.821,6.821,0,0,0-.318,2.66,3.218,3.218,0,0,0,.811,1.94,2.8,2.8,0,0,0,1.591.846,3.458,3.458,0,0,0,1.768-.176,3.758,3.758,0,0,0,1.911-1.574,8,8,0,0,0,.832-1.943,13.489,13.489,0,0,0,.459-2.587h0A.665.665,0,0,0,732.909,870.074Zm-1.274,2.907a6.689,6.689,0,0,1-.691,1.625,2.422,2.422,0,0,1-1.234,1.011,2.123,2.123,0,0,1-1.086.113,1.476,1.476,0,0,1-.842-.44,1.921,1.921,0,0,1-.462-1.159,5.517,5.517,0,0,1,.266-2.144,11.186,11.186,0,0,1,.841-1.957l3.561,1.144A11.442,11.442,0,0,1,731.635,872.981Z" transform="translate(-713.954 -844.947)" fill="#fff" /><path d="M761.222,574.518a4.123,4.123,0,0,0-1.852-2.832,4.234,4.234,0,0,0-3.263-.517,5.127,5.127,0,0,0-2.786,2.078,10.211,10.211,0,0,0-1.646,3.572,11.91,11.91,0,0,0-.238,4.109,10.919,10.919,0,0,0,.409,1.853,5.527,5.527,0,0,1,.214,3.313.666.666,0,0,0,.448.828l.008,0h0l4.792,1.374a.666.666,0,0,0,.78-.346,33.6,33.6,0,0,0,1.9-3.967,21.268,21.268,0,0,0,1.266-4.78A13.384,13.384,0,0,0,761.222,574.518Zm-1.291,4.5a19.953,19.953,0,0,1-1.187,4.483,30.582,30.582,0,0,1-1.584,3.365l-3.667-1.052a7.148,7.148,0,0,0-.365-3.4,9.966,9.966,0,0,1-.367-1.635,10.607,10.607,0,0,1,.207-3.656,8.888,8.888,0,0,1,1.433-3.109,3.829,3.829,0,0,1,2.047-1.568,2.946,2.946,0,0,1,2.263.381,2.873,2.873,0,0,1,1.217,1.973A12.144,12.144,0,0,1,759.931,579.023Z" transform="translate(-737.945 -563.782)" fill="#fff" /><path d="M573.163,742.27a.665.665,0,0,0-.757-.351h0l-4.678,1.182a.666.666,0,0,0-.5.707,13.469,13.469,0,0,0,.291,2.564,8.006,8.006,0,0,0,.708,1.993,3.755,3.755,0,0,0,1.808,1.691,3.454,3.454,0,0,0,1.753.286,2.8,2.8,0,0,0,1.639-.743h0a3.218,3.218,0,0,0,.933-1.886,6.813,6.813,0,0,0-.15-2.673A13.434,13.434,0,0,0,573.163,742.27Zm-.116,5.235a1.919,1.919,0,0,1-.533,1.126h0a1.48,1.48,0,0,1-.869.386,2.128,2.128,0,0,1-1.077-.182,2.422,2.422,0,0,1-1.167-1.088,6.7,6.7,0,0,1-.588-1.665,11.431,11.431,0,0,1-.24-1.825l3.627-.917a11.174,11.174,0,0,1,.717,2A5.519,5.519,0,0,1,573.047,747.505Z" transform="translate(-563.936 -725.246)" fill="#fff" />
                 </svg>
                 <p className="mt-1">トレッキング</p>
@@ -368,6 +210,129 @@ const Header = () => {
         </div>
       </div>
     </header>
+
+    <div id="sp-menu-cover" role="presentation" onClick={spMenuClick} className={`md:hidden fixed top-[60px] left-0 w-[100%] h-[calc(100vh-60px)] bg-gray-700 z-40 ${spMenuOpen ? "visible opacity-80" : ""}`}>
+    </div>
+    <div id="sp-menu-open" className={`md:hidden fixed top-[60px] left-0 bg-white w-[76%] z-40 h-[calc(100vh-60px)] ${spMenuOpen ? "translate-x-0 visible" : ""}`}>
+      <ul className="text-center text-main-blue absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[55%] whitespace-nowrap text-[22px]">
+        {
+          frontSpMenu.map((menu, i) => {
+            return (
+              <li className="py-[0.6rem]" key={i}>
+                <Link
+                  to={menu.url}
+                >
+                  {menu.name}
+                </Link>
+              </li>
+            )
+          })
+        }
+      </ul>
+    </div>
+    {/* PCサイドバー左 */}
+    <div id="sidebar-left" className="w-[60px] h-[calc(100vh-80px)] top-[80px] left-0 bg-white z-40 hidden md:block fixed shadow-2xl">
+      <div id="sidebar-left-phone" className="mt-[106px] absolute top-0 whitespace-nowrap left-1/2 -translate-x-1/2 rotate-[-90deg] text-[22px] text-main-blue font-medium">
+        <div className="flex whitespace-nowrap gap-x-1 items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15.398 15.397"><path d="M14.958,10.88,11.59,9.437a.722.722,0,0,0-.842.208L9.256,11.467A11.147,11.147,0,0,1,3.928,6.138L5.75,4.646A.72.72,0,0,0,5.958,3.8L4.514.436A.727.727,0,0,0,3.687.018L.559.74a.722.722,0,0,0-.559.7A13.953,13.953,0,0,0,13.954,15.4a.722.722,0,0,0,.7-.559l.722-3.128a.73.73,0,0,0-.421-.83Z" fill="#1ea4d9"/></svg>
+          <p>:090-4471-7311</p>
+        </div>
+      </div>
+      <div role="presentation" onClick={pcMenuClick} id="sidebar-left-menu"  className="will-change-transform animate-pulse cursor-pointer absolute whitespace-nowrap top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-90deg] font-semibold text-main-blue">
+        MENU
+        <div id="menu-button-cross" className={`absolute -top-[13px] w-[50px] h-[50px] bg-white grid place-items-center transition delay-200 ease-in-out ${pcMenuOpen ? "" : "scale-0" }`}>
+          <RxCrossCircled
+            className="w-[45px] h-[45px]"
+          />
+        </div>
+      </div> 
+      <div className="w-full flex justify-center mt-auto h-full items-end pb-8">
+        <div className="">
+          <div className="">
+            <a href="https://line.me/ti/p/Tz2gy2mV1s">
+              <svg xmlns="http://www.w3.org/2000/svg" width="27.25" height="27.25" viewBox="0 0 27.25 27.25"><path d="M16.551,12.724v4.325a.192.192,0,0,1-.195.195h-.693a.2.2,0,0,1-.158-.079l-1.983-2.676v2.567a.192.192,0,0,1-.195.195h-.693a.192.192,0,0,1-.195-.195V12.73a.192.192,0,0,1,.195-.195h.687a.183.183,0,0,1,.158.085L15.462,15.3V12.73a.192.192,0,0,1,.195-.195h.693a.192.192,0,0,1,.2.189Zm-4.988-.195H10.87a.192.192,0,0,0-.195.195v4.325a.192.192,0,0,0,.195.195h.693a.192.192,0,0,0,.195-.195V12.724a.2.2,0,0,0-.195-.195ZM9.89,16.155H8V12.724A.192.192,0,0,0,7.8,12.53H7.111a.192.192,0,0,0-.195.195v4.325a.179.179,0,0,0,.055.134.205.205,0,0,0,.134.055h2.78a.192.192,0,0,0,.195-.195v-.693a.2.2,0,0,0-.189-.195ZM20.2,12.53h-2.78a.2.2,0,0,0-.195.195v4.325a.2.2,0,0,0,.195.195H20.2a.192.192,0,0,0,.195-.195v-.693a.192.192,0,0,0-.195-.195H18.309v-.73H20.2a.192.192,0,0,0,.195-.195v-.7a.192.192,0,0,0-.195-.195H18.309v-.73H20.2a.192.192,0,0,0,.195-.195v-.693a.2.2,0,0,0-.195-.195Zm7.05-5.31V24.573A4.954,4.954,0,0,1,22.281,29.5H4.927A4.958,4.958,0,0,1,0,24.531V7.177A4.958,4.958,0,0,1,4.969,2.25H22.323A4.954,4.954,0,0,1,27.25,7.219ZM23.5,14.677c0-4.44-4.452-8.053-9.921-8.053s-9.921,3.613-9.921,8.053c0,3.978,3.528,7.311,8.3,7.944,1.162.249,1.028.675.766,2.238-.043.249-.2.979.858.535a32.061,32.061,0,0,0,7.8-5.76A7.186,7.186,0,0,0,23.5,14.677Z" transform="translate(0 -2.25)" fill="#333"/></svg>
+            </a>
+          </div>
+          <div className="pt-4">
+            <a
+              href="https://www.instagram.com/one_ocean/"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="27.256" height="27.25" viewBox="0 0 27.256 27.25"><path d="M13.626,8.876a6.987,6.987,0,1,0,6.987,6.987A6.975,6.975,0,0,0,13.626,8.876Zm0,11.529a4.542,4.542,0,1,1,4.542-4.542A4.55,4.55,0,0,1,13.626,20.4Zm8.9-11.815a1.63,1.63,0,1,1-1.63-1.63A1.626,1.626,0,0,1,22.528,8.59Zm4.627,1.654a8.064,8.064,0,0,0-2.2-5.71,8.117,8.117,0,0,0-5.71-2.2c-2.25-.128-8.993-.128-11.243,0a8.106,8.106,0,0,0-5.71,2.2,8.091,8.091,0,0,0-2.2,5.71c-.128,2.25-.128,8.993,0,11.243a8.064,8.064,0,0,0,2.2,5.71A8.128,8.128,0,0,0,8,29.392c2.25.128,8.993.128,11.243,0a8.064,8.064,0,0,0,5.71-2.2,8.117,8.117,0,0,0,2.2-5.71c.128-2.25.128-8.987,0-11.237ZM24.249,23.9a4.6,4.6,0,0,1-2.59,2.59c-1.794.711-6.05.547-8.032.547s-6.245.158-8.032-.547A4.6,4.6,0,0,1,3,23.9c-.711-1.794-.547-6.05-.547-8.032S2.3,9.618,3,7.83a4.6,4.6,0,0,1,2.59-2.59c1.794-.711,6.05-.547,8.032-.547s6.245-.158,8.032.547a4.6,4.6,0,0,1,2.59,2.59c.711,1.794.547,6.05.547,8.032S24.96,22.107,24.249,23.9Z" transform="translate(0.005 -2.238)" fill="#333"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* PCサイドバー右 */}
+    <div className="shadow-2xl w-[60px] h-[calc(100vh-80px)] top-[80px] right-0 bg-white z-40 hidden md:block fixed">
+      <div className="rotate-90 whitespace-nowrap h-full flex justify-center items-center text-main-blue">
+        © {new Date().getFullYear()} &middot; one-ocean-toku.com All Rights reserved.
+      </div>
+    </div>
+
+
+
+    {/* PCメニューオープン時 */}
+    <div className={`hidden md:block transition delay-200 ease-in-out fixed top-[80px] left-[60px] right-[60px] bg-white z-[40] h-[calc(100vh-80px)] ${pcMenuOpen ? "" : "opacity-0 invisible" }`}>
+      <div className="grid grid-cols-12 place-items-center h-full w-[80%] max-w-[1200px] mx-auto">
+        <div className="col-span-6">
+          <div className="">
+            <ul className="front-pc-menu-left text-[32px] font-bold text-main-blue">
+              {
+                frontSpMenu.map((menu, i) => {
+                  return (
+                    <li key={i} className="mb-4">
+                      <Link
+                        to={menu.url}
+                      >
+                        { menu.name }
+                      </Link>
+                    </li>
+                  )
+                })
+              }
+            </ul>
+          </div>
+        </div>
+        {/* PCメニュー右側 */}
+        <div className="col-span-6 front-menu-right relative mb-4 font-bold text-main-blue">
+          <ul className="text-[22px] text-center">
+            {
+              pcMenuRight.map((menu, i) => {
+                return (
+                  <li key={i} className="font-bold mb-4 text-main-blue">
+                    <Link
+                      to={menu.url}
+                    >
+                      { menu.name }
+                    </Link>
+                  </li>
+                )
+              })
+            }
+          </ul>
+          <div className="h-auto mx-auto px-8 pt-4 pb-6 bg-main-blue mt-[8rem] rounded-lg">
+            <div className="text-white text-right">
+              <h2 className="text-[34px]">
+                OneOcean
+              </h2>
+              <p className="text-[12px]">
+                〒904-2312 沖縄県うるま市勝連平安名1199<br/>
+              </p>
+              <div className="text-[22px] border-t border-b font-bold py-1 my-1">
+                TEL 090-4471-7311
+              </div>
+              <p className="text-[12px] whitespace-nowrap">
+                https//one-ocean-toku.com<br/>
+                info@one-ocean-toku.com
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
   )
 }
