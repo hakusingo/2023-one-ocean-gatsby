@@ -3,15 +3,44 @@ import { useState, useEffect } from 'react'
 
 
 const HeaderLogo = () => {
+
+  function throttle(fn, delay) {
+    let timerId;
+    let lastExecTime = 0;
+    return () => {
+      const context = this;
+      const args = arguments;
+      let elapsedTime = performance.now() - lastExecTime;
+      const execute = () => {
+        fn.apply(context, args);
+        lastExecTime = performance.now();
+      }
+      if (!timerId) {
+        execute();
+      }
+      if (timerId) {
+        clearTimeout(timerId);
+      }
+      if (elapsedTime > delay) {
+        execute(); 
+      } else {
+        timerId = setTimeout(execute, delay);
+      }
+    }
+  }
+  // スクロールイベントの軽量化
+  // https://sologaku.com/make-website/create-throttle-with-javascript/
+  // function myfunc(){
+  //   console.log("スクロールしました！Y座標：" + window.scrollY);
+  //   }
+  // window.addEventListener('scroll', throttle(()=>myfunc(), 300));
   
   const [isWider, setWider] = useState(false)
   const toggleWider = () => {
-    window.scrollY > 3
-      ? setWider(true)
-      : setWider(false)
+    window.scrollY > 3 ? setWider(true) : setWider(false)
   }
   useEffect(() => {
-    window.addEventListener('scroll', toggleWider, { passive: true })
+    window.addEventListener('scroll', throttle(()=>toggleWider(), 200), { passive: true })
   },[])
 
   return (

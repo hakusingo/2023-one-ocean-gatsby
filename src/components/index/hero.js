@@ -2,10 +2,10 @@ import React from 'react'
 import { useEffect } from 'react';
 import { StaticImage } from "gatsby-plugin-image"
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectFade, Autoplay } from "swiper";
-import 'swiper/css';
-import "swiper/css/effect-fade";
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// import { EffectFade, Autoplay } from "swiper";
+// import 'swiper/css';
+// import "swiper/css/effect-fade";
 
 
 const Hero = () => {
@@ -62,7 +62,7 @@ const Hero = () => {
   return (
     <section id="front-hero" className="h-[calc(100vh-60px)] md:h-[calc(100vh-80px)] w-full mx-auto relative -z-10">
       {/* <div id="front-hero-cover" className="absolute z-20"></div> */}
-      {/* <StaticImage
+      <StaticImage
         imgClassName="hero-image absolute top-0 left-0 bottom-0 right-0 -z-10"
         className="hero-image absolute top-0 left-0 bottom-0 right-0 -z-10"
         src="../../images/hero/hero-pic1.jpg"
@@ -70,8 +70,8 @@ const Hero = () => {
         objectPosition="30% 50%"
         placeholder="blurred"
         loading="eager" 
-      /> */}
-      <Swiper
+      />
+      {/* <Swiper
         className="hero-image absolute top-0 left-0 bottom-0 right-0 -z-10"
         speed={2000}
         loop="true"
@@ -120,7 +120,7 @@ const Hero = () => {
             quality={90}
           />
         </SwiperSlide>
-      </Swiper>
+      </Swiper> */}
       <div className="absolute w-[92%] sm:w-[88%] h-[94%] border-white border-2 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2"></div>
       <div className="will-change-transform absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[60%] md:-translate-y-[50%]">
         <svg 
