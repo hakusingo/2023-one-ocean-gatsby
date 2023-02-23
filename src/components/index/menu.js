@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "gatsby"
 // import { StaticImage } from "gatsby-plugin-image"
-import { GatsbyImage, getImage} from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { useStaticQuery } from 'gatsby'
 import { graphql } from 'gatsby'
 import TourMenuHeader from "../../components/svg/tour-menu-header"
@@ -165,14 +165,13 @@ const Menu = () => {
                     </p>
                   </div>
                   <GatsbyImage
-                    className="rounded-[12px] rounded-tr-none rounded-bl-none w-full shadow-xl h-[248px]"
+                    className="rounded-[12px] rounded-tr-none rounded-bl-none w-full h-[248px]"
                     alt={content.title}
-                    // src="../../images/tour-menu/menu-kayak.jpg"
                     image={heroJpg[i]}
                     width={500}
                     objectPosition="50% 66%"
                   />
-                  <div className="bg-white relative shadow-xl rounded-b-[12px]">
+                  <div className="bg-white relative rounded-b-[12px]">
                     <GatsbyImage
                       className="absolute -right-2 w-[80px] h-auto lg:w-[100px] -top-[4rem]"
                       image={mapPng[i]}
@@ -191,14 +190,13 @@ const Menu = () => {
                     <GatsbyImage
                       className="-mt-8 w-[400px] h-[200px]" 
                       imgClassName='object-contain'
-                      // src="../../images/tour-menu/menu-kayak.png"
                       image={pngUnder[i]}
                       alt={content.title}
                     />
                   </div>
                   <div className="py-12 flex justify-center lg:pt-8">
                     <Link
-                      className={`flex items-center justify-center bg-${content.color} text-white w-[80%] text-center shadow-lg py-2 px-4 rounded-[12px] font-bold`}
+                      className={`flex items-center justify-center bg-${content.color} text-white w-[80%] text-center py-2 px-4 rounded-[12px] font-bold`}
                       to={content.link}
                     >
                       <span>

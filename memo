@@ -6,7 +6,6 @@ let person1Content =
 <p>性別: ${person1.sex}</p>
 <p>体重: ${person1.weight}</p>
 `
-
 // console.log(person1Content)
 
 
