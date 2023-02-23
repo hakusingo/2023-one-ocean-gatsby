@@ -139,7 +139,6 @@ const Menu = () => {
   let heroJpg = [kayakJpg, trekkingJpg, yuiJpg, muiJpg]
   let pngUnder = [kayakPngUnder, trekkingPngUnder, yuiPngUnder, muiPngUnder]
 
-
   return (
     <section id="tour-menu" className="bg-light-yellow relative pb-24">
       <Wave
@@ -196,7 +195,7 @@ const Menu = () => {
                   </div>
                   <div className="py-12 flex justify-center lg:pt-8">
                     <Link
-                      className={`flex items-center justify-center bg-${content.color} text-white w-[80%] text-center py-2 px-4 rounded-[12px] font-bold`}
+                      className={`flex items-center justify-center bg-${content.color} bg-navy text-white w-[80%] text-center py-2 px-4 rounded-[12px] font-bold`}
                       to={content.link}
                     >
                       <span>

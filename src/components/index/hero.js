@@ -1,5 +1,5 @@
 import React from 'react'
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { StaticImage } from "gatsby-plugin-image"
 
 // import { Swiper, SwiperSlide } from 'swiper/react';
@@ -25,7 +25,7 @@ const Hero = () => {
 
   const [weather, setWeather] = useState("")
 
-  // useEffect(() => {
+  useEffect(() => {
     // heroTextTop.current.classList.remove("opacity-0", "translate-x-4")
     // heroTextMiddle.current.classList.remove("opacity-0", "-translate-x-4")
     // heroTextBottom.current.classList.remove("opacity-0", "translate-x-4")
@@ -53,55 +53,55 @@ const Hero = () => {
     //     },500)
     //   },500)
     // },1000)
-  // },[])
-  new Promise((resolve) => {
-    setTimeout(resolve, 1200)
-  })
-  .then(() => {
-    return new Promise((resolve) => {
-      heroTextTop.current.classList.remove("opacity-0", "translate-x-4")
-      setTimeout(resolve, 500)
+    new Promise((resolve) => {
+      setTimeout(resolve, 1200)
     })
-  })
-  .then(() => {
-    return new Promise((resolve) => {
-      heroTextMiddle.current.classList.remove("opacity-0", "-translate-x-4")
-      setTimeout(resolve, 500)
+    .then(() => {
+      return new Promise((resolve) => {
+        heroTextTop.current.classList.remove("opacity-0", "translate-x-4")
+        setTimeout(resolve, 500)
+      })
     })
-  })
-  .then(() => {
-    return new Promise((resolve) => {
-      heroTextBottom.current.classList.remove("opacity-0", "translate-x-4")
-      setTimeout(resolve, 500)
+    .then(() => {
+      return new Promise((resolve) => {
+        heroTextMiddle.current.classList.remove("opacity-0", "-translate-x-4")
+        setTimeout(resolve, 500)
+      })
     })
-  })
-  .then(() => {
-    return new Promise((resolve) => {
-      heroSubtitle1.current.classList.remove("opacity-0")
-      heroSubtitle2.current.classList.remove("opacity-0")
-      // setTimeout(resolve, 300)
+    .then(() => {
+      return new Promise((resolve) => {
+        heroTextBottom.current.classList.remove("opacity-0", "translate-x-4")
+        setTimeout(resolve, 500)
+      })
     })
-  })
-
-  const fetchWeater = async () => {
-    let temp
-    await fetch(`https://api.openweathermap.org/data/2.5/weather/?q=Okinawa&APPID=250f298a0a84d6c21b9d810c9631b248`)
-    .then(res => res.json())
-    .then(result => {
-      temp = (result.main.temp - 273.15)
-      temp = Math.round(temp)
-      tempNum.current.textContent  = `${temp}℃`
-      if(result.weather[0].main === "Clear") {
-        // document.getElementById("Clear").classList.remove("hidden")
-        setWeather("clear")
-      } else if(result.weather[0].main === "Clouds") {
-        setWeather("clouds")
-      } else {
-        setWeather("rain")
-      }
-    });
-  }
-  fetchWeater()
+    .then(() => {
+      return new Promise((resolve) => {
+        heroSubtitle1.current.classList.remove("opacity-0")
+        heroSubtitle2.current.classList.remove("opacity-0")
+        // setTimeout(resolve, 300)
+      })
+    })
+  
+    const fetchWeater = async () => {
+      let temp
+      await fetch(`https://api.openweathermap.org/data/2.5/weather/?q=Okinawa&APPID=250f298a0a84d6c21b9d810c9631b248`)
+      .then(res => res.json())
+      .then(result => {
+        temp = (result.main.temp - 273.15)
+        temp = Math.round(temp)
+        tempNum.current.textContent  = `${temp}℃`
+        if(result.weather[0].main === "Clear") {
+          // document.getElementById("Clear").classList.remove("hidden")
+          setWeather("clear")
+        } else if(result.weather[0].main === "Clouds") {
+          setWeather("clouds")
+        } else {
+          setWeather("rain")
+        }
+      });
+    }
+    fetchWeater()
+  },[])
 
   return (
     <section id="front-hero" className="h-[calc(100vh-60px)] md:h-[calc(100vh-80px)] w-full mx-auto relative -z-10">
